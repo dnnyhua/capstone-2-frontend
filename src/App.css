@@ -1,9 +1,6 @@
-.App {
+/* .App {
   text-align: center;
 }
-
-
-
 
 
 .App-header {
@@ -15,4 +12,17 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+} */
+
+main {
+  display: flex;
+  flex-direction: column;
+  height: 92vh;
+  width: auto;
+  /* router view - navbar height */
+
+}
+
+h1 {
+  text-align: center;
 }

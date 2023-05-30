@@ -7,6 +7,10 @@ import Home from "./home/Home"
 import Login from "./login/Login"
 
 import GlobalContext from './helper/GlobalContext';
+import Api from './api';
+
+import jwt from 'jsonwebtoken';
+
 
 
 
@@ -16,6 +20,9 @@ import GlobalContext from './helper/GlobalContext';
 function App() {
   // this is what will be stored if there is a token in localStorage -> {"token":"token_code"}
   let initalTokenState = JSON.parse(localStorage.getItem("token")) || null
+
+  const [Loading, setLoading] = useState(false);
+
   const [currUser, setCurrUser] = useState(null);
   const [token, setToken] = useState(initalTokenState);
   // const [appliedJobsIds, setAppliedJobsIds] = useState([])
@@ -24,34 +31,73 @@ function App() {
     localStorage.setItem("token", JSON.stringify(token))
   }
 
+  async function getCurrUserData() {
+    if (token) {
+      Api.token = token;
+      let { username } = jwt.decode(token)
+      let res = await Api.getUserData(username)
+      const user = res.user
+      console.log(user.username)
+      setCurrUser(user)
+      console.log(user)
+
+      if (user.role === "dog owner") {
+        {
+
+        }
+      }
+      // setAppliedJobsIds(user.appliedJobs)
+    }
+    setLoading(true)
+  }
+
+
+  async function userLogin(formData) {
+    let res = await Api.userLogin(formData)
+    setToken(res.token)
+    return res
+  }
+
+  async function userLogout() {
+    setCurrUser(null)
+    localStorage.removeItem("token")
+  }
+
+
+
+
+
+
+  useEffect(() => {
+    setLoading(false);
+    updateLocalStorage();
+    getCurrUserData();
+  }, [token]
+  )
+
+  if (!Loading) return <h1>Loading...</h1>
 
   return (
-    <div>
-      <BrowserRouter>
-        <GlobalContext.Provider value={{ currUser }}>
-          <NavBar />
-          <main>
-            <Routes>
-              <Route exact path="/" element={<Home />} />
-              <Route exact path="/login" element={<Login />} />
-              <Route exact path="/signup" />
-              <Route exact path="/profile" />
-              <Route exact path="/jobs/new" />
-              <Route exact path="/jobs" />
-            </Routes>
-          </main>
+    <BrowserRouter>
+      <GlobalContext.Provider value={{ currUser, userLogin, userLogout }}>
+        <NavBar />
+        <main>
+          <Routes>
+            <Route exact path="/" element={<Home />} />
+            <Route exact path="/login" element={<Login />} />
+            <Route exact path="/signup" />
+            <Route exact path="/profile" />
+            <Route exact path="/jobs/new" />
+            <Route exact path="/jobs" />
+          </Routes>
+        </main>
 
 
 
 
-        </GlobalContext.Provider>
-      </BrowserRouter>
+      </GlobalContext.Provider>
+    </BrowserRouter>
 
-
-
-
-
-    </div>
   );
 }
 
