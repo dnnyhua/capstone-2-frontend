@@ -26,6 +26,8 @@ function App() {
   const [Loading, setLoading] = useState(false);
 
   const [currUser, setCurrUser] = useState(null);
+  const [pets, setPets] = useState(null)
+  // console.log(pets)
 
   const [token, setToken] = useState(initalTokenState);
   // const [appliedJobsIds, setAppliedJobsIds] = useState([])
@@ -44,10 +46,9 @@ function App() {
       console.log(user)
 
       if (user.role === "dog owner") {
-        {
-
-        }
+        setPets(user.pets)
       }
+
       // setAppliedJobsIds(user.appliedJobs)
     }
     setLoading(true)
@@ -57,7 +58,6 @@ function App() {
   async function userLogin(formData) {
     let res = await Api.userLogin(formData)
     setToken(res.token)
-    return res;
   }
 
   async function userLogout() {
@@ -71,8 +71,6 @@ function App() {
     getCurrUserData()
   }
 
-
-
   useEffect(() => {
     setLoading(false);
     updateLocalStorage();
@@ -84,7 +82,7 @@ function App() {
 
   return (
     <BrowserRouter>
-      <GlobalContext.Provider value={{ currUser, userLogin, userLogout, profileUpdate }}>
+      <GlobalContext.Provider value={{ currUser, pets, userLogin, userLogout, profileUpdate }}>
         <NavBar />
         <main>
           <Routes>

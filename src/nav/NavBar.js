@@ -39,14 +39,14 @@ const NavBar = () => {
                                 <Link to={"/"} className='nav-link' onClick={userLogout}>Logout</Link>
 
                             </li>
-                            {/* <li className="nav-item navPfp">
-                                <Link to="/profile" >
-                                    <img className="nav-link navPfp" src="https://theanimalleague.org/wp-content/uploads/2022/03/The-Animal-League-Pet-Prom-King-and-Queen-Photo-Contest-1024x576.png" alt="" />
-                                </Link>
 
-                            </li> */}
                             <li className="nav-item">
                                 <Link to="/profile" className='nav-link'> {currUser.username}</Link>
+                            </li>
+                            <li className="nav-item navPfp">
+
+                                <img className="navPfp" src="https://theanimalleague.org/wp-content/uploads/2022/03/The-Animal-League-Pet-Prom-King-and-Queen-Photo-Contest-1024x576.png" alt="" />
+
 
                             </li>
                         </ul>

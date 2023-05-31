@@ -30,6 +30,13 @@ class Api {
 
     static async getUserData(username) {
         const res = await this.request(`users/${username}`)
+        const { role } = res.user
+
+        if (role === "dog owner") {
+            const result = await this.request(`owners/${username}`)
+            const { ownerId, pets, jobPostings } = result.owner;
+            Object.assign(res.user, { pets, jobPostings, ownerId });
+        }
         return res
     }
 

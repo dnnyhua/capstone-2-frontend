@@ -1,11 +1,13 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import "./Home.css"
+import PetThumbnail from "./PetThumbnail";
 import GlobalContext from "../helper/GlobalContext";
 
 
 const Home = () => {
-    let { currUser } = useContext(GlobalContext)
+    const { currUser, pets } = useContext(GlobalContext)
+
 
     if (currUser) {
         return (
@@ -13,12 +15,17 @@ const Home = () => {
                 <div>
                     <h2>Welcome {currUser.username}</h2>
                 </div>
+                <h3>Your Pets</h3>
+                <div className="PetContainer">
 
-                <div>
-                    <h3>Your Pets</h3>
-                    <div className="yourPets">
-                        <p>If there is a pet add pet, if not put +</p>
-                    </div>
+                    {pets.map(pet => (
+                        <PetThumbnail
+                            id={pet.id}
+                            name={pet.name}
+                            img={pet.img}
+                        />
+                    ))}
+
                 </div>
             </div>
         )
