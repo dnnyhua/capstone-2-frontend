@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import GlobalContext from "../helper/GlobalContext";
 
 
-const LoginForm = ({ setCorrectLogin }) => {
+const LoginForm = () => {
     const { userLogin } = useContext(GlobalContext)
 
     const navigate = useNavigate();
@@ -28,13 +28,12 @@ const LoginForm = ({ setCorrectLogin }) => {
         evt.preventDefault();
         userLogin(formData)
         navigate("/")
-
     }
 
     return (
-        <div className="LoginForm  " >
+        <div className="LoginForm" >
             <form onSubmit={handleSubmit} className="form-control p-3">
-                <div className="col-md-12 mb-2">
+                <div className="col-md-12 mb-3 ">
                     <label htmlFor="username">Username</label>
                     <input
                         type="text"
@@ -47,7 +46,7 @@ const LoginForm = ({ setCorrectLogin }) => {
 
                     />
                 </div>
-                <div className="col-md-12 mb-2">
+                <div className="col-md-12 mb-3 ">
                     <label htmlFor="password">Password</label>
                     <input
                         type="password"

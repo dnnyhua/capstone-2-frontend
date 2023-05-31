@@ -37,6 +37,11 @@ class Api {
         const res = await this.request("auth/token", formData, "post")
         return res
     }
+
+    static async profileUpdate(username, formData) {
+        const res = await this.request(`users/${username}`, formData, "patch")
+        return res
+    }
 }
 
 export default Api

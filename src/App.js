@@ -5,6 +5,8 @@ import './App.css';
 import NavBar from './nav/NavBar';
 import Home from "./home/Home"
 import Login from "./login/Login"
+import Profile from './profile/Profile';
+import SignUp from './signup/SignUp';
 
 import GlobalContext from './helper/GlobalContext';
 import Api from './api';
@@ -24,6 +26,7 @@ function App() {
   const [Loading, setLoading] = useState(false);
 
   const [currUser, setCurrUser] = useState(null);
+
   const [token, setToken] = useState(initalTokenState);
   // const [appliedJobsIds, setAppliedJobsIds] = useState([])
 
@@ -37,7 +40,6 @@ function App() {
       let { username } = jwt.decode(token)
       let res = await Api.getUserData(username)
       const user = res.user
-      console.log(user.username)
       setCurrUser(user)
       console.log(user)
 
@@ -55,7 +57,7 @@ function App() {
   async function userLogin(formData) {
     let res = await Api.userLogin(formData)
     setToken(res.token)
-    return res
+    return res;
   }
 
   async function userLogout() {
@@ -63,8 +65,11 @@ function App() {
     localStorage.removeItem("token")
   }
 
-
-
+  async function profileUpdate(username, formData) {
+    let res = await Api.profileUpdate(username, formData)
+    console.log(res)
+    getCurrUserData()
+  }
 
 
 
@@ -79,14 +84,14 @@ function App() {
 
   return (
     <BrowserRouter>
-      <GlobalContext.Provider value={{ currUser, userLogin, userLogout }}>
+      <GlobalContext.Provider value={{ currUser, userLogin, userLogout, profileUpdate }}>
         <NavBar />
         <main>
           <Routes>
             <Route exact path="/" element={<Home />} />
             <Route exact path="/login" element={<Login />} />
-            <Route exact path="/signup" />
-            <Route exact path="/profile" />
+            <Route exact path="/signup" element={<SignUp />} />
+            <Route exact path="/profile" element={<Profile />} />
             <Route exact path="/jobs/new" />
             <Route exact path="/jobs" />
           </Routes>

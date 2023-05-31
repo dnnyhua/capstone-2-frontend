@@ -19,8 +19,6 @@ main {
   flex-direction: column;
   height: 92vh;
   width: auto;
-  /* router view - navbar height */
-
 }
 
 h1 {

@@ -36,43 +36,38 @@ const NavBar = () => {
                     <div>
                         <ul className='navbar-nav ms-auto collapse navbar-collapse'>
                             <li className="nav-item">
-                                <Link to={"/"}>
-                                    <button className="nav-link btn btn-link" onClick={userLogout}>Logout</button>
-                                </Link>
+                                <Link to={"/"} className='nav-link' onClick={userLogout}>Logout</Link>
 
                             </li>
-                            <li className="nav-item navPfp">
+                            {/* <li className="nav-item navPfp">
                                 <Link to="/profile" >
                                     <img className="nav-link navPfp" src="https://theanimalleague.org/wp-content/uploads/2022/03/The-Animal-League-Pet-Prom-King-and-Queen-Photo-Contest-1024x576.png" alt="" />
                                 </Link>
 
+                            </li> */}
+                            <li className="nav-item">
+                                <Link to="/profile" className='nav-link'> {currUser.username}</Link>
+
                             </li>
                         </ul>
                     </div>
+
                     :
 
                     <div>
                         <ul className='navbar-nav ms-auto collapse navbar-collapse'>
                             <li className="nav-item">
-                                <button className="nav-link btn btn-link" >Sign Up</button>
+                                <Link to={"/signup"} className='nav-link'>Sign Up</Link>
                             </li>
                             <li className="nav-item">
-                                <button className="nav-link btn btn-link" >Login</button>
+                                <Link to={"/login"} className='nav-link'>Login</Link>
                             </li>
                         </ul>
                     </div>
-
-
-
-
-
                 }
-
             </div>
         </nav>
     );
 };
-
-
 
 export default NavBar;

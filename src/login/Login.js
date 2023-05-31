@@ -11,7 +11,6 @@ const Login = () => {
             <LoginForm />
         </div>
     )
-
 }
 
 export default Login
