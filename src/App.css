@@ -17,10 +17,21 @@
 main {
   display: flex;
   flex-direction: column;
-  height: 92vh;
-  width: auto;
+  height: 92.5vh;
+  background-image: url("./images/background.jpg");
+
 }
 
 h1 {
   text-align: center;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  color: white;
 }

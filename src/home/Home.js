@@ -1,7 +1,8 @@
 import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import "./Home.css"
-import PetThumbnail from "./PetThumbnail";
+import PetsList from "../pet/PetsList";
+import PetThumbnail from "../pet/PetThumbnail";
 import GlobalContext from "../helper/GlobalContext";
 
 
@@ -12,21 +13,26 @@ const Home = () => {
     if (currUser) {
         return (
             <div className="Home">
-                <div>
-                    <h2>Welcome {currUser.username}</h2>
-                </div>
-                <h3>Your Pets</h3>
-                <div className="PetContainer">
 
-                    {pets.map(pet => (
-                        <PetThumbnail
-                            id={pet.id}
-                            name={pet.name}
-                            img={pet.img}
-                        />
-                    ))}
+                <h1 className="title">Walkies</h1>
 
+                <div className="body-info">
+                    <section className="container">
+                        <h2>Your Pets</h2>
+                        <div className="PetsList">
+                            <PetsList pets={pets} />
+                        </div>
+                    </section>
+
+                    <section className="container">
+                        <h2 className="mb-2">Walk Schedule</h2>
+                        <h5>schedule 1....................</h5>
+                        <h5>schedule 2....................</h5>
+                        <h5>schedule 3....................</h5>
+                        <h5>schedule 4....................</h5>
+                    </section>
                 </div>
+
             </div>
         )
     }
