@@ -29,9 +29,9 @@
     border-radius: 20px;
 }
 
-.container {
+.petsContainer {
     width: fit-content;
-    max-height: fit-content;
+    max-height: 500px;
     margin-bottom: 10px;
 
 }
@@ -40,4 +40,10 @@
     display: flex;
     flex-wrap: wrap;
     text-align: center;
+}
+
+.walkSchedule {
+    width: fit-content;
+    max-height: fit-content;
+    padding: 5px;
 }

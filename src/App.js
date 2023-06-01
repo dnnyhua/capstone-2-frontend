@@ -14,11 +14,6 @@ import Api from './api';
 import jwt from 'jsonwebtoken';
 
 
-
-
-
-
-
 function App() {
   // this is what will be stored if there is a token in localStorage -> {"token":"token_code"}
   let initalTokenState = JSON.parse(localStorage.getItem("token")) || null
@@ -27,6 +22,7 @@ function App() {
 
   const [currUser, setCurrUser] = useState(null);
   const [pets, setPets] = useState(null)
+  const [jobs, setJobs] = useState()
   // console.log(pets)
 
   const [token, setToken] = useState(initalTokenState);
@@ -47,13 +43,12 @@ function App() {
 
       if (user.role === "dog owner") {
         setPets(user.pets)
-      }
+        getJobs(user.ownerId)
 
-      // setAppliedJobsIds(user.appliedJobs)
+      }
     }
     setLoading(true)
   }
-
 
   async function userLogin(formData) {
     let res = await Api.userLogin(formData)
@@ -71,6 +66,13 @@ function App() {
     getCurrUserData()
   }
 
+
+  async function getJobs(ownerId) {
+    let res = await Api.getjobs(ownerId)
+    setJobs(res.jobs)
+  }
+
+
   useEffect(() => {
     setLoading(false);
     updateLocalStorage();
@@ -82,7 +84,7 @@ function App() {
 
   return (
     <BrowserRouter>
-      <GlobalContext.Provider value={{ currUser, pets, userLogin, userLogout, profileUpdate }}>
+      <GlobalContext.Provider value={{ currUser, pets, jobs, userLogin, userLogout, profileUpdate }}>
         <NavBar />
         <main>
           <Routes>

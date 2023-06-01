@@ -7,7 +7,10 @@ import GlobalContext from "../helper/GlobalContext";
 
 
 const Home = () => {
-    const { currUser, pets } = useContext(GlobalContext)
+    const { currUser, pets, jobs } = useContext(GlobalContext)
+    console.log(jobs)
+    console.log(pets)
+
 
 
     if (currUser) {
@@ -17,14 +20,24 @@ const Home = () => {
                 <h1 className="title">Walkies</h1>
 
                 <div className="body-info">
-                    <section className="container">
+                    <section className="petsContainer">
                         <h2>Your Pets</h2>
-                        <div className="PetsList">
-                            <PetsList pets={pets} />
-                        </div>
+                        <PetsList pets={pets} />
                     </section>
 
-                    <section className="container">
+
+
+
+                    ADD SCHEDULE COMPONENTS
+
+
+
+
+
+
+
+
+                    <section className="scheduleContainer">
                         <h2 className="mb-2">Walk Schedule</h2>
                         <h5>schedule 1....................</h5>
                         <h5>schedule 2....................</h5>

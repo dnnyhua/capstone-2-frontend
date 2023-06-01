@@ -49,6 +49,11 @@ class Api {
         const res = await this.request(`users/${username}`, formData, "patch")
         return res
     }
+
+    static async getjobs(ownerId) {
+        const res = await this.request(`jobs/${ownerId}`)
+        return res
+    }
 }
 
 export default Api
