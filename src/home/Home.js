@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import "./Home.css"
 import PetsList from "../pet/PetsList";
-import PetThumbnail from "../pet/PetThumbnail";
+import ScheduleList from "../schedule/ScheduleList";
 import GlobalContext from "../helper/GlobalContext";
 
 
@@ -16,7 +16,6 @@ const Home = () => {
     if (currUser) {
         return (
             <div className="Home">
-
                 <h1 className="title">Walkies</h1>
 
                 <div className="body-info">
@@ -25,24 +24,9 @@ const Home = () => {
                         <PetsList pets={pets} />
                     </section>
 
-
-
-
-                    ADD SCHEDULE COMPONENTS
-
-
-
-
-
-
-
-
                     <section className="scheduleContainer">
                         <h2 className="mb-2">Walk Schedule</h2>
-                        <h5>schedule 1....................</h5>
-                        <h5>schedule 2....................</h5>
-                        <h5>schedule 3....................</h5>
-                        <h5>schedule 4....................</h5>
+                        <ScheduleList jobs={jobs} />
                     </section>
                 </div>
 

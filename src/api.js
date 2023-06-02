@@ -50,7 +50,7 @@ class Api {
         return res
     }
 
-    static async getjobs(ownerId) {
+    static async getJobs(ownerId) {
         const res = await this.request(`jobs/${ownerId}`)
         return res
     }

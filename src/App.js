@@ -43,7 +43,7 @@ function App() {
 
       if (user.role === "dog owner") {
         setPets(user.pets)
-        getJobs(user.ownerId)
+        setJobs(await getJobs(user.ownerId))
 
       }
     }
@@ -68,8 +68,9 @@ function App() {
 
 
   async function getJobs(ownerId) {
-    let res = await Api.getjobs(ownerId)
-    setJobs(res.jobs)
+    let res = await Api.getJobs(ownerId)
+    console.log(res.jobs)
+    return res.jobs
   }
 
 
@@ -96,10 +97,6 @@ function App() {
             <Route exact path="/jobs" />
           </Routes>
         </main>
-
-
-
-
       </GlobalContext.Provider>
     </BrowserRouter>
 
