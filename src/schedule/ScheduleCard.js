@@ -5,10 +5,10 @@ import "./ScheduleCard.css"
 import moment from 'moment';
 
 const ScheduleCard = ({ id, date, time, status }) => {
-    const formatedDate = moment(date).format('MM-DD-YYYY')
+    const formatedDate = moment(date).format('M-D-YYYY')
     const day = moment("07-04-2023").format('dddd');
 
-    const formattedTime = moment(time, 'HH:mm').format('hh:mm A');
+    const formattedTime = moment(time, 'HH:mm').format('h:mm A');
 
 
     return (
@@ -16,16 +16,16 @@ const ScheduleCard = ({ id, date, time, status }) => {
             <div className="ScheduleCard" id={id}>
                 <div className="container ">
                     <div className="row ">
-                        <div className="col-sm">
+                        <div className="col-lg py-3 px-2">
                             {day}
                         </div>
-                        <div className="col-sm">
+                        <div className="col-lg py-3 px-2">
                             {formatedDate}
                         </div>
-                        <div className="col-sm">
+                        <div className="col-lg py-3 px-2">
                             {formattedTime}
                         </div>
-                        <div className="col-sm">
+                        <div className="col-lg py-3 px-2">
                             {status}
                         </div>
                     </div>

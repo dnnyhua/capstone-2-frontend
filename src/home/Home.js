@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import "./Home.css"
 import PetsList from "../pet/PetsList";
 import ScheduleList from "../schedule/ScheduleList";
+import AddPetForm from "../forms/AddPetForm";
 import GlobalContext from "../helper/GlobalContext";
 
 
@@ -25,7 +26,7 @@ const Home = () => {
                     </section>
 
                     <section className="scheduleContainer">
-                        <h2 className="mb-2">Walk Schedule</h2>
+                        <h2 className="mt-3 mb-2">Walk Schedule</h2>
                         <ScheduleList jobs={jobs} />
                     </section>
                 </div>

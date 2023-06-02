@@ -1,7 +1,9 @@
-.PetsList {
-    display: flex;
-    flex-wrap: wrap;
-    text-align: center;
+.modal {
+    display: none;
+}
+
+.modal.show {
+    display: block;
 }
 
 .addPet {
