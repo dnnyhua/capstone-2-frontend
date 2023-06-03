@@ -21,15 +21,16 @@ const Home = () => {
                 <h1 className="title">Walkies</h1>
 
                 <div className="body-info">
+                    <section className="scheduleContainer">
+                        <h2 className="mb-2">Walk Schedule</h2>
+                        <ScheduleList jobs={jobs} />
+                    </section>
+
                     <section className="petsContainer">
                         <h2>Your Pets</h2>
                         <PetsList pets={pets} />
                     </section>
 
-                    <section className="scheduleContainer">
-                        <h2 className="mt-3 mb-2">Walk Schedule</h2>
-                        <ScheduleList jobs={jobs} />
-                    </section>
                 </div>
 
             </div>

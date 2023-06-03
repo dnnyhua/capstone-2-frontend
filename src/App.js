@@ -44,14 +44,27 @@ function App() {
       if (user.role === "dog owner") {
         setPets(user.pets)
         setJobs(await getJobs(user.ownerId))
+      }
+
+
+
+
+
+      if (user.role === "dog walker") {
 
       }
+
+
+
+
+
+
     }
     setLoading(true)
   }
 
   async function userLogin(formData) {
-    let res = await Api.userLogin(formData)
+    const res = await Api.userLogin(formData)
     setToken(res.token)
   }
 
@@ -61,16 +74,25 @@ function App() {
   }
 
   async function profileUpdate(username, formData) {
-    let res = await Api.profileUpdate(username, formData)
+    const res = await Api.profileUpdate(username, formData)
     console.log(res)
     getCurrUserData()
   }
 
 
   async function getJobs(ownerId) {
-    let res = await Api.getJobs(ownerId)
+    const res = await Api.getJobs(ownerId)
     console.log(res.jobs)
     return res.jobs
+  }
+
+
+
+  async function addPet(formData) {
+    const res = await Api.addPet(formData)
+    console.log(res)
+
+
   }
 
 

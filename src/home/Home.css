@@ -21,7 +21,7 @@
 
 .body-info {
     position: absolute;
-    width: auto;
+    width: 518px;
     height: auto;
     margin-top: 125px;
     padding: 20px;
@@ -29,21 +29,13 @@
     border-radius: 20px;
 }
 
-.petsContainer {
-    width: fit-content;
-    max-height: 500px;
-    margin-bottom: 10px;
-
-}
-
-.PetsList {
-    display: flex;
-    flex-wrap: wrap;
-    text-align: center;
-}
-
-.walkSchedule {
-    width: fit-content;
-    max-height: fit-content;
+.scheduleContainer {
     padding: 5px;
+}
+
+
+.petsContainer {
+    width: inherit;
+    max-height: 500px;
+
 }
