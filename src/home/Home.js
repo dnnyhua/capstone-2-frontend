@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import "./Home.css"
 import PetsList from "../pet/PetsList";
 import ScheduleList from "../schedule/ScheduleList";
-import AddPetForm from "../forms/AddPetForm";
 import GlobalContext from "../helper/GlobalContext";
 
 
@@ -30,9 +29,7 @@ const Home = () => {
                         <h2>Your Pets</h2>
                         <PetsList pets={pets} />
                     </section>
-
                 </div>
-
             </div>
         )
     }

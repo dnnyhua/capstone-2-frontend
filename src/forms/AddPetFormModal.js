@@ -1,10 +1,10 @@
 import React, { useState, useContext } from 'react';
 import GlobalContext from '../helper/GlobalContext';
-import "./AddPetForm.css"
+import "./AddPetFormModal.css"
 
 
 const AddPetFormModal = () => {
-  const { currUser } = useContext(GlobalContext)
+  const { currUser, addPet } = useContext(GlobalContext)
 
   const [showModal, setShowModal] = useState(false);
   const [formData, setFormData] = useState({
@@ -29,8 +29,7 @@ const AddPetFormModal = () => {
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
-    // Handle form submission logic here
-    console.log(formData);
+
     // Reset form data
     setFormData({
       ownerId: currUser.ownerId,
@@ -44,6 +43,10 @@ const AddPetFormModal = () => {
       img: '',
       additionalDetails: ''
     });
+
+    // Add new Pet to the database
+    addPet(formData)
+
     // Close the modal
     setShowModal(false);
   };

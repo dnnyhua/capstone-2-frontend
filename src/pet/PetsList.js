@@ -1,6 +1,6 @@
 import React from "react";
 import PetThumbnail from "./PetThumbnail";
-import AddPetFormModal from "../forms/AddPetForm";
+import AddPetFormModal from "../forms/AddPetFormModal";
 
 import "./PetsList.css"
 
@@ -8,6 +8,7 @@ import "./PetsList.css"
 const PetsList = ({ pets }) => {
     return (
         <div className="PetsList">
+            <AddPetFormModal />
             {pets.map(pet => (
                 <PetThumbnail
                     id={pet.id}
@@ -15,7 +16,6 @@ const PetsList = ({ pets }) => {
                     img={pet.img}
                 />
             ))}
-            <AddPetFormModal />
         </div>
     )
 }

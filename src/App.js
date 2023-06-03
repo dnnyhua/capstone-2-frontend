@@ -23,7 +23,6 @@ function App() {
   const [currUser, setCurrUser] = useState(null);
   const [pets, setPets] = useState(null)
   const [jobs, setJobs] = useState()
-  // console.log(pets)
 
   const [token, setToken] = useState(initalTokenState);
   // const [appliedJobsIds, setAppliedJobsIds] = useState([])
@@ -75,24 +74,19 @@ function App() {
 
   async function profileUpdate(username, formData) {
     const res = await Api.profileUpdate(username, formData)
-    console.log(res)
+    // console.log(res)
     getCurrUserData()
   }
 
-
   async function getJobs(ownerId) {
     const res = await Api.getJobs(ownerId)
-    console.log(res.jobs)
     return res.jobs
   }
 
-
-
   async function addPet(formData) {
     const res = await Api.addPet(formData)
-    console.log(res)
-
-
+    // console.log(res)
+    getCurrUserData()
   }
 
 
@@ -107,7 +101,7 @@ function App() {
 
   return (
     <BrowserRouter>
-      <GlobalContext.Provider value={{ currUser, pets, jobs, userLogin, userLogout, profileUpdate }}>
+      <GlobalContext.Provider value={{ currUser, pets, jobs, userLogin, userLogout, profileUpdate, addPet }}>
         <NavBar />
         <main>
           <Routes>

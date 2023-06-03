@@ -4,7 +4,7 @@ import "./ScheduleCard.css"
 
 import moment from 'moment';
 
-const ScheduleCard = ({ id, date, time, status }) => {
+const ScheduleCard = ({ id, date, time, duration, status }) => {
     const formatedDate = moment(date).format('M-D-YYYY')
     const day = moment("07-04-2023").format('dddd');
 
@@ -24,6 +24,9 @@ const ScheduleCard = ({ id, date, time, status }) => {
                         </div>
                         <div className="col-lg py-3 px-2">
                             {formattedTime}
+                        </div>
+                        <div className="col-lg py-3 px-2">
+                            {duration} mins
                         </div>
                         <div className="col-lg py-3 px-2">
                             {status}
