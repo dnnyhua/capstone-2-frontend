@@ -5,12 +5,12 @@ import "./PetProfile.css"
 
 
 const PetProfile = () => {
-    const { id } = useParams();
+    const { petId } = useParams();
     const [pet, setPet] = useState([])
     const [jobs, setJobs] = useState([])
 
     async function getPetProfile() {
-        const res = await Api.getPetProfile(id)
+        const res = await Api.getPetProfile(petId)
         setPet(res.pet[0])
     }
 
@@ -44,43 +44,3 @@ const PetProfile = () => {
 }
 
 export default PetProfile;
-
-// additional_details
-// : 
-// "likes to eat rocks. keep an eye on him."
-// age
-// : 
-// 4
-// breed
-// : 
-// "golden retriever"
-// created_at
-// : 
-// "2023-06-03T22:38:24.312Z"
-// friendly_w_children
-// : 
-// true
-// friendly_w_other_dogs
-// : 
-// true
-// gender
-// : 
-// "male"
-// id
-// : 
-// 3
-// img
-// : 
-// "https://i0.wp.com/regencyranchgoldens.com/wp-content/uploads/2022/04/golden-head1.png?resize=256%2C256&ssl=1"
-// name
-// : 
-// "Buddy"
-// owner_id
-// : 
-// 2
-// size
-// : 
-// "large"
-// weight
-// : 
-// 60

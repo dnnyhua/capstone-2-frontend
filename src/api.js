@@ -51,8 +51,14 @@ class Api {
     }
 
     static async getJobs(ownerId) {
-        const res = await this.request(`jobs/${ownerId}`)
+        const res = await this.request(`jobs/owner/${ownerId}`)
         return res
+    }
+
+    static async getJobById(jobId) {
+        const res = await this.request(`jobs/${jobId}`)
+        return res
+
     }
 
     static async addPet(formData) {
@@ -64,8 +70,19 @@ class Api {
         return res;
     }
 
+    static async getMultiPetsProfile(data) {
+        const res = await this.request(`pets/ids`, data, "get")
+        console.log(res)
+        return res
+    }
+
     static async createJob(username, formData) {
         const res = await this.request(`jobs/${username}`, formData, "post")
+    }
+
+    static async getPetSchedule(petId) {
+        const res = await this.request(`jobs/pet/${petId}`)
+        return res
     }
 }
 

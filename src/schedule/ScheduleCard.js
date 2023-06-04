@@ -6,13 +6,13 @@ import moment from 'moment';
 
 const ScheduleCard = ({ id, date, time, duration, status }) => {
     const formatedDate = moment(date).format('M-D-YYYY')
-    const day = moment("07-04-2023").format('dddd');
+    const day = moment(formatedDate).format('dddd');
 
     const formattedTime = moment(time, 'HH:mm').format('h:mm A');
 
 
     return (
-        <Link>
+        <Link to={`/schedule/${id}`} >
             <div className="ScheduleCard" id={id}>
                 <div className="container ">
                     <div className="row ">

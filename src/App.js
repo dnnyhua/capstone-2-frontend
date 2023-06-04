@@ -8,6 +8,7 @@ import Login from "./login/Login"
 import Profile from './profile/Profile';
 import SignUp from './signup/SignUp';
 import PetProfile from './pet/PetProfile';
+import SchedulePage from './schedule/SchedulePage';
 
 import GlobalContext from './helper/GlobalContext';
 import Api from './api';
@@ -114,13 +115,15 @@ function App() {
         <NavBar />
         <main>
           <Routes>
-            <Route exact path="/" element={<Home currUser={currUser} />} />
+            <Route exact path="/" element={<Home />} />
             <Route exact path="/login" element={<Login />} />
             <Route exact path="/signup" element={<SignUp />} />
             <Route exact path="/profile" element={<Profile />} />
             <Route exact path="/jobs/new" />
             <Route exact path="/jobs" />
-            <Route exact path="/pets/:id" element={<PetProfile />}></Route>
+            <Route exact path="/pets/:petId" element={<PetProfile />}></Route>
+            <Route exact path="/schedule/:id" element={<SchedulePage />}></Route>
+
           </Routes>
         </main>
       </GlobalContext.Provider>

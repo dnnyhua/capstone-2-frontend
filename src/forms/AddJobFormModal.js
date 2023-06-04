@@ -101,7 +101,6 @@ const AddJobFormModal = () => {
                                         className="mb-3"
                                     >
                                         <option value="">Select</option>
-                                        <option value="20">20</option>
                                         <option value="30">30</option>
                                         <option value="45">45</option>
                                         <option value="60">60</option>

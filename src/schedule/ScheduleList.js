@@ -12,6 +12,7 @@ const ScheduleList = ({ jobs }) => {
             <AddJobFormModal currUser={currUser} />
             {jobs.map(job => (
                 <ScheduleCard
+                    key={job.id}
                     id={job.id}
                     date={job.date}
                     time={job.time}
