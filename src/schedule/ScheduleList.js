@@ -5,11 +5,11 @@ import AddJobFormModal from "../forms/AddJobFormModal";
 import ScheduleCard from "./ScheduleCard";
 
 const ScheduleList = ({ jobs }) => {
-
+    const { currUser } = useContext(GlobalContext);
 
     return (
         <div className="ScheduleList">
-            <AddJobFormModal />
+            <AddJobFormModal currUser={currUser} />
             {jobs.map(job => (
                 <ScheduleCard
                     id={job.id}

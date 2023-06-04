@@ -58,6 +58,16 @@ class Api {
     static async addPet(formData) {
         const res = await this.request(`pets`, formData, "post")
     }
+
+    static async getPetProfile(id) {
+        const res = await this.request(`owners/pet/${id}`)
+        return res;
+    }
+
+    static async createJob(username, formData) {
+        const res = await this.request(`jobs/${username}`, formData, "post")
+    }
 }
+
 
 export default Api

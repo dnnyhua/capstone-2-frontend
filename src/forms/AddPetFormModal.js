@@ -4,7 +4,8 @@ import "./AddPetFormModal.css"
 
 
 const AddPetFormModal = () => {
-  const { currUser, addPet } = useContext(GlobalContext)
+  const { addPet, currUser } = useContext(GlobalContext)
+
 
   const [showModal, setShowModal] = useState(false);
   const [formData, setFormData] = useState({

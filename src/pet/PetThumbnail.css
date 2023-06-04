@@ -1,7 +1,10 @@
 .PetThumbnail {
+
     width: 100px;
     height: 100px;
     background-color: white;
     border-radius: 20%;
     margin: 10px;
+
+
 }

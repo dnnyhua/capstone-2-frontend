@@ -4,7 +4,8 @@ import "./AddPetFormModal.css"
 
 
 const AddJobFormModal = () => {
-    const { currUser, addPet } = useContext(GlobalContext)
+    const { currUser, createJob } = useContext(GlobalContext)
+    console.log(currUser)
 
     const [showModal, setShowModal] = useState(false);
 
@@ -13,7 +14,8 @@ const AddJobFormModal = () => {
         date: '',
         time: '',
         duration: '',
-        pets: '',
+        petIds: '',
+        address: currUser.address,
         city: currUser.city,
         state: currUser.state,
         zipcode: currUser.zipcode
@@ -35,8 +37,8 @@ const AddJobFormModal = () => {
         // Reset form data
         setFormData(initialState);
 
-        // Add new Pet to the database
-        // addPet(formData)
+        // Add new job to the database
+        createJob(currUser.username, formData)
 
         console.log(formData)
         // Close the modal
@@ -97,6 +99,7 @@ const AddJobFormModal = () => {
                                         onChange={handleInputChange}
                                         className="mb-3"
                                     >
+                                        <option value="">Select</option>
                                         <option value="20">20</option>
                                         <option value="30">30</option>
                                         <option value="45">45</option>
@@ -114,6 +117,17 @@ const AddJobFormModal = () => {
                                         id="pets"
                                         name="pets"
                                         value={formData.pets}
+                                        onChange={handleInputChange}
+                                    />
+                                </div>
+
+                                <div className="form-group">
+                                    <label htmlFor="address">Address:</label>
+                                    <input
+                                        type="text"
+                                        id="address"
+                                        name="address"
+                                        value={formData.address}
                                         onChange={handleInputChange}
                                     />
                                 </div>

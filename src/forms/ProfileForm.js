@@ -1,9 +1,11 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import GlobalContext from "../helper/GlobalContext";
+import { useNavigate, Link } from "react-router-dom";
 
 
 const ProfileForm = () => {
     const { currUser, profileUpdate } = useContext(GlobalContext)
+    const navigate = useNavigate()
 
     const initialState = {
         firstName: currUser.firstName,
@@ -27,8 +29,13 @@ const ProfileForm = () => {
 
     const handleSubmit = (evt) => {
         evt.preventDefault();
+        console.log(formData)
         profileUpdate(currUser.username, formData)
+        navigate('/')
     }
+
+
+
 
     return (
         <div className="ProfileForm ">
@@ -114,10 +121,10 @@ const ProfileForm = () => {
                 <div className="col-md-12 mb-3">
                     <label htmlFor="zipcode">Zipcode</label>
                     <input
-                        type="integer"
+                        type="number"
                         id="zipcode"
                         name="zipcode"
-                        placeholder="city"
+                        placeholder="zipcode"
                         value={formData.zipcode}
                         onChange={handleChange}
                         className="form-control"
@@ -127,6 +134,9 @@ const ProfileForm = () => {
                 <div >
                     <div className="col text-center">
                         <button type="submit" className="btn btn-primary">Update</button>
+                        <Link to={"/"}>
+                            <button className="btn btn-danger">Back</button>
+                        </Link>
                     </div>
                 </div>
 
@@ -136,15 +146,3 @@ const ProfileForm = () => {
 }
 
 export default ProfileForm;
-
-
-// "username": "admin",
-// 			"firstName": "admin_firstName",
-// 			"lastName": "admin_lastName",
-// 			"email": "admin@gmail.com",
-// 			"role": "dog owner",
-// 			"isAdmin": true,
-// 			"address": "123 puppy dr",
-// 			"city": "san jose",
-// 			"state": "california",
-// 			"zipcode": 95123

@@ -7,6 +7,7 @@ import Home from "./home/Home"
 import Login from "./login/Login"
 import Profile from './profile/Profile';
 import SignUp from './signup/SignUp';
+import PetProfile from './pet/PetProfile';
 
 import GlobalContext from './helper/GlobalContext';
 import Api from './api';
@@ -74,7 +75,7 @@ function App() {
 
   async function profileUpdate(username, formData) {
     const res = await Api.profileUpdate(username, formData)
-    // console.log(res)
+    console.log(res)
     getCurrUserData()
   }
 
@@ -83,10 +84,17 @@ function App() {
     return res.jobs
   }
 
+  async function createJob(username, formData) {
+    const res = await Api.createJob(username, formData)
+    getCurrUserData()
+    // console.log(res)
+
+  }
+
   async function addPet(formData) {
     const res = await Api.addPet(formData)
-    // console.log(res)
     getCurrUserData()
+    // console.log(res)
   }
 
 
@@ -94,6 +102,7 @@ function App() {
     setLoading(false);
     updateLocalStorage();
     getCurrUserData();
+    setCurrUser();
   }, [token]
   )
 
@@ -101,16 +110,17 @@ function App() {
 
   return (
     <BrowserRouter>
-      <GlobalContext.Provider value={{ currUser, pets, jobs, userLogin, userLogout, profileUpdate, addPet }}>
+      <GlobalContext.Provider value={{ currUser, pets, jobs, userLogin, userLogout, profileUpdate, addPet, createJob, getCurrUserData }}>
         <NavBar />
         <main>
           <Routes>
-            <Route exact path="/" element={<Home />} />
+            <Route exact path="/" element={<Home currUser={currUser} />} />
             <Route exact path="/login" element={<Login />} />
             <Route exact path="/signup" element={<SignUp />} />
             <Route exact path="/profile" element={<Profile />} />
             <Route exact path="/jobs/new" />
             <Route exact path="/jobs" />
+            <Route exact path="/pets/:id" element={<PetProfile />}></Route>
           </Routes>
         </main>
       </GlobalContext.Provider>
