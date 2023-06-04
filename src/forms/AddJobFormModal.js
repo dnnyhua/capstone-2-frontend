@@ -33,6 +33,7 @@ const AddJobFormModal = () => {
 
     const handleFormSubmit = (e) => {
         e.preventDefault();
+        console.log(formData)
 
         // Reset form data
         setFormData(initialState);
@@ -111,12 +112,12 @@ const AddJobFormModal = () => {
                                 </div>
 
                                 <div className="form-group">
-                                    <label htmlFor="pets">Pets:</label>
+                                    <label htmlFor="petIds">Pets:</label>
                                     <input
                                         type="text"
-                                        id="pets"
-                                        name="pets"
-                                        value={formData.pets}
+                                        id="petIds"
+                                        name="petIds"
+                                        value={formData.petIds}
                                         onChange={handleInputChange}
                                     />
                                 </div>
