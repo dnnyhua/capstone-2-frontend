@@ -70,9 +70,11 @@ class Api {
         return res;
     }
 
-    static async getMultiPetsProfile(data) {
-        const res = await this.request(`pets/ids`, data, "get")
-        console.log(res)
+    static async getMultiPetsProfile(ids) {
+
+        const queryString = `?petIds=${JSON.stringify(ids)}`;
+        const res = await this.request(`pets/ids${queryString}`);
+        // const res = await this.request(`pets/ids`, ids)
         return res
     }
 

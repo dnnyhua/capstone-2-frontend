@@ -3,24 +3,25 @@ import { useParams } from "react-router-dom";
 import Api from "../api";
 import SchedulePageJobInfo from "./SchedulePageScheduleInfo";
 import "./SchedulePage.css"
-import { parse } from "dotenv";
 
 const SchedulePage = () => {
     const { id } = useParams();
     const [job, setJob] = useState([])
-    const [pets, setPets] = useState()
+    const [pets, setPets] = useState([])
 
     async function getSchedule() {
         const res = await Api.getJobById(id)
         setJob(res.job[0])
+
+        setPets(await getPets(res.job[0]['pet_ids']))
+
     }
 
     // Get pets that will be on this walk schedule
-    async function getPets() {
-        const res = await Api.getMultiPetsProfile(job.pet_ids)
-        setPets(res)
-        console.log(res)
-
+    async function getPets(ids) {
+        const petIds = ids
+        const res = await Api.getMultiPetsProfile(petIds)
+        return res.pets
     }
 
 
@@ -30,9 +31,14 @@ const SchedulePage = () => {
         getSchedule();
         getPets();
     }, [])
-
     console.log(job)
     console.log(pets)
+
+
+
+
+
+
 
 
     return (
@@ -45,6 +51,10 @@ const SchedulePage = () => {
                 status={job.status}
                 petIds={job.pet_ids}
             />
+
+            <section>
+                <h1>{pets.map(pet => pet.name)}</h1>
+            </section>
         </div>
     )
 }
