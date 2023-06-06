@@ -81,7 +81,7 @@ class Api {
         const res = await this.request(`jobs/${username}`, formData, "post")
     }
 
-    static async getPetSchedule(petId) {
+    static async getPetWalkSchedule(petId) {
         const res = await this.request(`jobs/pet/${petId}`)
         return res
     }

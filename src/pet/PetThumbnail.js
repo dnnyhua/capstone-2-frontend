@@ -6,7 +6,7 @@ import "./PetThumbnail.css"
 const PetThumbnail = ({ img, name, id }) => {
 
     return (
-        <div>
+        <div key={id}>
             <Link to={`/pets/${id}`}>
                 <img className="PetThumbnail" id={id} src={img} />
             </Link>

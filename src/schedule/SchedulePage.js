@@ -11,10 +11,10 @@ const SchedulePage = () => {
     const { pets } = useContext(GlobalContext)
     const { id } = useParams();
     const [job, setJob] = useState([])
-    // const [pets2, setPets] = useState([])
     const [sortedPets, setSortedPets] = useState(null)
 
     async function getSchedule() {
+
         const res = await Api.getJobById(id)
         setJob(res.job[0])
 
@@ -31,29 +31,59 @@ const SchedulePage = () => {
             if (idsToCheck.some(id => id === pet.id)) {
                 petsToShow.push(pet);
             }
-
         });
+
         setSortedPets(petsToShow)
-
-
-
     }
-
 
     useEffect(() => {
         getSchedule();
         // getPets();
     }, [])
 
-    useEffect(() => {
-        console.log(job);
-        console.log(sortedPets);
-    }, [sortedPets]);
+    console.log(job)
+    console.log(pets)
+    console.log(sortedPets)
+
+    // Need loading transition so that there is enough time for setSortedPets to update state before everything can render
+    if (sortedPets === null) {
+        return <div>
+            <h1>Loading...</h1>
+        </div>;
+    }
+
+    return (
+        <div>
+            <h1>Walk Schedule</h1>
+            <SchedulePageJobInfo
+                date={job.date}
+                time={job.time}
+                duration={job.duration}
+                status={job.status}
+                petIds={job.petIds}
+            />
+
+            <section>
+                <h1>Pets on this walk</h1>
+                {sortedPets.map(pet => (
+                    <PetThumbnail
+                        id={pet.id}
+                        img={pet.img}
+                        name={pet.name}
+                    />
+                ))}
+            </section>
+
+
+        </div>
+    )
+}
+
+export default SchedulePage;
 
 
 
-
-    // Get pets that will be on this walk schedule
+// Get pets that will be on this walk schedule
     // async function getPets(ids) {
     //     const petIds = ids
     //     const res = await Api.getMultiPetsProfile(petIds)
@@ -71,26 +101,4 @@ const SchedulePage = () => {
 
     //     })
     // }
-
-
-    return (
-        <div>
-            <h1>Walk Schedule</h1>
-            <SchedulePageJobInfo
-                date={job.date}
-                time={job.time}
-                duration={job.duration}
-                status={job.status}
-                petIds={job.pet_ids}
-            />
-
-            <section>
-                Pets on this walk
-                <PetsList pets={pets} />
-            </section>
-        </div>
-    )
-}
-
-export default SchedulePage;
 
