@@ -9,7 +9,7 @@ import GlobalContext from "../helper/GlobalContext";
 const Home = () => {
     const { pets, jobs, currUser } = useContext(GlobalContext)
     console.log(currUser)
-    console.log(jobs)
+    // console.log(jobs)
     console.log(pets)
 
     if (currUser) {

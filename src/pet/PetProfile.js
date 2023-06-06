@@ -31,8 +31,8 @@ const PetProfile = () => {
                     <h5>Gender: {pet.gender}</h5>
                     <h5>Age: {pet.age}</h5>
                     <h5>Weight (lbs): {pet.weight}</h5>
-                    <h5>Friendly with children: {`${pet.friendly_w_children}` === 'true' ? "Yes" : "No"}</h5>
-                    <h5>Friendly with other dogs: {`${pet.friendly_w_other_dogs}` === 'true' ? "Yes" : "No"}</h5>
+                    <h5>Friendly with children: {`${pet.friendlyWithChildren}` === 'true' ? "Yes" : "No"}</h5>
+                    <h5>Friendly with other dogs: {`${pet.friendlyWithOtherDogs}` === 'true' ? "Yes" : "No"}</h5>
                 </section>
 
                 <section className="walkSchedule">
