@@ -1,9 +1,11 @@
 import React, { useState, useContext, useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import Api from "../api";
+import GlobalContext from "../helper/GlobalContext";
 
 
 const PetProfileForm = ({ pet, currUser }) => {
+    const { getCurrUserData } = useContext(GlobalContext)
     const navigate = useNavigate()
     const goBack = () => {
         navigate(1);
@@ -62,14 +64,32 @@ const PetProfileForm = ({ pet, currUser }) => {
 
         // NEED TO CREATE ANOTHER async fucntion, API
         // profileUpdate(currUser.username, formData)
+        getCurrUserData();
+
         navigate(-1)
     }
 
+    async function deletePetProfile(petId, petName, username) {
+        await Api.delete(petId, petName, username);
+        getCurrUserData();
+        navigate('/');
+
+
+    }
+
+    const handleDelete = (evt) => {
+        evt.preventDefault();
+        deletePetProfile(pet.id, pet.name, currUser.username)
+
+    }
 
 
     return (
         <div className="ProfileForm ">
+            <button className="btn btn-danger" onClick={handleDelete}>Delete</button>
+
             <form onSubmit={handleSubmit} className="form-control">
+
                 <div className="form-group">
                     <label htmlFor="name">Name:</label>
                     <input

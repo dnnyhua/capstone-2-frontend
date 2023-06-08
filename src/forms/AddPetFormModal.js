@@ -17,7 +17,7 @@ const AddPetFormModal = () => {
     weight: '',
     friendlyWithDogs: false,
     friendlyWithChildren: false,
-    img: '',
+    img: 'https://images.vexels.com/media/users/3/237182/isolated/preview/12d16be249ddb2b69cdfad39bbf58551-simple-cute-spotted-doodle-dog.png',
     additionalDetails: ''
   });
 

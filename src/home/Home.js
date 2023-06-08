@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./Home.css"
 import PetsList from "../pet/PetsList";
@@ -31,6 +31,7 @@ const Home = () => {
             </div>
         )
     }
+
 
     return (
         <div className="Home d-flex justify-content-center">

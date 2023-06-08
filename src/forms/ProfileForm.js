@@ -29,7 +29,6 @@ const ProfileForm = () => {
 
     const handleSubmit = (evt) => {
         evt.preventDefault();
-        console.log(formData)
         profileUpdate(currUser.username, formData)
         navigate('/')
     }

@@ -25,7 +25,7 @@ const PetProfileEdit = () => {
         <div>
             <h1>Edit {pet.name}'s Profile</h1>
             <h2>Add form here</h2>
-            <PetProfileForm pet={pet} currUser={currUser} />
+            <PetProfileForm pet={pet} currUser={currUser} getPetInfo={getPetInfo} />
         </div>
     )
 }

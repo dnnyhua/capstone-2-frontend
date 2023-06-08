@@ -91,6 +91,9 @@ class Api {
         const res = await this.request(`pets/${petId}${queryString}`, formData, "patch")
     }
 
+    static async delete(petId, petName) {
+        await this.request(`pets/${petId}/${petName}`, {}, "delete")
+    }
 }
 
 
