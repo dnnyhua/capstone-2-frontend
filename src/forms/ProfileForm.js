@@ -35,8 +35,6 @@ const ProfileForm = () => {
     }
 
 
-
-
     return (
         <div className="ProfileForm ">
             <form onSubmit={handleSubmit} className="form-control">

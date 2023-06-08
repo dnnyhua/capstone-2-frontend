@@ -3,14 +3,12 @@
     align-items: center;
     justify-content: center;
     background-color: rgb(94, 212, 173);
-    margin-bottom: 10px;
+    margin-top: 10px;
     width: auto;
     height: auto;
     border-radius: 20px;
 
 }
-
-
 
 .ScheduleList {
     text-align: center;

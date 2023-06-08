@@ -1,4 +1,5 @@
 .PetProfile {
+    position: relative;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -26,6 +27,8 @@
 }
 
 .petProfileHead {
+    width: auto;
+    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -45,3 +48,19 @@
 }
 
 .walkSchedule {}
+
+
+.editBtn {
+    position: absolute;
+    top: 0%;
+    left: 90%;
+    border-radius: 8px;
+    padding: 2px 10px;
+}
+
+.backBtn {
+    position: absolute;
+    font-size: large;
+    top: 0%;
+    left: 1%;
+}

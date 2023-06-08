@@ -85,7 +85,22 @@ class Api {
         const res = await this.request(`jobs/pet/${petId}`)
         return res
     }
+
+    static async updatePetProfile(petId, username, formData) {
+        const queryString = `?username=${JSON.stringify(username)}`;
+        const res = await this.request(`pets/${petId}${queryString}`, formData, "patch")
+    }
+
 }
+
+
+
+// static async getMultiPetsProfile(ids) {
+//     const queryString = `?petIds=${JSON.stringify(ids)}`;
+//     const res = await this.request(`pets/ids${queryString}`);
+//     // const res = await this.request(`pets/ids`, ids)
+//     return res
+// }
 
 
 export default Api

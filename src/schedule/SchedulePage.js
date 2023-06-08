@@ -64,7 +64,7 @@ const SchedulePage = () => {
             />
 
             <section>
-                <h1>Pets on this walk</h1>
+                <h2>Pets on this walk</h2>
                 {sortedPets.map(pet => (
                     <PetThumbnail
                         id={pet.id}

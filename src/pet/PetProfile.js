@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import Api from "../api";
 import ScheduleCard from "../schedule/ScheduleCard";
 import "./PetProfile.css"
@@ -21,15 +21,26 @@ const PetProfile = () => {
         return res.job
     }
 
+    const navigate = useNavigate();
+    const goBack = () => {
+        navigate(-1);
+    }
+
     useEffect(() => {
         setPetProfilePage()
     }, [])
 
     return (
         <div className="PetProfile">
+
             <div className="PetProfileBody">
+
                 <section className="petProfileHead">
+                    <Link to={`/pets/profile/${pet.id}/edit`} className="btn btn-primary editBtn">Edit</Link>
+
+                    <Link className="backBtn" onClick={goBack}>Back</Link>
                     <img src={pet.img} className="petPfp" alt="pet profile picture" />
+
                     <h2>{pet.name}</h2>
                 </section>
 
@@ -58,7 +69,7 @@ const PetProfile = () => {
                     ))}
                 </section>
             </div>
-        </div>
+        </div >
     )
 }
 
