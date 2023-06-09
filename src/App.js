@@ -10,6 +10,9 @@ import SignUp from './signup/SignUp';
 import PetProfile from './pet/PetProfile';
 import SchedulePage from './schedule/SchedulePage';
 import PetProfileEdit from './pet/PetProfileEdit';
+import Applications from './applications/Applications';
+
+
 import GlobalContext from './helper/GlobalContext';
 import Api from './api';
 
@@ -123,6 +126,8 @@ function App() {
             <Route exact path="/jobs" />
             <Route exact path="/pets/profile/:petId/edit" element={<PetProfileEdit />}> </Route>
             <Route exact path="/pets/profile/:petId" element={<PetProfile />}></Route>
+            <Route exact path="/schedule/:id/applications" element={<Applications />}></Route>
+
             <Route exact path="/schedule/:id" element={<SchedulePage />}></Route>
 
           </Routes>

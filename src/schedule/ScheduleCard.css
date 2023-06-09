@@ -1,7 +1,5 @@
 .ScheduleCard {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: block;
     background-color: rgb(94, 212, 173);
     margin-top: 10px;
     width: auto;

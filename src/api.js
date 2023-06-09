@@ -61,6 +61,13 @@ class Api {
 
     }
 
+    static async getApplications(jobId, username) {
+        const queryString = `?username=${JSON.stringify(username)}`;
+        const res = await this.request(`jobs/${jobId}/applications${queryString}`)
+        return res
+    }
+
+
     static async addPet(formData) {
         const res = await this.request(`pets`, formData, "post")
     }

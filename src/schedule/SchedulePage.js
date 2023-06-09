@@ -2,16 +2,17 @@ import React, { useState, useEffect, useContext } from "react";
 import { useParams } from "react-router-dom";
 import Api from "../api";
 import SchedulePageJobInfo from "./SchedulePageScheduleInfo";
-import PetsList from "../pet/PetsList";
 import PetThumbnail from "../pet/PetThumbnail";
+import { Link } from "react-router-dom";
 import "./SchedulePage.css"
 import GlobalContext from "../helper/GlobalContext";
 
+
 const SchedulePage = () => {
-    const { pets } = useContext(GlobalContext)
+    const { pets } = useContext(GlobalContext);
     const { id } = useParams();
-    const [job, setJob] = useState([])
-    const [sortedPets, setSortedPets] = useState(null)
+    const [job, setJob] = useState([]);
+    const [sortedPets, setSortedPets] = useState(null);
 
     async function getSchedule() {
 
@@ -20,12 +21,9 @@ const SchedulePage = () => {
 
         // setPets(await getPets(res.job[0]['pet_ids']))
 
-        let idsToCheck = res.job[0]['petIds']
-        console.log(idsToCheck)
-
-        let currPets = pets
-
-        let petsToShow = [];
+        const idsToCheck = res.job[0]['petIds']
+        const currPets = pets
+        const petsToShow = [];
 
         currPets.forEach(pet => {
             if (idsToCheck.some(id => id === pet.id)) {
@@ -34,19 +32,22 @@ const SchedulePage = () => {
         });
 
         setSortedPets(petsToShow)
+
+
     }
+
 
     useEffect(() => {
         getSchedule();
-        // getPets();
     }, [])
 
     console.log(job)
     console.log(pets)
     console.log(sortedPets)
 
+
     // Need loading transition so that there is enough time for setSortedPets to update state before everything can render
-    if (sortedPets === null) {
+    if (!sortedPets) {
         return <div>
             <h1>Loading...</h1>
         </div>;
@@ -54,14 +55,23 @@ const SchedulePage = () => {
 
     return (
         <div>
-            <h1>Walk Schedule</h1>
-            <SchedulePageJobInfo
-                date={job.date}
-                time={job.time}
-                duration={job.duration}
-                status={job.status}
-                petIds={job.petIds}
-            />
+            <section>
+                <h1>Walk Schedule</h1>
+                <SchedulePageJobInfo
+                    date={job.date}
+                    time={job.time}
+                    duration={job.duration}
+                    status={job.status}
+                    petIds={job.petIds}
+                    address={job.address}
+                    city={job.city}
+                    state={job.state}
+                    zipcode={job.zipcode}
+                    ownerId={job.ownerId}
+                />
+
+                <Link to={`/schedule/${id}/applications`} className="btn btn-primary">View Applications</Link>
+            </section>
 
             <section>
                 <h2>Pets on this walk</h2>
@@ -72,6 +82,10 @@ const SchedulePage = () => {
                         name={pet.name}
                     />
                 ))}
+            </section>
+
+            <section>
+                <h1>The walker that is hired should go here</h1>
             </section>
 
 

@@ -1,6 +1,6 @@
 .Home {
     display: flex;
-    width: 100%;
+    width: auto;
     height: 100%;
     /* background-color: green; */
 
@@ -21,7 +21,7 @@
 
 .body-info {
     position: absolute;
-    width: 518px;
+    width: 70%;
     height: auto;
     margin-top: 125px;
     padding: 20px;

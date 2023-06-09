@@ -19,7 +19,7 @@ const Home = () => {
 
                 <div className="body-info">
                     <section className="scheduleContainer">
-                        <h2 className="mb-2">Walk Schedule</h2>
+                        <h2 className="mb-2">Upcoming Walks</h2>
                         <ScheduleList jobs={jobs} currUser={currUser} />
                     </section>
 
