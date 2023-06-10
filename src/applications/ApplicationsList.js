@@ -11,7 +11,11 @@ const ApplicationsList = ({ applications }) => {
                 <ApplicationCard
                     jobId={application.jobId}
                     walkerId={application.walkerId}
-                    status={application.walkerId}
+                    status={application.status}
+                    firstName={application.firstName}
+                    lastName={application.lastName}
+                    ratePer30min={application.ratePer30min}
+
                 />
             )}
 

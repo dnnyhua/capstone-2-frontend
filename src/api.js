@@ -65,11 +65,14 @@ class Api {
         const queryString = `?username=${JSON.stringify(username)}`;
         const res = await this.request(`jobs/${jobId}/applications${queryString}`)
         return res
+
+
+
     }
 
 
     static async addPet(formData) {
-        const res = await this.request(`pets`, formData, "post")
+        await this.request(`pets`, formData, "post")
     }
 
     static async getPetProfile(id) {
@@ -77,15 +80,9 @@ class Api {
         return res;
     }
 
-    // static async getMultiPetsProfile(ids) {
-    //     const queryString = `?petIds=${JSON.stringify(ids)}`;
-    //     const res = await this.request(`pets/ids${queryString}`);
-    //     // const res = await this.request(`pets/ids`, ids)
-    //     return res
-    // }
 
     static async createJob(username, formData) {
-        const res = await this.request(`jobs/${username}`, formData, "post")
+        await this.request(`jobs/${username}`, formData, "post")
     }
 
     static async getPetWalkSchedule(petId) {
@@ -95,12 +92,14 @@ class Api {
 
     static async updatePetProfile(petId, username, formData) {
         const queryString = `?username=${JSON.stringify(username)}`;
-        const res = await this.request(`pets/${petId}${queryString}`, formData, "patch")
+        await this.request(`pets/${petId}${queryString}`, formData, "patch")
     }
 
     static async delete(petId, petName) {
         await this.request(`pets/${petId}/${petName}`, {}, "delete")
     }
+
+
 }
 
 

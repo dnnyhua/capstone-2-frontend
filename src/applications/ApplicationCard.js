@@ -1,7 +1,7 @@
 import React from "react";
 import './ApplicationCard.css'
 
-const ApplicationCard = ({ jobId, walkerId, status }) => {
+const ApplicationCard = ({ jobId, walkerId, status, firstName, lastName, ratePer30min }) => {
     return (
         <div className="ApplicationCard">
             <div className="ApplicationCard-body">
@@ -13,6 +13,10 @@ const ApplicationCard = ({ jobId, walkerId, status }) => {
                     <h5>Job Id: {jobId} </h5>
                     <h5>Walker Id: {walkerId}</h5>
                     <h5>Status: {status}</h5>
+                    <h5>{firstName}</h5>
+                    <h5>{lastName}</h5>
+                    <h5>Rate: ${ratePer30min} / 30 min</h5>
+
                 </section>
 
                 <button className="btn btn-primary ApplicationCard-hireBtn">Hire</button>
