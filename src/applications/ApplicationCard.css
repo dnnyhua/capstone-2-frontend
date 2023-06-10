@@ -1,0 +1,37 @@
+.ApplicationCard {
+    width: 1000px;
+    height: max-content;
+    padding: 10px;
+    margin: 10px;
+    background-color: rgba(68, 68, 68, 0.9);
+}
+
+.ApplicationCard-body {
+    display: flex;
+    position: relative;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+
+}
+
+.ApplicationCard-hireBtn {
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    top: 77%;
+    left: 85%;
+    font-weight: bold;
+
+
+}
+
+
+.ApplicationCard-rejectBtn {
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    top: 77%;
+    left: 92%;
+    font-weight: bold;
+}

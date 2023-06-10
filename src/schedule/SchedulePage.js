@@ -9,12 +9,15 @@ import GlobalContext from "../helper/GlobalContext";
 
 
 const SchedulePage = () => {
-    const { pets } = useContext(GlobalContext);
+    const { pets, currUser } = useContext(GlobalContext);
     const { id } = useParams();
     const [job, setJob] = useState([]);
+    const [applications, setApplications] = useState([]);
+
     const [sortedPets, setSortedPets] = useState(null);
 
-    async function getSchedule() {
+
+    async function getScheduleInfo() {
 
         const res = await Api.getJobById(id)
         setJob(res.job[0])
@@ -33,17 +36,22 @@ const SchedulePage = () => {
 
         setSortedPets(petsToShow)
 
+        const appRes = await Api.getApplications(id, currUser.username)
 
+        console.log(appRes.applications)
+        setApplications(appRes.applications)
     }
 
 
     useEffect(() => {
-        getSchedule();
+        getScheduleInfo();
     }, [])
 
     console.log(job)
     console.log(pets)
+    console.log(applications)
     console.log(sortedPets)
+
 
 
     // Need loading transition so that there is enough time for setSortedPets to update state before everything can render
@@ -52,6 +60,8 @@ const SchedulePage = () => {
             <h1>Loading...</h1>
         </div>;
     }
+
+
 
     return (
         <div>
@@ -70,7 +80,12 @@ const SchedulePage = () => {
                     ownerId={job.ownerId}
                 />
 
-                <Link to={`/schedule/${id}/applications`} className="btn btn-primary">View Applications</Link>
+                {/* Only show button if there there are applications */}
+                {applications.length !== 0 ?
+                    <Link to={`/schedule/${id}/applications`} className="btn btn-primary">View Applications</Link>
+                    : null
+                }
+
             </section>
 
             <section>
