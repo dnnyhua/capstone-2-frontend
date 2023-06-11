@@ -115,7 +115,9 @@ function App() {
   return (
     <BrowserRouter>
       <GlobalContext.Provider value={{ currUser, pets, jobs, getCurrUserData, userLogin, userLogout, profileUpdate, addPet, createJob, getCurrUserData }}>
-        <NavBar />
+        <header className="navBar" >
+          <NavBar />
+        </header>
         <main>
           <Routes>
             <Route exact path="/" element={<Home />} />

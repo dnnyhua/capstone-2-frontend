@@ -17,9 +17,11 @@
 main {
   display: flex;
   flex-direction: column;
-  height: 92.5vh;
   background-image: url("./images/background.jpg");
-  background-size: cover;
+  background-repeat: repeat-y;
+  height: 92.5vh;
+  margin-top: 66px;
+  overflow: scroll;
 }
 
 h1 {
@@ -34,4 +36,13 @@ h5,
 h6,
 p {
   color: white;
+}
+
+
+.navBar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
 }

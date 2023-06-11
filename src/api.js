@@ -37,34 +37,34 @@ class Api {
             const { ownerId, pets, jobPostings } = result.owner;
             Object.assign(res.user, { pets, jobPostings, ownerId });
         }
-        return res
+        return res;
     }
 
     static async userLogin(formData) {
         const res = await this.request("auth/token", formData, "post")
-        return res
+        return res;
     }
 
     static async profileUpdate(username, formData) {
         const res = await this.request(`users/${username}`, formData, "patch")
-        return res
+        return res;
     }
 
     static async getJobs(ownerId) {
         const res = await this.request(`jobs/owner/${ownerId}`)
-        return res
+        return res;
     }
 
     static async getJobById(jobId) {
         const res = await this.request(`jobs/${jobId}`)
-        return res
+        return res;
 
     }
 
     static async getApplications(jobId, username) {
         const queryString = `?username=${JSON.stringify(username)}`;
         const res = await this.request(`jobs/${jobId}/applications${queryString}`)
-        return res
+        return res;
 
 
 
@@ -87,7 +87,7 @@ class Api {
 
     static async getPetWalkSchedule(petId) {
         const res = await this.request(`jobs/pet/${petId}`)
-        return res
+        return res;
     }
 
     static async updatePetProfile(petId, username, formData) {
@@ -99,6 +99,10 @@ class Api {
         await this.request(`pets/${petId}/${petName}`, {}, "delete")
     }
 
+    static async getHiredWalker(jobId) {
+        const res = await this.request(`jobs/${jobId}/hiredWalker`)
+        return res;
+    }
 
 }
 

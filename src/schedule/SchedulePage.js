@@ -13,11 +13,12 @@ const SchedulePage = () => {
     const { id } = useParams();
     const [job, setJob] = useState([]);
     const [applications, setApplications] = useState([]);
+    const [hiredWalker, setHiredWalker] = useState()
 
     const [sortedPets, setSortedPets] = useState(null);
 
 
-    async function getScheduleInfo() {
+    async function getSchedulePageInfo() {
 
         const res = await Api.getJobById(id)
         setJob(res.job[0])
@@ -28,30 +29,31 @@ const SchedulePage = () => {
         const currPets = pets
         const petsToShow = [];
 
+        const appRes = await Api.getApplications(id, currUser.username)
+        setApplications(appRes.applications)
+
+        const hiredWalkerRes = await Api.getHiredWalker(id)
+        setHiredWalker(hiredWalkerRes.user)
+
         currPets.forEach(pet => {
             if (idsToCheck.some(id => id === pet.id)) {
                 petsToShow.push(pet);
             }
         });
-
         setSortedPets(petsToShow)
 
-        const appRes = await Api.getApplications(id, currUser.username)
-
-        console.log(appRes.applications)
-        setApplications(appRes.applications)
     }
 
 
     useEffect(() => {
-        getScheduleInfo();
+        getSchedulePageInfo();
     }, [])
 
-    console.log(job)
-    console.log(pets)
-    console.log(applications)
-    console.log(sortedPets)
-
+    // console.log(job)
+    // console.log(pets)
+    // console.log(applications)
+    // console.log(sortedPets)
+    console.log(hiredWalker)
 
 
     // Need loading transition so that there is enough time for setSortedPets to update state before everything can render
@@ -60,8 +62,6 @@ const SchedulePage = () => {
             <h1>Loading...</h1>
         </div>;
     }
-
-
 
     return (
         <div>
@@ -99,9 +99,17 @@ const SchedulePage = () => {
                 ))}
             </section>
 
-            <section>
-                <h1>The walker that is hired should go here</h1>
-            </section>
+            {hiredWalker ?
+                <section>
+                    <h2>Walker</h2>
+                    <h5>{hiredWalker.firstName}</h5>
+                    <h5>{hiredWalker.lastName}</h5>
+                    <h5>{hiredWalker.ratePer30min}</h5>
+                    <h5>{hiredWalker.status}</h5>
+                </section>
+                : ""
+            }
+
 
 
         </div>

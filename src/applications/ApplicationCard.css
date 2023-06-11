@@ -3,7 +3,16 @@
     height: max-content;
     padding: 10px;
     margin: 10px;
-    background-color: rgba(68, 68, 68, 0.9);
+    background-color: rgb(68, 68, 68);
+}
+
+.hired {
+    background-color: rgb(94, 212, 173);
+}
+
+.ApplicationCard-img {
+    opacity: 1.0;
+    border-radius: 50%;
 }
 
 .ApplicationCard-body {

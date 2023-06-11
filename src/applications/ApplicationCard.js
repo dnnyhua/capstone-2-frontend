@@ -3,7 +3,7 @@ import './ApplicationCard.css'
 
 const ApplicationCard = ({ jobId, walkerId, status, firstName, lastName, ratePer30min }) => {
     return (
-        <div className="ApplicationCard">
+        <div className={`ApplicationCard ${status === "Hired" ? "hired" : ""}`} >
             <div className="ApplicationCard-body">
                 <section>
                     <img className="ApplicationCard-img" src="https://static.thenounproject.com/png/5034901-200.png" alt="profile picture" />
@@ -16,14 +16,22 @@ const ApplicationCard = ({ jobId, walkerId, status, firstName, lastName, ratePer
                     <h5>{firstName}</h5>
                     <h5>{lastName}</h5>
                     <h5>Rate: ${ratePer30min} / 30 min</h5>
-
                 </section>
 
-                <button className="btn btn-primary ApplicationCard-hireBtn">Hire</button>
-                <button className="btn btn-danger ApplicationCard-rejectBtn">Reject</button>
-            </div>
 
-        </div>
+                {status === 'Pending Review' ?
+                    <section>
+                        <button className="btn btn-primary ApplicationCard-hireBtn">Hire</button>
+                        <button className="btn btn-danger ApplicationCard-rejectBtn">Reject</button>
+                    </section>
+                    :
+                    <section>
+                        <button disabled className="btn btn-secondary ApplicationCard-hireBtn">Hire</button>
+                        <button disabled className="btn btn-secondary ApplicationCard-rejectBtn">Reject</button>
+                    </section>
+                }
+            </div>
+        </div >
     )
 }
 
