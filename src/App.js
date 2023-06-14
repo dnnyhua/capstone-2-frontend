@@ -11,6 +11,7 @@ import PetProfile from './pet/PetProfile';
 import SchedulePage from './schedule/SchedulePage';
 import PetProfileEdit from './pet/PetProfileEdit';
 import Applications from './applications/Applications';
+import About from './about/About';
 
 
 import GlobalContext from './helper/GlobalContext';
@@ -121,6 +122,7 @@ function App() {
         <main>
           <Routes>
             <Route exact path="/" element={<Home />} />
+            <Route exact path="/about" element={<About />} />
             <Route exact path="/login" element={<Login />} />
             <Route exact path="/signup" element={<SignUp />} />
             <Route exact path="/profile" element={<Profile />} />

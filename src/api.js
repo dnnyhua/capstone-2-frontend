@@ -99,9 +99,19 @@ class Api {
         await this.request(`pets/${petId}/${petName}`, {}, "delete")
     }
 
+
+    static async hireWalker(jobId, walkerId) {
+        await this.request(`jobs/hire/jobId/${jobId}/walkerId/${walkerId}`, {}, "patch")
+    }
+
     static async getHiredWalker(jobId) {
         const res = await this.request(`jobs/${jobId}/hiredWalker`)
         return res;
+    }
+
+    static async rejectWalker(jobId, walkerId) {
+        await this.request(`jobs/reject/jobId/${jobId}/walkerId/${walkerId}`, {}, "patch")
+
     }
 
 }

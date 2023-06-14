@@ -11,6 +11,7 @@ const Applications = () => {
 
     async function getApplications() {
         const appRes = await Api.getApplications(id, currUser.username)
+        console.log(appRes.applications)
         setApplications(appRes.applications)
     }
 
@@ -18,12 +19,10 @@ const Applications = () => {
         getApplications();
     }, [])
 
-    console.log(applications)
-
 
     return (
         <>
-            <ApplicationsList applications={applications} />
+            <ApplicationsList applications={applications} getApplications={getApplications} />
         </>
     )
 }

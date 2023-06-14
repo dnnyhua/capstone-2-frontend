@@ -14,7 +14,6 @@ const SchedulePageJobInfo = ({ date, time, duration, status, petIds, address, ci
             <h5>Time of walk: {formattedTime}</h5>
             <h5>Length of walk: {duration} minutes</h5>
             <h5>Status: {status}</h5>
-            <h5>Pet Ids: {petIds}</h5>
 
             {ownerId === currUser.ownerId ? (
                 <>

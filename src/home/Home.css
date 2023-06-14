@@ -21,7 +21,7 @@
 
 .body-info {
     position: absolute;
-    width: 70%;
+    width: auto;
     height: auto;
     margin-top: 125px;
     padding: 20px;

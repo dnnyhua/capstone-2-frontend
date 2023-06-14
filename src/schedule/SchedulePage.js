@@ -72,7 +72,6 @@ const SchedulePage = () => {
                     time={job.time}
                     duration={job.duration}
                     status={job.status}
-                    petIds={job.petIds}
                     address={job.address}
                     city={job.city}
                     state={job.state}
@@ -100,18 +99,24 @@ const SchedulePage = () => {
             </section>
 
             {hiredWalker ?
-                <section>
-                    <h2>Walker</h2>
-                    <h5>{hiredWalker.firstName}</h5>
-                    <h5>{hiredWalker.lastName}</h5>
-                    <h5>{hiredWalker.ratePer30min}</h5>
-                    <h5>{hiredWalker.status}</h5>
-                </section>
+                <div>
+                    <h2>Walker hired for this walk</h2>
+                    <section className="walkerContainer">
+                        <div className="walkerBody">
+                            <section>
+                                <img className="walkerImg" src="https://static.thenounproject.com/png/5034901-200.png" alt="profile picture" />
+                            </section>
+
+                            <section className="walkerInfo">
+                                <h5>{hiredWalker.firstName} {hiredWalker.lastName}</h5>
+
+                                <h5>Rate: ${hiredWalker.ratePer30min} / 30 min</h5>
+                            </section>
+                        </div>
+                    </section>
+                </div>
                 : ""
             }
-
-
-
         </div>
     )
 }
