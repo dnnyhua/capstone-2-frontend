@@ -1,4 +1,6 @@
 import React, { useState, useContext } from 'react';
+import Select from "react-select";
+import makeAnimated from "react-select/animated";
 import GlobalContext from '../helper/GlobalContext';
 import "./AddPetFormModal.css"
 
@@ -8,6 +10,8 @@ const AddJobFormModal = () => {
     console.log(currUser)
 
     const [showModal, setShowModal] = useState(false);
+    const [pets, setPets] = useState(currUser.pets);
+    const animatedComponents = makeAnimated();
 
     const initialState = {
         ownerId: currUser.ownerId,
@@ -24,12 +28,28 @@ const AddJobFormModal = () => {
 
     const [formData, setFormData] = useState(initialState);
 
+    const options = pets.map(pet => {
+        return { value: pet.id, label: pet.name };
+    });
+    console.log(options)
+
+
     const handleInputChange = (e) => {
         setFormData({
             ...formData,
             [e.target.name]: e.target.value
         });
     };
+    console.log(formData)
+
+    const petIdsOnChange = (selectedOptions) => {
+        const petIds = selectedOptions.map(option => option.value);
+        setFormData({
+            ...formData,
+            petIds: petIds
+        });
+    };
+
 
     const handleFormSubmit = (e) => {
         e.preventDefault();
@@ -111,13 +131,24 @@ const AddJobFormModal = () => {
                                 </div>
 
                                 <div className="form-group">
-                                    <label htmlFor="petIds">Pets:</label>
+                                    {/* <label htmlFor="petIds">Pets:</label>
                                     <input
                                         type="text"
                                         id="petIds"
                                         name="petIds"
                                         value={formData.petIds}
                                         onChange={handleInputChange}
+                                    /> */}
+                                    <label htmlFor="petIds">Pets:</label>
+                                    <Select
+                                        closeMenuOnSelect={false}
+                                        options={options}
+                                        onChange={petIdsOnChange}
+                                        isMulti
+                                        components={animatedComponents}
+                                        className="pet-ids"
+                                        classNamePrefix="pet-ids"
+                                        name="petIds"
                                     />
                                 </div>
 

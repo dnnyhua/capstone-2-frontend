@@ -1,13 +1,17 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import './ApplicationCard.css'
 import Api from "../api";
 import { useNavigate } from "react-router-dom";
+import GlobalContext from "../helper/GlobalContext";
 
 const ApplicationCard = ({ jobId, walkerId, status, firstName, lastName, ratePer30min, getApplications }) => {
+    const { getCurrUserData } = useContext(GlobalContext);
 
     const [isRejected, setIsRejected] = useState(false);
     const [currStatus, setCurrStatus] = useState(status)
 
+
+    // THIS IS NOT RE_RENDERING
     async function hireWalker() {
         try {
             setCurrStatus("Hired")
@@ -17,9 +21,9 @@ const ApplicationCard = ({ jobId, walkerId, status, firstName, lastName, ratePer
         }
     }
 
-    const handleHireBtn = (evt) => {
-        evt.preventDefault();
-        hireWalker()
+    const handleHireBtn = () => {
+        hireWalker();
+        getCurrUserData();
     }
 
     async function rejectWalker() {
@@ -34,13 +38,13 @@ const ApplicationCard = ({ jobId, walkerId, status, firstName, lastName, ratePer
     }
 
     const handleRejectBtn = async () => {
-        await rejectWalker();
+        rejectWalker();
         getApplications();
 
     }
 
     useEffect(() => {
-    }, [isRejected, setIsRejected, currStatus])
+    }, [isRejected, setIsRejected, currStatus, getCurrUserData])
 
 
     return (
