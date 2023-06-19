@@ -6,13 +6,9 @@ import "./AddPetFormModal.css"
 
 
 const AddJobFormModal = () => {
+    // Other variables
     const { currUser, createJob } = useContext(GlobalContext)
-    console.log(currUser)
-
-    const [showModal, setShowModal] = useState(false);
-    const [pets, setPets] = useState(currUser.pets);
     const animatedComponents = makeAnimated();
-
     const initialState = {
         ownerId: currUser.ownerId,
         date: '',
@@ -26,13 +22,15 @@ const AddJobFormModal = () => {
 
     }
 
+    // State
     const [formData, setFormData] = useState(initialState);
+    const [showModal, setShowModal] = useState(false);
+    const [pets, setPets] = useState(currUser.pets);
+
 
     const options = pets.map(pet => {
         return { value: pet.id, label: pet.name };
     });
-    console.log(options)
-
 
     const handleInputChange = (e) => {
         setFormData({
@@ -40,7 +38,6 @@ const AddJobFormModal = () => {
             [e.target.name]: e.target.value
         });
     };
-    console.log(formData)
 
     const petIdsOnChange = (selectedOptions) => {
         const petIds = selectedOptions.map(option => option.value);
@@ -50,10 +47,16 @@ const AddJobFormModal = () => {
         });
     };
 
+    const durationOnChange = (selectedOption) => {
+        const duration = selectedOption.value;
+        setFormData({
+            ...formData,
+            duration: duration
+        })
+    }
 
     const handleFormSubmit = (e) => {
         e.preventDefault();
-        console.log(formData)
 
         // Reset form data
         setFormData(initialState);
@@ -61,7 +64,6 @@ const AddJobFormModal = () => {
         // Add new job to the database
         createJob(currUser.username, formData)
 
-        console.log(formData)
         // Close the modal
         setShowModal(false);
     };
@@ -73,6 +75,8 @@ const AddJobFormModal = () => {
     const handleModalClose = () => {
         setShowModal(false);
     };
+
+
 
     return (
         <>
@@ -112,7 +116,7 @@ const AddJobFormModal = () => {
                                 </div>
 
                                 <div className="form-group">
-                                    <label htmlFor="duration">Duration (mins):</label>
+                                    {/* <label htmlFor="duration">Duration (mins):</label>
                                     <select
                                         id="duration"
                                         name="duration"
@@ -127,7 +131,22 @@ const AddJobFormModal = () => {
                                         <option value="90">90</option>
                                         <option value="120">120</option>
 
-                                    </select>
+                                    </select> */}
+                                    <label htmlFor="duration">Duration (mins):</label>
+                                    <Select
+                                        options={[
+                                            { value: 30, label: "30" },
+                                            { value: 45, label: "45" },
+                                            { value: 60, label: "60" },
+                                            { value: 90, label: "90" },
+                                            { value: 120, label: "120" }
+                                        ]}
+                                        onChange={durationOnChange}
+                                        components={animatedComponents}
+                                        className="duration"
+                                        classNamePrefix="duration"
+                                        name="duration"
+                                    />
                                 </div>
 
                                 <div className="form-group">
