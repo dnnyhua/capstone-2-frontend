@@ -8,7 +8,8 @@ const AddPetFormModal = () => {
 
 
   const [showModal, setShowModal] = useState(false);
-  const [formData, setFormData] = useState({
+
+  const initialState = {
     ownerId: currUser.ownerId,
     name: '',
     breed: '',
@@ -17,9 +18,11 @@ const AddPetFormModal = () => {
     weight: '',
     friendlyWithDogs: false,
     friendlyWithChildren: false,
-    img: 'https://images.vexels.com/media/users/3/237182/isolated/preview/12d16be249ddb2b69cdfad39bbf58551-simple-cute-spotted-doodle-dog.png',
+    img: '',
     additionalDetails: ''
-  });
+  }
+
+  const [formData, setFormData] = useState(initialState);
 
   const handleInputChange = (e) => {
     setFormData({
@@ -32,18 +35,7 @@ const AddPetFormModal = () => {
     e.preventDefault();
 
     // Reset form data
-    setFormData({
-      ownerId: currUser.ownerId,
-      name: '',
-      breed: '',
-      age: '',
-      gender: '',
-      weight: '',
-      friendlyWithDogs: false,
-      friendlyWithChildren: false,
-      img: '',
-      additionalDetails: ''
-    });
+    setFormData(initialState);
 
     // Add new Pet to the database
     addPet(formData)

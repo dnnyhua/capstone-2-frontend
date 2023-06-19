@@ -11,6 +11,7 @@ const ProfileForm = () => {
         firstName: currUser.firstName,
         lastName: currUser.lastName,
         address: currUser.address,
+        profileImage: currUser.profileImage,
         email: currUser.email,
         city: currUser.city,
         state: currUser.state,
@@ -71,6 +72,19 @@ const ProfileForm = () => {
                         name="email"
                         placeholder="Email"
                         value={formData.email}
+                        onChange={handleChange}
+                        className="form-control"
+                    />
+                </div>
+
+                <div className="col-md-12 mb-3">
+                    <label htmlFor="profileImage">Profile Image (URL)</label>
+                    <input
+                        type="text"
+                        id="profileImage"
+                        name="profileImage"
+                        placeholder="profile image"
+                        value={formData.profileImage}
                         onChange={handleChange}
                         className="form-control"
                     />

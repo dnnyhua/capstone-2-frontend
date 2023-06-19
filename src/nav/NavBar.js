@@ -45,7 +45,7 @@ const NavBar = () => {
                             </li>
                             <li className="nav-item navPfp">
 
-                                <img className="navPfp" src="https://theanimalleague.org/wp-content/uploads/2022/03/The-Animal-League-Pet-Prom-King-and-Queen-Photo-Contest-1024x576.png" alt="" />
+                                <img className="navPfp" src={currUser.profileImage} alt="" />
 
 
                             </li>
