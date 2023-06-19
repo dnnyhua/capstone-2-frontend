@@ -1,4 +1,6 @@
 import React, { useState, useContext } from 'react';
+import Select from "react-select";
+
 import GlobalContext from '../helper/GlobalContext';
 import "./AddPetFormModal.css"
 
@@ -31,6 +33,14 @@ const AddPetFormModal = () => {
     });
   };
 
+  const genderOnChange = (selectedOption) => {
+    const gender = selectedOption.value;
+    setFormData({
+      ...formData,
+      gender: gender
+    })
+  }
+
   const handleFormSubmit = (e) => {
     e.preventDefault();
 
@@ -51,6 +61,8 @@ const AddPetFormModal = () => {
   const handleModalClose = () => {
     setShowModal(false);
   };
+
+
 
   return (
     <>
@@ -91,7 +103,7 @@ const AddPetFormModal = () => {
                 </div>
 
                 <div className="form-group">
-                  <label htmlFor="gender">Gender:</label>
+                  {/* <label htmlFor="gender">Gender:</label>
                   <select
                     id="gender"
                     name="gender"
@@ -102,7 +114,19 @@ const AddPetFormModal = () => {
                     <option value="">Select</option>
                     <option value="male">Male</option>
                     <option value="female">Female</option>
-                  </select>
+                  </select> */}
+
+
+                  <label htmlFor="gender">Gender: </label>
+                  <Select
+                    options={[
+                      { value: "male", label: "Male" },
+                      { value: "female", label: "Female" }
+                    ]}
+                    onChange={genderOnChange}
+                    className="gender"
+                    name="gender"
+                  />
                 </div>
 
                 <div className="form-group">

@@ -142,7 +142,6 @@ const AddJobFormModal = () => {
                                             { value: 120, label: "120" }
                                         ]}
                                         onChange={durationOnChange}
-                                        components={animatedComponents}
                                         className="duration"
                                         classNamePrefix="duration"
                                         name="duration"
