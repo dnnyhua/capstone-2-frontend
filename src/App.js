@@ -68,6 +68,11 @@ function App() {
     setLoading(true)
   }
 
+  async function registerNewUser(formData) {
+    const res = await Api.registerNewUser(formData)
+    setToken(res.token)
+  }
+
   async function userLogin(formData) {
     const res = await Api.userLogin(formData)
     setToken(res.token)
@@ -124,7 +129,7 @@ function App() {
             <Route exact path="/" element={<Home />} />
             <Route exact path="/about" element={<About />} />
             <Route exact path="/login" element={<Login />} />
-            <Route exact path="/signup" element={<SignUp />} />
+            <Route exact path="/signup" element={<SignUp registerNewUser={registerNewUser} />} />
             <Route exact path="/profile" element={<Profile />} />
             <Route exact path="/jobs/new" />
             <Route exact path="/jobs" />

@@ -17,7 +17,6 @@ const SchedulePage = () => {
 
     const [sortedPets, setSortedPets] = useState(null);
 
-
     async function getSchedulePageInfo() {
 
         const res = await Api.getJobById(id)

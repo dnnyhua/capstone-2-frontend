@@ -2,6 +2,7 @@ import axios from "axios";
 
 const BASE_URL = process.env.REACT_APP_BASE_URL || "http://localhost:3001";
 
+
 class Api {
     static token
 
@@ -27,6 +28,11 @@ class Api {
     }
 
     // Individual API routes
+
+    static async registerNewUser(formData) {
+        const res = await this.request(`auth/register`, formData, "post");
+        return res;
+    }
 
     static async getUserData(username) {
         const res = await this.request(`users/${username}`)
@@ -62,12 +68,9 @@ class Api {
     }
 
     static async getApplications(jobId, username) {
-        const queryString = `?username=${JSON.stringify(username)}`;
+        const queryString = `?username=${username}`;
         const res = await this.request(`jobs/${jobId}/applications${queryString}`)
         return res;
-
-
-
     }
 
 
@@ -91,7 +94,7 @@ class Api {
     }
 
     static async updatePetProfile(petId, username, formData) {
-        const queryString = `?username=${JSON.stringify(username)}`;
+        const queryString = `?username=${username}`;
         await this.request(`pets/${petId}${queryString}`, formData, "patch")
     }
 
