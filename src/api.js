@@ -39,11 +39,19 @@ class Api {
         const { role } = res.user
 
         if (role === "dog owner") {
-            const result = await this.request(`owners/${username}`)
+            const result = await this.request(`owners/${username}`);
             const { ownerId, pets, jobPostings } = result.owner;
             Object.assign(res.user, { pets, jobPostings, ownerId });
         }
+
+        if (role === "dog walker") {
+            const result = await this.request(`walkers/${username}`);
+            const { walkerId, appliedJobsIds } = result.walker;
+            Object.assign(res.user, { walkerId, appliedJobsIds });
+        }
+
         return res;
+
     }
 
     static async userLogin(formData) {
@@ -67,9 +75,8 @@ class Api {
 
     }
 
-    static async getApplications(jobId, username) {
-        const queryString = `?username=${username}`;
-        const res = await this.request(`jobs/${jobId}/applications${queryString}`)
+    static async getApplications(jobId) {
+        const res = await this.request(`jobs/${jobId}/applications`)
         return res;
     }
 
@@ -114,7 +121,11 @@ class Api {
 
     static async rejectWalker(jobId, walkerId) {
         await this.request(`jobs/reject/jobId/${jobId}/walkerId/${walkerId}`, {}, "patch")
+    }
 
+    static async getAppliedJobs(walkerId) {
+        const res = await this.request(`jobs/appliedJobs/walker/${walkerId}`)
+        return res;
     }
 
 }

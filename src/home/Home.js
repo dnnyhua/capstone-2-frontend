@@ -12,7 +12,7 @@ const Home = () => {
     // console.log(jobs)
     console.log(pets)
 
-    if (currUser) {
+    if (currUser && currUser.role === "dog owner") {
         return (
             <div className="Home">
                 <h1 className="title">Walkies</h1>
@@ -27,6 +27,23 @@ const Home = () => {
                         <h2>Your Pets</h2>
                         <PetsList pets={pets} />
                     </section>
+                </div>
+            </div>
+        )
+    }
+
+    if (currUser && currUser.role === "dog walker") {
+        return (
+            <div className="Home">
+                <h1 className="title">Walkies</h1>
+
+                <div className="body-info">
+                    <section className="scheduleContainer">
+                        <h2 className="mb-2">Upcoming Walks</h2>
+                        <ScheduleList jobs={jobs} currUser={currUser} />
+                    </section>
+
+
                 </div>
             </div>
         )

@@ -10,7 +10,7 @@ const Applications = () => {
     const [applications, setApplications] = useState([]);
 
     async function getApplications() {
-        const appRes = await Api.getApplications(id, currUser.username)
+        const appRes = await Api.getApplications(id)
         console.log(appRes.applications)
         setApplications(appRes.applications)
     }

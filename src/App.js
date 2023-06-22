@@ -31,7 +31,9 @@ function App() {
   const [jobs, setJobs] = useState()
 
   const [token, setToken] = useState(initalTokenState);
-  // const [appliedJobsIds, setAppliedJobsIds] = useState([])
+
+
+  const [appliedJobs, setAppliedJobs] = useState([])
 
   async function updateLocalStorage() {
     localStorage.setItem("token", JSON.stringify(token))
@@ -51,21 +53,15 @@ function App() {
         setJobs(await getJobs(user.ownerId))
       }
 
-
-
-
-
       if (user.role === "dog walker") {
+        console.log(user.walkerId)
+        setJobs(await getAppliedJobs(user.walkerId))
 
       }
 
-
-
-
-
-
     }
     setLoading(true)
+
   }
 
   async function registerNewUser(formData) {
@@ -80,6 +76,8 @@ function App() {
 
   async function userLogout() {
     setCurrUser(null)
+    setPets(null)
+    setJobs(null)
     localStorage.removeItem("token")
   }
 
@@ -107,6 +105,12 @@ function App() {
     // console.log(res)
   }
 
+  async function getAppliedJobs(walkerId) {
+    const res = await Api.getAppliedJobs(walkerId)
+    console.log(res.jobs)
+    return res.jobs
+  }
+
 
   useEffect(() => {
     setLoading(false);
@@ -115,6 +119,7 @@ function App() {
     setCurrUser();
   }, [token]
   )
+
 
   if (!Loading) return <h1>Loading...</h1>
 

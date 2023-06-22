@@ -9,8 +9,12 @@ const ScheduleList = ({ jobs }) => {
 
     return (
         <div className="ScheduleList">
-            <AddJobFormModal currUser={currUser} />
-            {jobs.map(job => (
+            {currUser.role === "dog owner" ?
+                <AddJobFormModal currUser={currUser} />
+                : ""
+            }
+
+            {jobs && jobs.map(job => (
                 <ScheduleCard
                     key={job.id}
                     id={job.id}
@@ -20,6 +24,7 @@ const ScheduleList = ({ jobs }) => {
                     status={job.status}
                 />
             ))}
+
         </div>
     )
 }
