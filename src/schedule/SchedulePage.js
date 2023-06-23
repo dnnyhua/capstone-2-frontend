@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import { useParams } from "react-router-dom";
 import Api from "../api";
-import SchedulePageJobInfo from "./SchedulePageScheduleInfo";
+import SchedulePageJobInfo from "./SchedulePageInfo";
 import PetThumbnail from "../pet/PetThumbnail";
 import { Link } from "react-router-dom";
 import "./SchedulePage.css"
@@ -16,6 +16,8 @@ const SchedulePage = () => {
     const [hiredWalker, setHiredWalker] = useState()
 
     const [sortedPets, setSortedPets] = useState(null);
+    const [isLoading, setIsLoading] = useState(true)
+
 
     async function getSchedulePageInfo() {
 
@@ -48,6 +50,24 @@ const SchedulePage = () => {
         getSchedulePageInfo();
     }, [])
 
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            setIsLoading(false);
+        }, 200);
+
+        return () => {
+            clearTimeout(timer);
+        };
+
+    }, []);
+
+    if (isLoading) {
+        return (
+            <div>
+            </div>
+        )
+    }
+
     // console.log(job)
     // console.log(pets)
     // console.log(applications)
@@ -56,11 +76,11 @@ const SchedulePage = () => {
 
 
     // Need loading transition so that there is enough time for setSortedPets to update state before everything can render
-    if (!sortedPets) {
-        return <div>
-            <h1>Loading...</h1>
-        </div>;
-    }
+    // if (!sortedPets) {
+    //     return <div>
+    //         <h1>Loading...</h1>
+    //     </div>;
+    // }
 
     return (
         <div>

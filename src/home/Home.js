@@ -3,14 +3,15 @@ import { Link } from "react-router-dom";
 import "./Home.css"
 import PetsList from "../pet/PetsList";
 import ScheduleList from "../schedule/ScheduleList";
+import WalkerScheduleList from "../walkerSchedule/WalkerScheduleList";
 import GlobalContext from "../helper/GlobalContext";
 
 
 const Home = () => {
     const { pets, jobs, currUser } = useContext(GlobalContext)
-    console.log(currUser)
+    // console.log(currUser)
     // console.log(jobs)
-    console.log(pets)
+    // console.log(pets)
 
     if (currUser && currUser.role === "dog owner") {
         return (
@@ -40,7 +41,7 @@ const Home = () => {
                 <div className="body-info">
                     <section className="scheduleContainer">
                         <h2 className="mb-2">Upcoming Walks</h2>
-                        <ScheduleList jobs={jobs} currUser={currUser} />
+                        < WalkerScheduleList jobs={jobs} />
                     </section>
 
 

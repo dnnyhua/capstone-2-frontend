@@ -9,6 +9,7 @@ import Profile from './profile/Profile';
 import SignUp from './signup/SignUp';
 import PetProfile from './pet/PetProfile';
 import SchedulePage from './schedule/SchedulePage';
+import WalkerSchedulePage from './walkerSchedule/WalkerSchedulePage';
 import PetProfileEdit from './pet/PetProfileEdit';
 import Applications from './applications/Applications';
 import About from './about/About';
@@ -24,7 +25,7 @@ function App() {
   // this is what will be stored if there is a token in localStorage -> {"token":"token_code"}
   let initalTokenState = JSON.parse(localStorage.getItem("token")) || null
 
-  const [Loading, setLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const [currUser, setCurrUser] = useState(null);
   const [pets, setPets] = useState(null)
@@ -60,7 +61,7 @@ function App() {
       }
 
     }
-    setLoading(true)
+    setIsLoading(true)
 
   }
 
@@ -113,15 +114,23 @@ function App() {
 
 
   useEffect(() => {
-    setLoading(false);
     updateLocalStorage();
     getCurrUserData();
     setCurrUser();
+    setIsLoading(false);
   }, [token]
   )
 
+  if (!isLoading) {
+    return (
+      <div>
+        <h1>Loading...</h1>
+      </div>
+    );
+  }
 
-  if (!Loading) return <h1>Loading...</h1>
+
+
 
   return (
     <BrowserRouter>
@@ -142,7 +151,7 @@ function App() {
             <Route exact path="/pets/profile/:petId" element={<PetProfile />}></Route>
             <Route exact path="/schedule/:id/applications" element={<Applications />}></Route>
 
-            <Route exact path="/schedule/:id" element={<SchedulePage />}></Route>
+            <Route exact path="/schedule/:id" element={currUser && currUser.role === "dog owner" ? <SchedulePage /> : <WalkerSchedulePage />}></Route>
 
           </Routes>
         </main>

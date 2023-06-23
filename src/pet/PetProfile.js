@@ -9,6 +9,7 @@ const PetProfile = () => {
     const { petId } = useParams();
     const [pet, setPet] = useState([])
     const [jobs, setJobs] = useState([])
+    const [isLoading, setIsLoading] = useState(true)
 
     async function setPetProfilePage() {
         const res = await Api.getPetProfile(petId)
@@ -29,6 +30,25 @@ const PetProfile = () => {
     useEffect(() => {
         setPetProfilePage()
     }, [])
+
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            setIsLoading(false);
+        }, 200)
+
+        return () => {
+            clearTimeout(timer);
+        };
+
+    }, []);
+
+    if (isLoading) {
+        return (
+            <div>
+
+            </div>
+        )
+    }
 
     return (
         <div className="PetProfile">

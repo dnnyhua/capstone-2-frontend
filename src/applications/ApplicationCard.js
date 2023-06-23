@@ -21,8 +21,8 @@ const ApplicationCard = ({ jobId, walkerId, status, firstName, lastName, ratePer
         }
     }
 
-    const handleHireBtn = () => {
-        hireWalker();
+    const handleHireBtn = async () => {
+        await hireWalker();
         getCurrUserData();
     }
 
