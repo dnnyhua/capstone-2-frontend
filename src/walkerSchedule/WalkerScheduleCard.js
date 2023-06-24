@@ -26,7 +26,7 @@ const WalkerScheduleCard = ({ id, date, time, duration, status }) => {
                         {duration} mins
                     </div>
                     <div className="col-md py-3 px-2">
-                        {status === "Walker Hired" ? "Hired" : status}
+                        {status}
                     </div>
                 </div>
             </div>

@@ -55,7 +55,6 @@ function App() {
       }
 
       if (user.role === "dog walker") {
-        console.log(user.walkerId)
         setJobs(await getAppliedJobs(user.walkerId))
 
       }

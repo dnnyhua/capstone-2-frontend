@@ -5,7 +5,6 @@ import WalkerScheduleCard from "./WalkerScheduleCard";
 
 const WalkerScheduleList = ({ jobs }) => {
     const { currUser } = useContext(GlobalContext);
-
     return (
         <div className="ScheduleList">
 

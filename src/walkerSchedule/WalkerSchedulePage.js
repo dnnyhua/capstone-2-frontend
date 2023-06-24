@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useContext } from "react";
 import { useParams } from "react-router-dom";
 import Api from "../api";
-import WalkerSchedulePageJobInfo from "./WalkerSchedulePageInfo";
-import PetThumbnail from "../pet/PetThumbnail";
-import { Link } from "react-router-dom";
+import WalkerSchedulePageInfo from "./WalkerSchedulePageInfo";
+// import PetThumbnail from "../pet/PetThumbnail";
+// import { Link } from "react-router-dom";
 import "./WalkerSchedulePage.css"
 import GlobalContext from "../helper/GlobalContext";
 
@@ -33,7 +33,7 @@ const WalkerSchedulePage = () => {
 
     useEffect(() => {
         getSchedulePageInfo();
-    }, [jobStatus])
+    }, [])
 
 
     useEffect(() => {
@@ -69,7 +69,7 @@ const WalkerSchedulePage = () => {
         <div>
             <section>
                 <h1>Walk Schedule for Walker</h1>
-                <WalkerSchedulePageJobInfo
+                <WalkerSchedulePageInfo
                     id={id}
                     date={job.date}
                     time={job.time}
