@@ -124,8 +124,13 @@ class Api {
     }
 
     static async getAppliedJobs(walkerId) {
-        const res = await this.request(`jobs/appliedJobs/walker/${walkerId}`)
+        const res = await this.request(`jobs/appliedJobs/walkerId/${walkerId}`)
         return res;
+    }
+
+    static async checkJobStatus(walkerId, jobId) {
+        const res = await this.request(`jobs/status/jobId/${jobId}/walkerId/${walkerId}`)
+        return res.job;
     }
 
 }

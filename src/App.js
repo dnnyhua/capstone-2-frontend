@@ -151,7 +151,13 @@ function App() {
             <Route exact path="/pets/profile/:petId" element={<PetProfile />}></Route>
             <Route exact path="/schedule/:id/applications" element={<Applications />}></Route>
 
-            <Route exact path="/schedule/:id" element={currUser && currUser.role === "dog owner" ? <SchedulePage /> : <WalkerSchedulePage />}></Route>
+            <Route exact path="/schedule/:id"
+              element={currUser && currUser.role === "dog owner" ? (
+                <SchedulePage />
+              ) : (
+                <WalkerSchedulePage />
+              )
+              }></Route>
 
           </Routes>
         </main>

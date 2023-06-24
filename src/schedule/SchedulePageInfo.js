@@ -16,6 +16,7 @@ const SchedulePageJobInfo = ({ date, time, duration, status, petIds, address, ci
 
     return (
         <div className="SchedulePage">
+            <h5>Status: {status}</h5>
             <h5>Date of walk: {formatedDate}</h5>
             <h5>Time of walk: {formattedTime}</h5>
             <h5>Length of walk: {duration} minutes</h5>
@@ -30,7 +31,6 @@ const SchedulePageJobInfo = ({ date, time, duration, status, petIds, address, ci
             <h5>City: {city}</h5>
             <h5>State: {state}</h5>
             <h5>Zipcode: {zipcode}</h5>
-            <h5>Status: {status}</h5>
 
         </div>
     )
