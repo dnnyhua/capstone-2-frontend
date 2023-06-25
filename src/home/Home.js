@@ -1,17 +1,41 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "./Home.css"
 import PetsList from "../pet/PetsList";
 import ScheduleList from "../schedule/ScheduleList";
 import WalkerScheduleList from "../walkerSchedule/WalkerScheduleList";
+import JobsList from "../jobs/JobsList";
 import GlobalContext from "../helper/GlobalContext";
-
+import Api from "../api";
 
 const Home = () => {
-    const { pets, jobs, currUser } = useContext(GlobalContext)
+    const { pets, jobs, allJobs, currUser } = useContext(GlobalContext)
+    const [isLoading, setIsLoading] = useState(true)
+
     // console.log(currUser)
     // console.log(jobs)
     // console.log(pets)
+    console.log(allJobs)
+
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            setIsLoading(false);
+        }, 500);
+
+        return () => {
+            clearTimeout(timer);
+        };
+
+    }, []);
+
+    if (isLoading) {
+        return (
+            <div>
+                <h1>Loading...</h1>
+            </div>
+        )
+    }
+
 
     if (currUser && currUser.role === "dog owner") {
         return (
@@ -43,12 +67,19 @@ const Home = () => {
                         <h2 className="mb-2">Upcoming Walks</h2>
                         < WalkerScheduleList jobs={jobs} />
                     </section>
-
-
                 </div>
+
+                <div className="jobs">
+                    <h1>Jobs</h1>
+                    <JobsList allJobs={allJobs} />
+                </div>
+
+
             </div>
         )
     }
+
+
 
 
     return (

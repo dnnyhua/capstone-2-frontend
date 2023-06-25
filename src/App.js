@@ -29,12 +29,18 @@ function App() {
 
   const [currUser, setCurrUser] = useState(null);
   const [pets, setPets] = useState(null)
+
+  // Jobs posted by the dog owner
   const [jobs, setJobs] = useState()
+
+  // Jobs post by ALL dog owners
+  const [allJobs, setAllJobs] = useState()
 
   const [token, setToken] = useState(initalTokenState);
 
 
-  const [appliedJobs, setAppliedJobs] = useState([])
+
+  // const [appliedJobs, setAppliedJobs] = useState([])
 
   async function updateLocalStorage() {
     localStorage.setItem("token", JSON.stringify(token))
@@ -55,7 +61,8 @@ function App() {
       }
 
       if (user.role === "dog walker") {
-        setJobs(await getAppliedJobs(user.walkerId))
+        await getAllJobs()
+        await getAppliedJobs(user.walkerId)
 
       }
 
@@ -92,6 +99,11 @@ function App() {
     return res.jobs
   }
 
+  async function getAllJobs() {
+    const res = await Api.getAllJobs()
+    setAllJobs(res);
+  }
+
   async function createJob(username, formData) {
     const res = await Api.createJob(username, formData)
     getCurrUserData()
@@ -107,16 +119,14 @@ function App() {
 
   async function getAppliedJobs(walkerId) {
     const res = await Api.getAppliedJobs(walkerId)
-    console.log(res.jobs)
-    return res.jobs
+    setJobs(res.jobs)
   }
 
 
   useEffect(() => {
     updateLocalStorage();
     getCurrUserData();
-    setCurrUser();
-    setIsLoading(false);
+
   }, [token]
   )
 
@@ -133,7 +143,7 @@ function App() {
 
   return (
     <BrowserRouter>
-      <GlobalContext.Provider value={{ currUser, pets, jobs, getCurrUserData, userLogin, userLogout, profileUpdate, addPet, createJob, getCurrUserData }}>
+      <GlobalContext.Provider value={{ currUser, pets, jobs, allJobs, getCurrUserData, userLogin, userLogout, profileUpdate, addPet, createJob, getCurrUserData }}>
         <header className="navBar" >
           <NavBar />
         </header>
@@ -144,8 +154,6 @@ function App() {
             <Route exact path="/login" element={<Login />} />
             <Route exact path="/signup" element={<SignUp registerNewUser={registerNewUser} />} />
             <Route exact path="/profile" element={<Profile />} />
-            <Route exact path="/jobs/new" />
-            <Route exact path="/jobs" />
             <Route exact path="/pets/profile/:petId/edit" element={<PetProfileEdit />}> </Route>
             <Route exact path="/pets/profile/:petId" element={<PetProfile />}></Route>
             <Route exact path="/schedule/:id/applications" element={<Applications />}></Route>

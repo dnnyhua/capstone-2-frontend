@@ -6,7 +6,7 @@ import WalkerScheduleCard from "./WalkerScheduleCard";
 const WalkerScheduleList = ({ jobs }) => {
     const { currUser } = useContext(GlobalContext);
     return (
-        <div className="ScheduleList">
+        <div className="WalkerScheduleList">
 
             {jobs && jobs.map(job => (
                 <WalkerScheduleCard
@@ -18,7 +18,6 @@ const WalkerScheduleList = ({ jobs }) => {
                     status={job.status}
                 />
             ))}
-
         </div>
     )
 }

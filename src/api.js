@@ -64,6 +64,12 @@ class Api {
         return res;
     }
 
+    static async getAllJobs() {
+        const res = await this.request(`jobs`)
+        console.log(res.jobs)
+        return res.jobs
+    }
+
     static async getJobs(ownerId) {
         const res = await this.request(`jobs/owner/${ownerId}`)
         return res;

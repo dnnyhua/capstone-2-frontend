@@ -1,18 +1,14 @@
-import React, { useContext, useState, useEffect } from "react";
+import React, { useContext } from "react";
 import moment from "moment";
 import GlobalContext from "../helper/GlobalContext";
 import "./SchedulePageInfo.css"
 
 
-const SchedulePageJobInfo = ({ date, time, duration, status, petIds, address, city, state, zipcode, ownerId }) => {
+const SchedulePageJobInfo = ({ date, time, duration, status, address, city, state, zipcode, ownerId }) => {
     const { currUser } = useContext(GlobalContext)
-
-    const [isHired, setIsHired] = useState(false)
-
 
     const formatedDate = moment(date).format('M-D-YYYY')
     const formattedTime = moment(time, 'HH:mm').format('h:mm A');
-
 
     return (
         <div className="SchedulePage">
@@ -22,11 +18,10 @@ const SchedulePageJobInfo = ({ date, time, duration, status, petIds, address, ci
             <h5>Length of walk: {duration} minutes</h5>
 
             {ownerId && ownerId === currUser.ownerId ? (
-                <>
-                    <h5 className="address" >Address: {address}</h5>
-
-                </>
-            ) : <h5>Address: Will reveal when hired </h5>
+                <h5 className="address" >Address: {address}</h5>
+            ) : (
+                <h5>Address: </h5>
+            )
             }
             <h5>City: {city}</h5>
             <h5>State: {state}</h5>
