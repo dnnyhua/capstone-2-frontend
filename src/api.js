@@ -133,16 +133,18 @@ class Api {
         return res.job;
     }
 
+    static async getMultiPetsProfile(ids) {
+        const queryString = `?petIds=${JSON.stringify(ids)}`;
+        const res = await this.request(`pets/ids${queryString}`);
+        // const res = await this.request(`pets/ids`, ids)
+        return res
+    }
+
+
 }
 
 
 
-// static async getMultiPetsProfile(ids) {
-//     const queryString = `?petIds=${JSON.stringify(ids)}`;
-//     const res = await this.request(`pets/ids${queryString}`);
-//     // const res = await this.request(`pets/ids`, ids)
-//     return res
-// }
 
 
 export default Api
