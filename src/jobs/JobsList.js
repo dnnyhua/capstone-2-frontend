@@ -1,18 +1,20 @@
 import React from "react";
 import JobCard from "./JobCard";
+import "./JobsList.css"
 
 const JobsList = ({ allJobs }) => {
     console.log(allJobs)
     return (
-        <div>
-            <h1>List of jobs will go below</h1>
+        <div className="JobsList" id="JobsList">
             {allJobs && allJobs.map(job => (
                 <JobCard
                     date={job.date}
                     time={job.time}
+                    duration={job.duration}
                     city={job.city}
                     state={job.state}
                     zipcode={job.zipcode}
+                    numPets={job.petIds.split(",")}
                 />
             ))}
         </div>
