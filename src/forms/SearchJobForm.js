@@ -24,6 +24,7 @@ const SearchJobform = () => {
         // searchFunction(query)
         console.log(query)
     }
+
     return (
         <div>
             <form onSubmit={handleSubmit} className="form-control">
@@ -53,12 +54,12 @@ const SearchJobform = () => {
                     value={query.zipcode}
                     onChange={handleChange}
                 />
+
                 <button type="submit">Search</button>
 
             </form>
         </div>
     )
-
 }
 
 export default SearchJobform;
