@@ -17,7 +17,7 @@ const JobCard = ({ date, time, city, state, zipcode, duration, numPets }) => {
             <h6>City: {city}</h6>
             <h6>State: {state}</h6>
             <h6>Zipcode: {zipcode}</h6>
-            <button className="btn btn-primary applyBtn">Apply</button>
+            <button className="btn applyBtn">Apply</button>
         </div>
     )
 }

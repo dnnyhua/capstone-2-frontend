@@ -18,4 +18,12 @@
     margin: 10px;
     padding: 10px 20px;
     border-radius: 8px;
+    background-color: #429485;
+    border-color: #429485;
+    color: white;
+}
+
+.applyBtn:hover {
+    background-color: #B8FFF2;
+    color: #429485;
 }

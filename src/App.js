@@ -123,6 +123,8 @@ function App() {
   }
 
 
+
+
   useEffect(() => {
     updateLocalStorage();
     getCurrUserData();

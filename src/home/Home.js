@@ -5,6 +5,7 @@ import PetsList from "../pet/PetsList";
 import ScheduleList from "../schedule/ScheduleList";
 import WalkerScheduleList from "../walkerSchedule/WalkerScheduleList";
 import JobsList from "../jobs/JobsList";
+import SearchJobform from "../forms/SearchJobForm";
 import GlobalContext from "../helper/GlobalContext";
 import Api from "../api";
 
@@ -70,7 +71,8 @@ const Home = () => {
                 </div>
 
                 <div className="jobs">
-                    <h1>Jobs</h1>
+                    <h1>Search Jobs</h1>
+                    <SearchJobform />
                     <JobsList allJobs={allJobs} />
                 </div>
 
