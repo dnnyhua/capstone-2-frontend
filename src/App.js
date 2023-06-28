@@ -131,7 +131,6 @@ function App() {
   useEffect(() => {
     updateLocalStorage();
     getCurrUserData();
-    setAllJobs();
 
   }, [token]
   )

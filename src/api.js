@@ -72,6 +72,7 @@ class Api {
 
     static async searchJob(query) {
 
+
         const queryString = `?city=${query.city}&state=${query.state}&zipcode=${query.zipcode}`;
         const res = await this.request(`jobs${queryString}`)
         console.log(res.jobs)

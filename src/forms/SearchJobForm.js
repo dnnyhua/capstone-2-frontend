@@ -3,9 +3,9 @@ import React, { useState } from "react";
 const SearchJobform = ({ searchJob }) => {
 
     const initialState = {
-        city: '',
-        state: '',
-        zipcode: ''
+        city: "",
+        state: "",
+        zipcode: ""
     }
     const [query, setQuery] = useState(initialState);
 
