@@ -70,6 +70,14 @@ class Api {
         return res.jobs
     }
 
+    static async searchJob(query) {
+
+        const queryString = `?city=${query.city}&state=${query.state}&zipcode=${query.zipcode}`;
+        const res = await this.request(`jobs${queryString}`)
+        console.log(res.jobs)
+        return res.jobs
+    }
+
     static async getJobs(ownerId) {
         const res = await this.request(`jobs/owner/${ownerId}`)
         return res;

@@ -10,7 +10,7 @@ import GlobalContext from "../helper/GlobalContext";
 import Api from "../api";
 
 const Home = () => {
-    const { pets, jobs, allJobs, currUser } = useContext(GlobalContext)
+    const { pets, jobs, allJobs, currUser, searchJob } = useContext(GlobalContext)
     const [isLoading, setIsLoading] = useState(true)
 
     // console.log(currUser)
@@ -72,7 +72,7 @@ const Home = () => {
 
                 <div className="jobs">
                     <h1>Search Jobs</h1>
-                    <SearchJobform />
+                    <SearchJobform searchJob={searchJob} />
                     <JobsList allJobs={allJobs} />
                 </div>
 

@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 
-const SearchJobform = () => {
+const SearchJobform = ({ searchJob }) => {
 
     const initialState = {
-        city: "",
-        state: "",
-        zipcode: ""
+        city: '',
+        state: '',
+        zipcode: ''
     }
     const [query, setQuery] = useState(initialState);
 
@@ -21,8 +21,8 @@ const SearchJobform = () => {
 
     const handleSubmit = (evt) => {
         evt.preventDefault()
-        // searchFunction(query)
         console.log(query)
+        searchJob(query)
     }
 
     return (

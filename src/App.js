@@ -26,7 +26,6 @@ function App() {
   let initalTokenState = JSON.parse(localStorage.getItem("token")) || null
 
   const [isLoading, setIsLoading] = useState(false);
-
   const [currUser, setCurrUser] = useState(null);
   const [pets, setPets] = useState(null)
 
@@ -37,8 +36,6 @@ function App() {
   const [allJobs, setAllJobs] = useState()
 
   const [token, setToken] = useState(initalTokenState);
-
-
 
   // const [appliedJobs, setAppliedJobs] = useState([])
 
@@ -104,6 +101,11 @@ function App() {
     setAllJobs(res);
   }
 
+  async function searchJob(query) {
+    const res = await Api.searchJob(query)
+    setAllJobs(res);
+  }
+
   async function createJob(username, formData) {
     const res = await Api.createJob(username, formData)
     getCurrUserData()
@@ -125,9 +127,11 @@ function App() {
 
 
 
+
   useEffect(() => {
     updateLocalStorage();
     getCurrUserData();
+    setAllJobs();
 
   }, [token]
   )
@@ -145,7 +149,7 @@ function App() {
 
   return (
     <BrowserRouter>
-      <GlobalContext.Provider value={{ currUser, pets, jobs, allJobs, getCurrUserData, userLogin, userLogout, profileUpdate, addPet, createJob, getCurrUserData }}>
+      <GlobalContext.Provider value={{ currUser, pets, jobs, allJobs, searchJob, getCurrUserData, userLogin, userLogout, profileUpdate, addPet, createJob, getCurrUserData }}>
         <header className="navBar" >
           <NavBar />
         </header>
