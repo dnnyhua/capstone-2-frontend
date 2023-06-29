@@ -4,6 +4,7 @@ import Api from "../api";
 import SchedulePageJobInfo from "./SchedulePageInfo";
 import PetThumbnail from "../pet/PetThumbnail";
 import { Link } from "react-router-dom";
+import EditJobFormModal from "../forms/EditJobFormModal";
 import "./SchedulePage.css"
 import GlobalContext from "../helper/GlobalContext";
 
@@ -45,6 +46,11 @@ const SchedulePage = () => {
 
     }
 
+    async function updateJob(username, JobId, formData) {
+        await Api.updateJob(username, JobId, formData)
+        getSchedulePageInfo();
+    }
+
 
     useEffect(() => {
         getSchedulePageInfo();
@@ -69,19 +75,11 @@ const SchedulePage = () => {
         )
     }
 
-    // console.log(job)
+    console.log(job)
     // console.log(pets)
     // console.log(applications)
     // console.log(sortedPets)
     console.log(hiredWalker)
-
-
-    // Need loading transition so that there is enough time for setSortedPets to update state before everything can render
-    // if (!sortedPets) {
-    //     return <div>
-    //         <h1>Loading...</h1>
-    //     </div>;
-    // }
 
     return (
         <div>
@@ -98,6 +96,7 @@ const SchedulePage = () => {
                     zipcode={job.zipcode}
                     ownerId={job.ownerId}
                 />
+                <EditJobFormModal job={job} updateJob={updateJob} />
 
                 {/* Only show button if there there are applications */}
                 {applications.length !== 0 ?

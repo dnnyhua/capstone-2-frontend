@@ -42,7 +42,7 @@ const WalkerSchedulePage = () => {
     useEffect(() => {
         const timer = setTimeout(() => {
             setIsLoading(false);
-        }, 500);
+        }, 100);
 
         return () => {
             clearTimeout(timer);
@@ -52,21 +52,11 @@ const WalkerSchedulePage = () => {
     if (isLoading) {
         return (
             <div>
-                <h1>Loading...</h1>
             </div>
         )
     }
     console.log(job)
     console.log(pets)
-
-
-    // Need loading transition so that there is enough time for setSortedPets to update state before everything can render
-    // if (!sortedPets) {
-    //     return <div>
-    //         <h1>Loading...</h1>
-    //     </div>;
-    // }
-
 
     return (
         <div>

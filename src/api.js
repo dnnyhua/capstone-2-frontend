@@ -71,8 +71,6 @@ class Api {
     }
 
     static async searchJob(query) {
-
-
         const queryString = `?city=${query.city}&state=${query.state}&zipcode=${query.zipcode}`;
         const res = await this.request(`jobs${queryString}`)
         console.log(res.jobs)
@@ -95,7 +93,6 @@ class Api {
         return res;
     }
 
-
     static async addPet(formData) {
         await this.request(`pets`, formData, "post")
     }
@@ -105,9 +102,13 @@ class Api {
         return res;
     }
 
-
     static async createJob(username, formData) {
         await this.request(`jobs/${username}`, formData, "post")
+    }
+
+    static async updateJob(username, jobId, formData) {
+        await this.request(`jobs/${username}/jobId/${jobId}`, formData, "patch")
+
     }
 
     static async getPetWalkSchedule(petId) {
@@ -120,10 +121,9 @@ class Api {
         await this.request(`pets/${petId}${queryString}`, formData, "patch")
     }
 
-    static async delete(petId, petName) {
+    static async deletePet(petId, petName) {
         await this.request(`pets/${petId}/${petName}`, {}, "delete")
     }
-
 
     static async hireWalker(jobId, walkerId) {
         await this.request(`jobs/hire/jobId/${jobId}/walkerId/${walkerId}`, {}, "patch")

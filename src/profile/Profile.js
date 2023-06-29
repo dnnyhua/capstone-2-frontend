@@ -1,6 +1,5 @@
 import React, { useContext } from "react";
 import ProfileForm from "../forms/ProfileForm";
-
 import GlobalContext from "../helper/GlobalContext";
 
 

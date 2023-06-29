@@ -4,32 +4,42 @@ import makeAnimated from "react-select/animated";
 import GlobalContext from '../helper/GlobalContext';
 import "./AddPetFormModal.css"
 
-
-const AddJobFormModal = () => {
+const EditJobFormModal = ({ job, updateJob }) => {
     // Other variables
-    const { currUser, createJob } = useContext(GlobalContext)
+    const { currUser } = useContext(GlobalContext)
     const animatedComponents = makeAnimated();
     const initialState = {
-        ownerId: currUser.ownerId,
-        date: '',
-        time: '',
-        duration: '',
-        petIds: '',
-        address: currUser.address,
-        city: currUser.city,
-        state: currUser.state,
-        zipcode: currUser.zipcode
+        date: job.date,
+        time: job.time,
+        duration: job.duration,
+        petIds: job.petIds,
+        address: job.address,
+        city: job.city,
+        state: job.state,
+        zipcode: job.zipcode
 
     }
 
     const [formData, setFormData] = useState(initialState);
     const [showModal, setShowModal] = useState(false);
-    const [pets, setPets] = useState(currUser.pets);
 
 
-    const options = pets ? pets.map(pet => (
+    const options = currUser.pets ? currUser.pets.map(pet => (
         { value: pet.id, label: pet.name }))
         : [];
+
+
+
+    // const currPetsSelected = currUser.pets.map((pet) => {
+    //     if (job.petIds.includes(pet.id)) {
+    //         return { value: pet.id, label: pet.name };
+    //     }
+    // })
+
+
+    // console.log(currPetsSelected)
+
+
 
     const handleInputChange = (e) => {
         setFormData({
@@ -46,6 +56,9 @@ const AddJobFormModal = () => {
         });
     };
 
+
+
+
     const durationOnChange = (selectedOption) => {
         const duration = selectedOption.value;
         setFormData({
@@ -60,8 +73,8 @@ const AddJobFormModal = () => {
         // Reset form data
         setFormData(initialState);
 
-        // Add new job to the database
-        createJob(currUser.username, formData)
+        // Update job to the database
+        updateJob(currUser.username, job.id, formData)
 
         // Close the modal
         setShowModal(false);
@@ -79,7 +92,7 @@ const AddJobFormModal = () => {
 
     return (
         <>
-            <button className="addJobBtn" onClick={handleModalOpen}>+</button>
+            <button className="addJobBtn" onClick={handleModalOpen}>Edit</button>
 
             <div className={`modal ${showModal ? 'show' : ''}`}>
                 <div className="modal-dialog">
@@ -140,6 +153,7 @@ const AddJobFormModal = () => {
                                             { value: 90, label: "90" },
                                             { value: 120, label: "120" }
                                         ]}
+                                        value={{ value: formData.duration, label: formData.duration.toString() }}
                                         onChange={durationOnChange}
                                         className="duration"
                                         classNamePrefix="duration"
@@ -166,6 +180,7 @@ const AddJobFormModal = () => {
                                         className="pet-ids"
                                         classNamePrefix="pet-ids"
                                         name="petIds"
+
                                     />
                                 </div>
 
@@ -213,7 +228,7 @@ const AddJobFormModal = () => {
                                     />
                                 </div>
 
-                                <button type="submit">Post Job</button>
+                                <button type="submit">Update Job</button>
                             </form>
                         </div>
                         <div className="modal-footer">
@@ -229,4 +244,4 @@ const AddJobFormModal = () => {
     );
 };
 
-export default AddJobFormModal;
+export default EditJobFormModal;

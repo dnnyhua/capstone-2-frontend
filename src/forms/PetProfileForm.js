@@ -51,38 +51,27 @@ const PetProfileForm = ({ pet, currUser }) => {
         }))
     }
 
-
     async function updatePetProfile(petId, username, formData) {
         const res = await Api.updatePetProfile(petId, username, formData)
     }
 
-
-
     const handleSubmit = (evt) => {
         evt.preventDefault();
         updatePetProfile(pet.id, currUser.username, formData)
-
-        // NEED TO CREATE ANOTHER async fucntion, API
-        // profileUpdate(currUser.username, formData)
         getCurrUserData();
-
         navigate(-1)
     }
 
     async function deletePetProfile(petId, petName, username) {
-        await Api.delete(petId, petName, username);
+        await Api.deletePet(petId, petName, username);
         getCurrUserData();
         navigate('/');
-
-
     }
 
     const handleDelete = (evt) => {
         evt.preventDefault();
         deletePetProfile(pet.id, pet.name, currUser.username)
-
     }
-
 
     return (
         <div className="ProfileForm ">
@@ -205,6 +194,7 @@ const PetProfileForm = ({ pet, currUser }) => {
                         rows="3">
                     </textarea>
                 </div>
+
                 <div >
                     <div className="col text-center">
                         <button type="submit" className="btn btn-primary">Update</button>
