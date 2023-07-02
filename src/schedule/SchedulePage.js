@@ -96,7 +96,11 @@ const SchedulePage = () => {
                     zipcode={job.zipcode}
                     ownerId={job.ownerId}
                 />
-                <EditJobFormModal job={job} updateJob={updateJob} />
+
+                {/* Only allow edit if no one has applied to the job yet. */}
+                {applications.length === 0 && (
+                    <EditJobFormModal job={job} updateJob={updateJob} />
+                )}
 
                 {/* Only show button if there there are applications */}
                 {applications.length !== 0 ?

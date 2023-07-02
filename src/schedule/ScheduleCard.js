@@ -9,6 +9,8 @@ const ScheduleCard = ({ id, date, time, duration, status }) => {
     const day = moment(formatedDate).format('dddd');
     const formattedTime = moment(time, 'HH:mm').format('h:mm A');
 
+    console.log(status)
+
     return (
         <Link to={`/schedule/${id}`} >
             <div className="ScheduleCard" id={id}>

@@ -96,6 +96,11 @@ function App() {
     return res.jobs
   }
 
+  async function getJobs2(ownerId, status) {
+    const res = await Api.getJobs2(ownerId, status)
+    setJobs(res.jobs)
+  }
+
   async function getAllJobs() {
     const res = await Api.getAllJobs()
     setAllJobs(res);
@@ -125,6 +130,10 @@ function App() {
   }
 
 
+  async function applyToJob(usernmae, jobId) {
+    await Api.applyToJob(usernmae, jobId)
+    await getAppliedJobs(currUser.walkerId)
+  }
 
 
 
@@ -148,7 +157,7 @@ function App() {
 
   return (
     <BrowserRouter>
-      <GlobalContext.Provider value={{ currUser, pets, jobs, allJobs, searchJob, getCurrUserData, userLogin, userLogout, profileUpdate, addPet, createJob, getCurrUserData }}>
+      <GlobalContext.Provider value={{ currUser, pets, jobs, allJobs, getJobs2, searchJob, applyToJob, getCurrUserData, userLogin, userLogout, profileUpdate, addPet, createJob, getCurrUserData }}>
         <header className="navBar" >
           <NavBar />
         </header>

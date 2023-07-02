@@ -29,14 +29,6 @@ const Home = () => {
 
     }, []);
 
-    // if (isLoading) {
-    //     return (
-    //         <div>
-    //             <h1>Loading...</h1>
-    //         </div>
-    //     )
-    // }
-
 
     if (currUser && currUser.role === "dog owner") {
         return (

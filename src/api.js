@@ -51,7 +51,6 @@ class Api {
         }
 
         return res;
-
     }
 
     static async userLogin(formData) {
@@ -82,11 +81,30 @@ class Api {
         return res;
     }
 
+    static async getJobs2(ownerId, status) {
+        const res = await this.request(`jobs/${status}/owner/${ownerId}`)
+        return res;
+    }
+
+    // static async getJobsScheduled(ownerId) {
+    //     const res = await this.request(`jobs/scheduled/owner/${ownerId}`)
+    //     return res
+    // }
+
+    // // pending applications or pending review
+    // static async getJobsPending(ownerId) {
+    //     const res = await this.request(`jobs/pending/owner/${ownerId}`)
+    //     return res
+    // }
+
+
+
+
     static async getJobById(jobId) {
         const res = await this.request(`jobs/${jobId}`)
         return res;
-
     }
+
 
     static async getApplications(jobId) {
         const res = await this.request(`jobs/${jobId}/applications`)
@@ -108,7 +126,10 @@ class Api {
 
     static async updateJob(username, jobId, formData) {
         await this.request(`jobs/${username}/jobId/${jobId}`, formData, "patch")
+    }
 
+    static async applyToJob(username, jobId) {
+        await this.request(`jobs/${username}/jobId/${jobId}`, {}, "post")
     }
 
     static async getPetWalkSchedule(petId) {
@@ -154,8 +175,6 @@ class Api {
         // const res = await this.request(`pets/ids`, ids)
         return res
     }
-
-
 }
 
 

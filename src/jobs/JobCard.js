@@ -1,6 +1,7 @@
 import React from "react";
 import moment from 'moment';
 import "./JobCard.css"
+import GlobalContext from "../helper/GlobalContext";
 
 
 
@@ -8,6 +9,7 @@ const JobCard = ({ date, time, city, state, zipcode, duration, numPets }) => {
     const formatedDate = moment(date).format('M-D-YYYY')
     const day = moment(formatedDate).format('dddd');
     const formattedTime = moment(time, 'HH:mm').format('h:mm A');
+    const { applyToJob } = GlobalContext
     return (
         <div className="JobCard" id="JobCard">
             <h5>{day} | {formatedDate}</h5>
@@ -17,7 +19,7 @@ const JobCard = ({ date, time, city, state, zipcode, duration, numPets }) => {
             <h6>City: {city}</h6>
             <h6>State: {state}</h6>
             <h6>Zipcode: {zipcode}</h6>
-            <button className="btn applyBtn">Apply</button>
+            <button className="btn applyBtn" onClick={applyToJob}>Apply</button>
         </div>
     )
 }

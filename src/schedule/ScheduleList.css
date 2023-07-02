@@ -12,3 +12,19 @@
     align-items: center;
     margin-bottom: 6px;
 }
+
+.sortingBtns {
+    margin: 5px;
+    padding: 10px;
+}
+
+.sortingBtn {
+    text-decoration: underline;
+    padding: 10px;
+    cursor: pointer;
+    color: white;
+}
+
+.sortingBtn:hover {
+    color: rgba(94, 212, 173, 0.4);
+}

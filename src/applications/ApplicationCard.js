@@ -40,12 +40,13 @@ const ApplicationCard = ({ jobId, walkerId, status, firstName, lastName, ratePer
     const handleRejectBtn = async () => {
         rejectWalker();
         getApplications();
-
     }
 
     useEffect(() => {
     }, [isRejected, setIsRejected, currStatus, getCurrUserData])
 
+
+    console.log(currStatus)
 
     return (
         <div className={`ApplicationCard ${currStatus === "Hired" ? "hired" : ""}`} >

@@ -19,6 +19,9 @@ const Applications = () => {
         getApplications();
     }, [])
 
+    useEffect(() => {
+    }, [applications]);
+
 
     return (
         <>

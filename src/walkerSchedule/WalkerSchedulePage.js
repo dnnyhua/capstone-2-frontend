@@ -74,8 +74,6 @@ const WalkerSchedulePage = () => {
                     zipcode={job.zipcode}
                     ownerId={job.ownerId}
                 />
-
-
             </section>
 
             <section>
@@ -88,7 +86,6 @@ const WalkerSchedulePage = () => {
                     />
                 ))}
             </section>
-
 
         </div>
     )
