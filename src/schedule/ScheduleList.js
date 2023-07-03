@@ -6,10 +6,10 @@ import GlobalContext from "../helper/GlobalContext";
 
 
 const ScheduleList = ({ jobs, currUser }) => {
-    const { getJobs2 } = useContext(GlobalContext)
+    const { getJobs } = useContext(GlobalContext)
 
     async function getFilteredJobs(status) {
-        await getJobs2(currUser.ownerId, status)
+        await getJobs(currUser.ownerId, status)
     }
 
     return (
@@ -19,6 +19,8 @@ const ScheduleList = ({ jobs, currUser }) => {
             <div className="sortingBtns">
                 <a className="sortingBtn" onClick={() => getFilteredJobs("scheduled")}>Scheduled</a>
                 <a className="sortingBtn" onClick={() => getFilteredJobs("pending")}>Pending</a>
+                <a className="sortingBtn" onClick={() => getFilteredJobs("all")}>All</a>
+
             </div>
 
             {jobs && jobs.map(job => (
@@ -31,7 +33,6 @@ const ScheduleList = ({ jobs, currUser }) => {
                     status={job.status}
                 />
             ))}
-
         </div>
     )
 }

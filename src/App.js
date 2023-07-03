@@ -54,13 +54,12 @@ function App() {
 
       if (user.role === "dog owner") {
         setPets(user.pets)
-        setJobs(await getJobs(user.ownerId))
+        getJobs(user.ownerId)
       }
 
       if (user.role === "dog walker") {
         await getAllJobs()
-        await getAppliedJobs(user.walkerId)
-
+        await getAppliedJobs(user.walkerId, 'scheduled', user.appliedJobsIds)
       }
 
     }
@@ -91,15 +90,15 @@ function App() {
     getCurrUserData()
   }
 
-  async function getJobs(ownerId) {
-    const res = await Api.getJobs(ownerId)
-    return res.jobs
-  }
-
-  async function getJobs2(ownerId, status) {
+  async function getJobs(ownerId, status = "scheduled") {
     const res = await Api.getJobs2(ownerId, status)
     setJobs(res.jobs)
   }
+
+  // async function getJobs2(ownerId, status = "scheduled") {
+  //   const res = await Api.getJobs2(ownerId, status)
+  //   setJobs(res.jobs)
+  // }
 
   async function getAllJobs() {
     const res = await Api.getAllJobs()
@@ -124,18 +123,15 @@ function App() {
     // console.log(res)
   }
 
-  async function getAppliedJobs(walkerId) {
-    const res = await Api.getAppliedJobs(walkerId)
+  async function getAppliedJobs(walkerId, status, jobIds) {
+    const res = await Api.getAppliedJobs2(walkerId, status, jobIds)
     setJobs(res.jobs)
   }
 
-
-  async function applyToJob(usernmae, jobId) {
-    await Api.applyToJob(usernmae, jobId)
-    await getAppliedJobs(currUser.walkerId)
+  async function applyToJob(username, jobId) {
+    await Api.applyToJob(username, jobId)
+    getCurrUserData();
   }
-
-
 
   useEffect(() => {
     updateLocalStorage();
@@ -157,7 +153,7 @@ function App() {
 
   return (
     <BrowserRouter>
-      <GlobalContext.Provider value={{ currUser, pets, jobs, allJobs, getJobs2, searchJob, applyToJob, getCurrUserData, userLogin, userLogout, profileUpdate, addPet, createJob, getCurrUserData }}>
+      <GlobalContext.Provider value={{ currUser, pets, jobs, allJobs, getJobs, getAppliedJobs, searchJob, applyToJob, getCurrUserData, userLogin, userLogout, profileUpdate, addPet, createJob, getCurrUserData }}>
         <header className="navBar" >
           <NavBar />
         </header>

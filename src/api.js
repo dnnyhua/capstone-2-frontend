@@ -86,20 +86,6 @@ class Api {
         return res;
     }
 
-    // static async getJobsScheduled(ownerId) {
-    //     const res = await this.request(`jobs/scheduled/owner/${ownerId}`)
-    //     return res
-    // }
-
-    // // pending applications or pending review
-    // static async getJobsPending(ownerId) {
-    //     const res = await this.request(`jobs/pending/owner/${ownerId}`)
-    //     return res
-    // }
-
-
-
-
     static async getJobById(jobId) {
         const res = await this.request(`jobs/${jobId}`)
         return res;
@@ -159,8 +145,23 @@ class Api {
         await this.request(`jobs/reject/jobId/${jobId}/walkerId/${walkerId}`, {}, "patch")
     }
 
-    static async getAppliedJobs(walkerId) {
-        const res = await this.request(`jobs/appliedJobs/walkerId/${walkerId}`)
+    static async getAppliedJobs(walkerId, status) {
+        const res = await this.request(`jobs/appliedJobs/${status}/walkerId/${walkerId}`)
+        return res;
+    }
+
+    static async getAppliedJobs2(walkerId, status, jobIds) {
+        console.log(walkerId)
+        console.log(status)
+        console.log(jobIds)
+        let queryString
+
+        if (jobIds !== undefined) {
+            queryString = `?jobIds=${JSON.stringify(jobIds)}`;
+        }
+        console.log(queryString)
+
+        const res = await this.request(`jobs/appliedJobs/${status}/walkerId/${walkerId}${queryString}`)
         return res;
     }
 
