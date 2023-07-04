@@ -6,16 +6,16 @@ import GlobalContext from "../helper/GlobalContext";
 
 const ApplicationCard = ({ jobId, walkerId, status, firstName, lastName, ratePer30min, getApplications }) => {
     const { getCurrUserData } = useContext(GlobalContext);
-
     const [isRejected, setIsRejected] = useState(false);
     const [currStatus, setCurrStatus] = useState(status)
-
+    const navigate = useNavigate()
 
     // THIS IS NOT RE_RENDERING
     async function hireWalker() {
         try {
             setCurrStatus("Hired")
             await Api.hireWalker(jobId, walkerId)
+            navigate(-1)
         } catch (err) {
             console.error("Error hiring walker:", err)
         }

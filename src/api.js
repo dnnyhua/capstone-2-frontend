@@ -114,8 +114,9 @@ class Api {
         await this.request(`jobs/${username}/jobId/${jobId}`, formData, "patch")
     }
 
-    static async applyToJob(username, jobId) {
-        await this.request(`jobs/${username}/jobId/${jobId}`, {}, "post")
+    static async applyToJob(currUser, jobId) {
+        const queryString = `?firstName=${currUser.firstName}&lastName=${currUser.lastName}&walkerId=${currUser.walkerId}`;
+        await this.request(`jobs/${currUser.username}/jobId/${jobId}${queryString}`, {}, "post")
     }
 
     static async getPetWalkSchedule(petId) {

@@ -13,7 +13,7 @@ const JobCard = ({ id, date, time, city, state, zipcode, duration, numPets }) =>
     const [applied, setApplied] = useState(false)
 
     async function apply() {
-        await applyToJob(currUser.username, id)
+        await applyToJob(currUser, id)
         setApplied(true)
     }
 
@@ -36,7 +36,7 @@ const JobCard = ({ id, date, time, city, state, zipcode, duration, numPets }) =>
             <h6>City: {city}</h6>
             <h6>State: {state}</h6>
             <h6>Zipcode: {zipcode}</h6>
-            <button className="btn applyBtn" onClick={apply} disabled={applied}>Apply</button>
+            <button className="btn applyBtn" onClick={apply} disabled={applied}>{applied === true ? "Applied" : "Apply"}</button>
         </div>
     )
 }

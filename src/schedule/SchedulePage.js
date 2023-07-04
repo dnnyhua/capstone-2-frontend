@@ -19,7 +19,6 @@ const SchedulePage = () => {
     const [sortedPets, setSortedPets] = useState(null);
     const [isLoading, setIsLoading] = useState(true)
 
-
     async function getSchedulePageInfo() {
 
         const res = await Api.getJobById(id)
@@ -43,14 +42,12 @@ const SchedulePage = () => {
             }
         });
         setSortedPets(petsToShow)
-
     }
 
     async function updateJob(username, JobId, formData) {
         await Api.updateJob(username, JobId, formData)
         getSchedulePageInfo();
     }
-
 
     useEffect(() => {
         getSchedulePageInfo();
