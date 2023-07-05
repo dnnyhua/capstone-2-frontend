@@ -44,3 +44,37 @@
     left: 92%;
     font-weight: bold;
 }
+
+
+.acknowledgmentModal {
+    opacity: 0;
+    visibility: hidden;
+    display: none;
+    position: fixed;
+    align-items: center;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    align-content: center;
+    z-index: 100;
+}
+
+.acknowledgmentModal.show {
+    opacity: 1;
+    visibility: visible;
+    display: flex;
+    align-items: center;
+
+}
+
+
+.modal-title {
+    color: black
+}
+
+p {
+    color: black
+}

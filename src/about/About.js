@@ -1,8 +1,9 @@
 import React from "react";
+import "./About.css"
 
 const About = () => {
     return (
-        <div>
+        <div className="About">
             <h1> Welcome to our dog-loving community! </h1>
             <p>At <b>Walkies</b>, we believe that every dog deserves the love, care, and attention they need, even when their owners can't be there. That's why we've created a special platform where dog owners like you can connect with passionate and reliable dog walkers who will treat your furry friends like their own.
             </p>

@@ -15,7 +15,9 @@ const ApplicationsList = ({ applications, getApplications }) => {
                     status={application.status}
                     firstName={application.firstName}
                     lastName={application.lastName}
-                    ratePer30min={application.ratePer30min}
+                    rate={application.rate}
+                    bio={application.bio}
+                    profileImage={application.profileImage}
                     getApplications={getApplications}
 
                 />
