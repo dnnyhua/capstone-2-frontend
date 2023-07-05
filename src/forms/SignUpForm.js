@@ -22,6 +22,9 @@ const SignUpForm = ({ registerNewUser }) => {
         registerNewUser(formData)
         navigate("/")
     }
+    console.log(formData)
+
+
 
     return (
         <div className="SignUpForm">
@@ -40,6 +43,23 @@ const SignUpForm = ({ registerNewUser }) => {
                         <option value="dog walker">Dog Walker</option>
                     </select>
                 </div>
+
+                {formData.role === "dog walker" ? (
+                    <div className="col-md-12 mb-3">
+                        <label htmlFor="rate">What is your rate per 30 min walk?</label>
+                        <input
+                            type="number"
+                            id="rate"
+                            min={15}
+                            name="rate"
+                            placeholder="20"
+                            value={formData.rate}
+                            onChange={handleChange}
+                            className="form-control"
+                        />
+                    </div>
+                ) : ("")}
+
 
                 <div className="col-md-12 mb-3">
                     <label htmlFor="username">Username</label>
@@ -170,6 +190,21 @@ const SignUpForm = ({ registerNewUser }) => {
                         className="form-control"
                     />
                 </div>
+
+                {formData.role === "dog walker" ? (
+                    <div className="col-md-12 mb-3">
+                        <label htmlFor="bio">Short Bio to let the fur parents know about you!</label>
+                        <input
+                            type="bio"
+                            id="bio"
+                            name="bio"
+                            placeholder="I am a huge dog lover. Grew up with dogs since I was 5 years old."
+                            value={formData.bio}
+                            onChange={handleChange}
+                            className="form-control"
+                        />
+                    </div>
+                ) : ("")}
 
                 <div >
                     <div className="col text-center">

@@ -2,6 +2,8 @@ import React, { useContext } from "react";
 import moment from "moment";
 import GlobalContext from "../helper/GlobalContext";
 import "./SchedulePageInfo.css"
+import capitalizeWords from "../helper/Capitalized";
+
 
 
 const SchedulePageJobInfo = ({ date, time, duration, status, address, city, state, zipcode, ownerId }) => {
@@ -18,13 +20,13 @@ const SchedulePageJobInfo = ({ date, time, duration, status, address, city, stat
             <h5>Length of walk: {duration} minutes</h5>
 
             {ownerId && ownerId === currUser.ownerId ? (
-                <h5 className="address" >Address: {address}</h5>
+                <h5 className="address" >Address: {capitalizeWords(address)}</h5>
             ) : (
                 <h5>Address: </h5>
             )
             }
-            <h5>City: {city}</h5>
-            <h5>State: {state}</h5>
+            <h5>City: {capitalizeWords(city)}</h5>
+            <h5>State: {capitalizeWords(state)}</h5>
             <h5>Zipcode: {zipcode}</h5>
 
         </div>

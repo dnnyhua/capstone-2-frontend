@@ -9,6 +9,7 @@ import "./SchedulePage.css"
 import GlobalContext from "../helper/GlobalContext";
 
 
+
 const SchedulePage = () => {
     const { pets, currUser } = useContext(GlobalContext);
     const { id } = useParams();
@@ -124,13 +125,13 @@ const SchedulePage = () => {
                     <section className="walkerContainer">
                         <div className="walkerBody">
                             <section>
-                                <img className="walkerImg" src="https://static.thenounproject.com/png/5034901-200.png" alt="profile picture" />
+                                <img className="walkerImg" src={hiredWalker.profileImage} alt="profile picture" />
                             </section>
 
                             <section className="walkerInfo">
                                 <h5>{hiredWalker.firstName} {hiredWalker.lastName}</h5>
 
-                                <h5>Rate: ${hiredWalker.ratePer30min} / 30 min</h5>
+                                <h5>Rate: ${hiredWalker.rate} / 30 min</h5>
                             </section>
                         </div>
                     </section>

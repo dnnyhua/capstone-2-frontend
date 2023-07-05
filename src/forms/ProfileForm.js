@@ -15,7 +15,9 @@ const ProfileForm = () => {
         email: currUser.email,
         city: currUser.city,
         state: currUser.state,
-        zipcode: currUser.zipcode
+        zipcode: currUser.zipcode,
+        bio: currUser.bio || null,
+        rate: currUser.rate || null
     }
 
     const [formData, setFormData] = useState(initialState)
@@ -38,6 +40,38 @@ const ProfileForm = () => {
     return (
         <div className="ProfileForm ">
             <form onSubmit={handleSubmit} className="form-control">
+
+                {currUser.role === "dog walker" ? (
+                    <>
+                        <div className="col-md-12 mb-3">
+                            <label htmlFor="bio">Bio</label>
+                            <input
+                                type="text"
+                                id="bio"
+                                name="bio"
+                                placeholder="bio"
+                                value={formData.bio}
+                                onChange={handleChange}
+                                className="form-control"
+                            />
+                        </div>
+
+                        <div className="col-md-12 mb-3">
+                            <label htmlFor="bio">Rate ($/30 min)</label>
+                            <input
+                                type="number"
+                                id="rate"
+                                name="rate"
+                                placeholder="Rate Per 30 Min"
+                                value={formData.rate}
+                                onChange={handleChange}
+                                className="form-control"
+                            />
+                        </div>
+                    </>
+                ) : null}
+
+
                 <div className="col-md-12 mb-3">
                     <label htmlFor="firstName">First Name</label>
                     <input

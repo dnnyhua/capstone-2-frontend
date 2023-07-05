@@ -115,7 +115,7 @@ class Api {
     }
 
     static async applyToJob(currUser, jobId) {
-        const queryString = `?firstName=${currUser.firstName}&lastName=${currUser.lastName}&walkerId=${currUser.walkerId}`;
+        const queryString = `?firstName=${currUser.firstName}&lastName=${currUser.lastName}&walkerId=${currUser.walkerId}&rate=${currUser.rate}&bio=${currUser.bio}&profileImage=${currUser.profileImage}`;
         await this.request(`jobs/${currUser.username}/jobId/${jobId}${queryString}`, {}, "post")
     }
 
@@ -152,9 +152,6 @@ class Api {
     }
 
     static async getAppliedJobs2(walkerId, status, jobIds) {
-        console.log(walkerId)
-        console.log(status)
-        console.log(jobIds)
         let queryString
 
         if (jobIds !== undefined) {
@@ -178,9 +175,5 @@ class Api {
         return res
     }
 }
-
-
-
-
 
 export default Api
