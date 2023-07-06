@@ -1,14 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useContext, useEffect } from "react";
+import GlobalContext from "../helper/GlobalContext";
 
-const SearchJobform = ({ searchJob }) => {
-
-    const initialState = {
-        city: "",
-        state: "",
-        zipcode: ""
-    }
-    const [query, setQuery] = useState(initialState);
-
+const SearchJobform = ({ searchJob, query, setQuery }) => {
 
     const handleChange = (evt) => {
         const { name, value } = evt.target
@@ -16,7 +9,6 @@ const SearchJobform = ({ searchJob }) => {
             ...data,
             [name]: value
         }))
-
     }
 
     const handleSubmit = (evt) => {
@@ -24,6 +16,10 @@ const SearchJobform = ({ searchJob }) => {
         console.log(query)
         searchJob(query)
     }
+
+    useEffect(() => {
+        searchJob(query)
+    }, [])
 
     return (
         <div>

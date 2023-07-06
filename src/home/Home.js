@@ -13,10 +13,29 @@ const Home = () => {
     const { pets, jobs, allJobs, currUser, searchJob } = useContext(GlobalContext)
     const [isLoading, setIsLoading] = useState(true)
 
-    // console.log(currUser)
+    // For pagination
+    const [page, setPage] = useState(1);
+    const [query, setQuery] = useState([]);
+
+    useEffect(() => {
+        if (currUser) {
+            const initialState = {
+                city: currUser.city,
+                state: currUser.state,
+                zipcode: currUser.zipcode
+            };
+            setQuery(initialState);
+        }
+    }, [currUser]);
+
+    useEffect(() => {
+        searchJob(query, page)
+    }, [page])
+
+
     // console.log(jobs)
     // console.log(pets)
-    console.log(allJobs)
+    // console.log(allJobs)
 
     useEffect(() => {
         const timer = setTimeout(() => {
@@ -29,6 +48,23 @@ const Home = () => {
 
     }, []);
 
+    const handlePrevPage = () => {
+        if (page > 1) {
+            setPage((prevPage) => prevPage - 1);
+        }
+    };
+
+    const handleNextPage = () => {
+        setPage((prevPage) => prevPage + 1);
+    };
+
+    if (isLoading) {
+        return (
+            <div>
+                <h1>Loading...</h1>
+            </div>
+        )
+    }
 
     if (currUser && currUser.role === "dog owner") {
         return (
@@ -64,17 +100,20 @@ const Home = () => {
 
                 <div className="jobs">
                     <h1>Search Jobs</h1>
-                    <SearchJobform searchJob={searchJob} />
+                    <SearchJobform
+                        searchJob={searchJob}
+                        query={query}
+                        setQuery={setQuery}
+                    />
                     <JobsList allJobs={allJobs} />
+                    <button onClick={handlePrevPage} disabled={page === 1}>Prev</button>
+                    <button onClick={handleNextPage} disabled={allJobs && allJobs.length < 10 || allJobs === undefined}>Next</button>
                 </div>
 
 
             </div>
         )
     }
-
-
-
 
     return (
         <div className="Home d-flex justify-content-center">
@@ -91,4 +130,5 @@ const Home = () => {
     )
 }
 
-export default Home 
+export default Home
+

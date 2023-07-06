@@ -29,21 +29,21 @@ function App() {
   const [currUser, setCurrUser] = useState(null);
   const [pets, setPets] = useState(null)
 
-  // Jobs posted by the dog owner
+  // Depending if logged in as a owner or walker: Jobs posted by the dog owner OR Jobs that walker applied to
   const [jobs, setJobs] = useState()
 
-  // Jobs post by ALL dog owners
+  // Jobs post by ALL dog owners. This will be used for walkers to search and apply to jobs
   const [allJobs, setAllJobs] = useState()
 
   const [token, setToken] = useState(initalTokenState);
-
-  // const [appliedJobs, setAppliedJobs] = useState([])
 
   async function updateLocalStorage() {
     localStorage.setItem("token", JSON.stringify(token))
   }
 
   async function getCurrUserData() {
+    setIsLoading(true)
+
     if (token) {
       Api.token = token;
       let { username } = jwt.decode(token)
@@ -58,12 +58,11 @@ function App() {
       }
 
       if (user.role === "dog walker") {
-        await getAllJobs()
+        // await getAllJobs()
         await getAppliedJobs(user.walkerId, 'scheduled', user.appliedJobsIds)
       }
 
     }
-    setIsLoading(true)
 
   }
 
@@ -105,8 +104,8 @@ function App() {
     setAllJobs(res);
   }
 
-  async function searchJob(query) {
-    const res = await Api.searchJob(query)
+  async function searchJob(query, page) {
+    const res = await Api.searchJob(query, page)
     setAllJobs(res);
   }
 
@@ -130,7 +129,9 @@ function App() {
 
   async function applyToJob(username, jobId) {
     await Api.applyToJob(username, jobId)
-    getCurrUserData();
+
+    // Flow seems better if page does not
+    // getCurrUserData();
   }
 
   useEffect(() => {
