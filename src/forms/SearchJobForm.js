@@ -3,6 +3,8 @@ import GlobalContext from "../helper/GlobalContext";
 
 const SearchJobform = ({ searchJob, query, setQuery }) => {
 
+    const { currUser } = useContext(GlobalContext)
+
     const handleChange = (evt) => {
         const { name, value } = evt.target
         setQuery(data => ({
@@ -18,7 +20,9 @@ const SearchJobform = ({ searchJob, query, setQuery }) => {
     }
 
     useEffect(() => {
-        searchJob(query)
+        if (currUser.role === "dog walker") {
+            searchJob(query)
+        }
     }, [])
 
     return (

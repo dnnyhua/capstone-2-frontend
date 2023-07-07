@@ -29,13 +29,10 @@ const Home = () => {
     }, [currUser]);
 
     useEffect(() => {
-        searchJob(query, page)
+        if (currUser && currUser.role === "dog walker") {
+            searchJob(query, page)
+        }
     }, [page])
-
-
-    // console.log(jobs)
-    // console.log(pets)
-    // console.log(allJobs)
 
     useEffect(() => {
         const timer = setTimeout(() => {
@@ -109,7 +106,6 @@ const Home = () => {
                     <button onClick={handlePrevPage} disabled={page === 1}>Prev</button>
                     <button onClick={handleNextPage} disabled={allJobs && allJobs.length < 10 || allJobs === undefined}>Next</button>
                 </div>
-
 
             </div>
         )

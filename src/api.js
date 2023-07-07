@@ -71,17 +71,12 @@ class Api {
 
     static async searchJob(query, page) {
         const queryString = `?city=${query.city}&state=${query.state}&zipcode=${query.zipcode}&page=${page}`;
-        const res = await this.request(`jobs/newAllJobs${queryString}`)
+        const res = await this.request(`jobs${queryString}`)
         console.log(res.jobs)
         return res.jobs
     }
 
-    static async getJobs(ownerId) {
-        const res = await this.request(`jobs/owner/${ownerId}`)
-        return res;
-    }
-
-    static async getJobs2(ownerId, status) {
+    static async getJobs(ownerId, status) {
         const res = await this.request(`jobs/${status}/owner/${ownerId}`)
         return res;
     }
@@ -90,7 +85,6 @@ class Api {
         const res = await this.request(`jobs/${jobId}`)
         return res;
     }
-
 
     static async getApplications(jobId) {
         const res = await this.request(`jobs/${jobId}/applications`)
@@ -146,12 +140,7 @@ class Api {
         await this.request(`jobs/reject/jobId/${jobId}/walkerId/${walkerId}`, {}, "patch")
     }
 
-    static async getAppliedJobs(walkerId, status) {
-        const res = await this.request(`jobs/appliedJobs/${status}/walkerId/${walkerId}`)
-        return res;
-    }
-
-    static async getAppliedJobs2(walkerId, status, jobIds) {
+    static async getAppliedJobs(walkerId, status, jobIds) {
         let queryString
 
         if (jobIds !== undefined) {

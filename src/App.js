@@ -14,10 +14,8 @@ import PetProfileEdit from './pet/PetProfileEdit';
 import Applications from './applications/Applications';
 import About from './about/About';
 
-
 import GlobalContext from './helper/GlobalContext';
 import Api from './api';
-
 import jwt from 'jsonwebtoken';
 
 
@@ -90,19 +88,14 @@ function App() {
   }
 
   async function getJobs(ownerId, status = "scheduled") {
-    const res = await Api.getJobs2(ownerId, status)
+    const res = await Api.getJobs(ownerId, status)
     setJobs(res.jobs)
   }
 
-  // async function getJobs2(ownerId, status = "scheduled") {
-  //   const res = await Api.getJobs2(ownerId, status)
-  //   setJobs(res.jobs)
+  // async function getAllJobs() {
+  //   const res = await Api.getAllJobs()
+  //   setAllJobs(res);
   // }
-
-  async function getAllJobs() {
-    const res = await Api.getAllJobs()
-    setAllJobs(res);
-  }
 
   async function searchJob(query, page) {
     const res = await Api.searchJob(query, page)
@@ -113,7 +106,6 @@ function App() {
     const res = await Api.createJob(username, formData)
     getCurrUserData()
     // console.log(res)
-
   }
 
   async function addPet(formData) {
@@ -123,21 +115,20 @@ function App() {
   }
 
   async function getAppliedJobs(walkerId, status, jobIds) {
-    const res = await Api.getAppliedJobs2(walkerId, status, jobIds)
+    const res = await Api.getAppliedJobs(walkerId, status, jobIds)
     setJobs(res.jobs)
   }
 
   async function applyToJob(username, jobId) {
     await Api.applyToJob(username, jobId)
 
-    // Flow seems better if page does not
+    // Flow seems better without the re-render. This resets the job search form
     // getCurrUserData();
   }
 
   useEffect(() => {
     updateLocalStorage();
     getCurrUserData();
-
   }, [token]
   )
 
@@ -148,9 +139,6 @@ function App() {
       </div>
     );
   }
-
-
-
 
   return (
     <BrowserRouter>
@@ -168,15 +156,14 @@ function App() {
             <Route exact path="/pets/profile/:petId/edit" element={<PetProfileEdit />}> </Route>
             <Route exact path="/pets/profile/:petId" element={<PetProfile />}></Route>
             <Route exact path="/schedule/:id/applications" element={<Applications />}></Route>
-
             <Route exact path="/schedule/:id"
               element={currUser && currUser.role === "dog owner" ? (
                 <SchedulePage />
               ) : (
                 <WalkerSchedulePage />
               )
-              }></Route>
-
+              }>
+            </Route>
           </Routes>
         </main>
       </GlobalContext.Provider>

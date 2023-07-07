@@ -3,7 +3,6 @@ import JobCard from "./JobCard";
 import "./JobsList.css"
 
 const JobsList = ({ allJobs }) => {
-    console.log(allJobs)
     return (
         <div className="JobsList" id="JobsList">
             {allJobs && allJobs.map(job => (
