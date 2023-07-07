@@ -2,7 +2,7 @@ import React, { useState, useContext } from 'react';
 import Select from "react-select";
 import makeAnimated from "react-select/animated";
 import GlobalContext from '../helper/GlobalContext';
-import "./AddPetFormModal.css"
+import "./AddJobFormModal.css"
 
 
 const AddJobFormModal = () => {
@@ -79,13 +79,13 @@ const AddJobFormModal = () => {
 
     return (
         <>
-            <button className="addJobBtn" onClick={handleModalOpen}>+</button>
+            <button className="btn addJobBtn" onClick={handleModalOpen}>+</button>
 
             <div className={`modal ${showModal ? 'show' : ''}`}>
                 <div className="modal-dialog">
                     <div className={`modal-content ${showModal ? 'show' : ''}`}>
                         <div className="modal-header">
-                            <h5 className="modal-title">Form Modal</h5>
+                            <h5 className="modal-title">Add Job</h5>
                             <button type="button" className="close" onClick={handleModalClose}>
                                 <span>&times;</span>
                             </button>
@@ -216,11 +216,11 @@ const AddJobFormModal = () => {
                                 <button type="submit">Post Job</button>
                             </form>
                         </div>
-                        <div className="modal-footer">
+                        {/* <div className="modal-footer">
                             <button type="button" className="btn btn-secondary" onClick={handleModalClose}>
                                 Close
                             </button>
-                        </div>
+                        </div> */}
                     </div>
                 </div>
             </div>

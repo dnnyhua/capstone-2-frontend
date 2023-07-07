@@ -1,30 +1,24 @@
-.addJobBtn {
-    width: 100%;
-    height: 50px;
-    border-radius: 20px;
-    background-color: rgba(94, 212, 173, 0.4);
-    font-size: xx-large;
-    font-weight: bolder;
-    color: white;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 6px;
+.ScheduleList {
+    overflow-y: auto;
+    overflow-x: hidden;
+    max-height: 285px;
 }
 
-.sortingBtns {
-    margin: 5px;
-    padding: 10px;
+.ScheduleList::-webkit-scrollbar {
+    width: 10px;
 }
 
-.sortingBtn {
-    text-decoration: underline;
-    padding: 10px;
-    cursor: pointer;
-    color: white;
+/* Track */
+.ScheduleList::-webkit-scrollbar-track {
+    background: #f1f1f1;
 }
 
-.sortingBtn:hover {
-    color: rgba(94, 212, 173, 0.4);
+/* Handle */
+.ScheduleList::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+/* Handle on hover */
+.ScheduleList::-webkit-scrollbar-thumb:hover {
+    background: #555;
 }

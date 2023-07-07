@@ -1,3 +1,29 @@
+.addJobBtn {
+    width: 35px;
+    height: 36px;
+    border-radius: 50%;
+    border: 3px solid rgb(94, 212, 173);
+    font-size: 21px;
+    font-weight: 900;
+    color: rgb(94, 212, 173);
+    margin-bottom: 6px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    justify-content: center;
+    position: absolute;
+    top: 28px;
+    left: 280px;
+}
+
+.addJobBtn:hover {
+    color: white;
+    background-color: rgb(94, 212, 173);
+
+}
+
+
 .modal {
     opacity: 0;
     visibility: hidden;
@@ -43,11 +69,11 @@
     visibility: visible;
 }
 
-.duration__control {
+/* .duration__control {
     width: 10px;
 }
 
 .css-13cymwt-control {
     width: 10px;
 
-}
+} */

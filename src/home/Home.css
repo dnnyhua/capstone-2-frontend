@@ -3,8 +3,6 @@
     display: flex;
     width: auto;
     height: 100%;
-    /* background-color: green; */
-
     flex-direction: column;
     flex-wrap: wrap;
     position: relative;
@@ -17,17 +15,17 @@
     height: auto;
     margin-top: 50px;
     font-size: 40px;
-    text-shadow: 0 0 5px #000000, 0 0 5px #000000;
+    text-shadow: 0 0 5px #000000, 0 0 3px #000000;
 }
 
-.body-info {
+.Home-body {
     position: absolute;
     display: block;
-    width: auto;
+    width: 700px;
     height: auto;
     margin-top: 125px;
     padding: 20px;
-    background-color: rgba(125, 125, 125, 0.3);
+    background-color: rgba(125, 125, 125);
     border-radius: 20px;
 }
 
@@ -36,12 +34,10 @@
 }
 
 
-
-
 .petsContainer {
+    margin-top: 20px;
     width: inherit;
     max-height: 500px;
-
 }
 
 .jobs {
@@ -51,4 +47,22 @@
     border-radius: 20px;
     padding: 5px;
     margin-top: 510px;
+}
+
+
+.sortingBtns {
+    margin: 5px;
+    padding: 10px;
+    text-align: center;
+}
+
+.sortingBtn {
+    text-decoration: underline;
+    padding: 10px;
+    cursor: pointer;
+    color: white;
+}
+
+.sortingBtn:hover {
+    color: rgb(94, 212, 173);
 }

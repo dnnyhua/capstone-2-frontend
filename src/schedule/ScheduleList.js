@@ -14,15 +14,11 @@ const ScheduleList = ({ jobs, currUser }) => {
 
     return (
         <div className="ScheduleList">
-            <AddJobFormModal currUser={currUser} />
-
-            <div className="sortingBtns">
+            {/* <div className="sortingBtns">
                 <a className="sortingBtn" onClick={() => getFilteredJobs("scheduled")}>Scheduled</a>
                 <a className="sortingBtn" onClick={() => getFilteredJobs("pending")}>Pending</a>
                 <a className="sortingBtn" onClick={() => getFilteredJobs("all")}>All</a>
-
-            </div>
-
+            </div> */}
             {jobs && jobs.map(job => (
                 <ScheduleCard
                     key={job.id}

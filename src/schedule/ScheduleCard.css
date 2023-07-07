@@ -8,6 +8,10 @@
 
 }
 
+.dow {
+    font-weight: bold;
+}
+
 .ScheduleList {
     text-align: center;
 }
@@ -15,4 +19,15 @@
 .ScheduleList>a {
     color: white;
     text-decoration: none;
+}
+
+.row {
+    white-space: nowrap;
+    padding: 0px 15px 0px 15px;
+    display: flex;
+    align-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
 }

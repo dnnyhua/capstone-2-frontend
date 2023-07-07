@@ -208,14 +208,14 @@ const AddPetFormModal = () => {
                   </textarea>
                 </div>
 
-                <button type="submit">Add</button>
+                <button type="submit">Add Pet</button>
               </form>
             </div>
-            <div className="modal-footer">
+            {/* <div className="modal-footer">
               <button type="button" className="btn btn-secondary" onClick={handleModalClose}>
                 Close
               </button>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

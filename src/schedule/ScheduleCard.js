@@ -15,19 +15,19 @@ const ScheduleCard = ({ id, date, time, duration, status }) => {
         <Link to={`/schedule/${id}`} >
             <div className="ScheduleCard" id={id}>
                 <div className="row ">
-                    <div className="col-md py-3 px-2">
-                        {day}
+                    <div className="col-md-2 py-3 px-3 dow">
+                        <img src="../images/dog-paw-icon.png" alt="" />{day}
                     </div>
-                    <div className="col-md py-3 px-2">
+                    <div className="col-md-2 py-3 px-3">
                         {formatedDate}
                     </div>
-                    <div className="col-md py-3 px-2">
+                    <div className="col-md-2 py-3 px-3">
                         {formattedTime}
                     </div>
-                    <div className="col-md py-3 px-2">
+                    <div className="col-md-2 py-3 px-3">
                         {duration} mins
                     </div>
-                    <div className="col-md py-3 px-2">
+                    <div className="col-md-2 py-3 px-3">
                         {status}
                     </div>
                 </div>

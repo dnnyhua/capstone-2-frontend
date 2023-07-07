@@ -6,16 +6,22 @@ import ScheduleList from "../schedule/ScheduleList";
 import WalkerScheduleList from "../walkerSchedule/WalkerScheduleList";
 import JobsList from "../jobs/JobsList";
 import SearchJobform from "../forms/SearchJobForm";
+import AddJobFormModal from "../forms/AddJobFormModal";
+
 import GlobalContext from "../helper/GlobalContext";
 import Api from "../api";
 
 const Home = () => {
-    const { pets, jobs, allJobs, currUser, searchJob } = useContext(GlobalContext)
+    const { pets, jobs, allJobs, currUser, searchJob, getJobs } = useContext(GlobalContext)
     const [isLoading, setIsLoading] = useState(true)
 
     // For pagination
     const [page, setPage] = useState(1);
     const [query, setQuery] = useState([]);
+
+    async function getFilteredJobs(status) {
+        await getJobs(currUser.ownerId, status)
+    }
 
     useEffect(() => {
         if (currUser) {
@@ -68,9 +74,15 @@ const Home = () => {
             <div className="Home">
                 <h1 className="title">Walkies</h1>
 
-                <div className="body-info">
+                <div className="Home-body">
                     <section className="scheduleContainer">
                         <h2 className="mb-2">Upcoming Walks</h2>
+                        <AddJobFormModal currUser={currUser} />
+                        <div className="sortingBtns">
+                            <a className="sortingBtn" onClick={() => getFilteredJobs("scheduled")}>Scheduled</a>
+                            <a className="sortingBtn" onClick={() => getFilteredJobs("pending")}>Pending</a>
+                            <a className="sortingBtn" onClick={() => getFilteredJobs("all")}>All</a>
+                        </div>
                         <ScheduleList jobs={jobs} currUser={currUser} />
                     </section>
 
@@ -88,7 +100,7 @@ const Home = () => {
             <div className="Home">
                 <h1 className="title">Walkies</h1>
 
-                <div className="body-info">
+                <div className="Home-body">
                     <section className="scheduleContainer">
                         <h2 className="mb-2">Upcoming Walks</h2>
                         < WalkerScheduleList jobs={jobs} />
