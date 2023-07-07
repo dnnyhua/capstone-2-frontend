@@ -5,6 +5,7 @@
     width: auto;
     height: auto;
     border-radius: 20px;
+    padding-right: 35px;
 
 }
 
@@ -30,4 +31,9 @@
     flex-wrap: wrap;
     flex-direction: row;
     justify-content: center;
+}
+
+
+.dogPawIcon {
+    width: 50px;
 }

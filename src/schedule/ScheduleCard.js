@@ -1,6 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./ScheduleCard.css"
+import dogPawIcon from '../images/dog-paw-icon.png';
+
 
 import moment from 'moment';
 
@@ -15,8 +17,9 @@ const ScheduleCard = ({ id, date, time, duration, status }) => {
         <Link to={`/schedule/${id}`} >
             <div className="ScheduleCard" id={id}>
                 <div className="row ">
+                    <img src={dogPawIcon} className="dogPawIcon" alt="" />
                     <div className="col-md-2 py-3 px-3 dow">
-                        <img src="../images/dog-paw-icon.png" alt="" />{day}
+                        {day}
                     </div>
                     <div className="col-md-2 py-3 px-3">
                         {formatedDate}
