@@ -65,13 +65,13 @@ const Home = () => {
         setPage((prevPage) => prevPage + 1);
     };
 
-    if (isLoading) {
-        return (
-            <div>
-                <h1>Loading...</h1>
-            </div>
-        )
-    }
+    // if (isLoading) {
+    //     return (
+    //         <div>
+    //             <h1>Loading...</h1>
+    //         </div>
+    //     )
+    // }
 
     if (currUser && currUser.role === "dog owner") {
         return (
@@ -101,11 +101,11 @@ const Home = () => {
 
     if (currUser && currUser.role === "dog walker") {
         return (
-            <div className="Home-Walker">
+            <div className="Home-walker">
                 <h1 className="title">Walkies</h1>
 
-                <div className="Home-Walker-body">
-                    <section className="scheduleContainer">
+                <div className="Home-walker-body">
+                    <section className="walker-scheduleContainer">
                         <h2 className="mb-2">Upcoming Walks</h2>
                         <div className="sortingBtns">
                             <a className="sortingBtn" onClick={() => getFilteredJobsWalker("scheduled")}>Scheduled</a>
@@ -120,6 +120,7 @@ const Home = () => {
                             searchJob={searchJob}
                             query={query}
                             setQuery={setQuery}
+                            setPage={setPage}
                         />
                         <JobsList allJobs={allJobs} />
                         <div className="NxtPrevBtnGrp">

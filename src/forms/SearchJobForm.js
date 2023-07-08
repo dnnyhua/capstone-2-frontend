@@ -2,7 +2,7 @@ import React, { useContext, useEffect } from "react";
 import GlobalContext from "../helper/GlobalContext";
 import './SearchJobForm.css'
 
-const SearchJobform = ({ searchJob, query, setQuery }) => {
+const SearchJobform = ({ searchJob, query, setQuery, setPage }) => {
 
     const { currUser } = useContext(GlobalContext)
 
@@ -16,7 +16,7 @@ const SearchJobform = ({ searchJob, query, setQuery }) => {
 
     const handleSubmit = (evt) => {
         evt.preventDefault()
-        console.log(query)
+        setPage(1)
         searchJob(query)
     }
 

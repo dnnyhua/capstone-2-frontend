@@ -7,7 +7,6 @@ import PetThumbnail from "../pet/PetThumbnail";
 import "./WalkerSchedulePage.css"
 import GlobalContext from "../helper/GlobalContext";
 
-
 const WalkerSchedulePage = () => {
     const { currUser } = useContext(GlobalContext);
     const { id } = useParams();
@@ -15,7 +14,6 @@ const WalkerSchedulePage = () => {
     const [pets, setPets] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
     const [jobStatus, setJobStatus] = useState();
-
 
     async function getPageInfo() {
 
@@ -31,13 +29,11 @@ const WalkerSchedulePage = () => {
         // Get pets that are going on the walk to display on page
         const petsRes = await Api.getMultiPetsProfile(res.job[0].petIds)
         setPets(petsRes.pets)
-
     }
 
     useEffect(() => {
         getPageInfo();
     }, [])
-
 
     useEffect(() => {
         const timer = setTimeout(() => {

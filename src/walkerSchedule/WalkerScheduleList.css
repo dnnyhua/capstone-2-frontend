@@ -3,6 +3,7 @@
     overflow-x: hidden;
     max-height: 266px;
     text-align: center;
+    margin-top: 10px;
 }
 
 .WalkerScheduleList>a {
@@ -10,10 +11,8 @@
     text-decoration: none;
 }
 
-
 .WalkerScheduleList::-webkit-scrollbar {
     width: 10px;
-
 }
 
 /* Track */

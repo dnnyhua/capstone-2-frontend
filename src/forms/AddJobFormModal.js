@@ -75,8 +75,6 @@ const AddJobFormModal = () => {
         setShowModal(false);
     };
 
-
-
     return (
         <>
             <button className="btn addJobBtn" onClick={handleModalOpen}>+</button>
