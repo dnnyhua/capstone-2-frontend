@@ -5,32 +5,40 @@
     height: 100%;
     flex-direction: column;
     flex-wrap: wrap;
-    position: relative;
     align-items: center;
-
 }
+
 
 .title {
     width: auto;
     height: auto;
-    margin-top: 50px;
+    margin-top: 15px;
     font-size: 40px;
     text-shadow: 0 0 5px #000000, 0 0 3px #000000;
 }
 
-.Home-body {
-    position: absolute;
-    display: block;
-    width: 700px;
+.Home-Walker-body {
+    position: relative;
+    display: flex;
+    width: 1360px;
     height: auto;
-    margin-top: 125px;
-    padding: 20px;
-    background-color: rgba(125, 125, 125);
+    margin-top: 25px;
+    padding: 30px 0px 30px 0px;
     border-radius: 20px;
+    margin: auto;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
 }
 
 .scheduleContainer {
-    padding: 5px;
+    background-color: rgba(125, 125, 125);
+    border-radius: 20px;
+    padding: 1rem 1rem;
+    height: 400px;
+    margin-right: 20px;
+    width: 500px;
+    text-align: center;
 }
 
 
@@ -41,12 +49,14 @@
 }
 
 .jobs {
-    position: absolute;
-    width: auto;
-    background-color: rgba(125, 125, 125, 0.3);
+    background-color: rgba(125, 125, 125);
     border-radius: 20px;
-    padding: 5px;
-    margin-top: 510px;
+    padding: 0rem 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 550px;
 }
 
 
@@ -65,4 +75,12 @@
 
 .sortingBtn:hover {
     color: rgb(94, 212, 173);
+}
+
+.NxtPrevBtnGrp {
+    display: flex;
+}
+
+.NxtPrevBtnGrp button {
+    margin: 10px;
 }

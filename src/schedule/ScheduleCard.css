@@ -1,12 +1,16 @@
 .ScheduleCard {
     display: block;
-    background-color: rgb(94, 212, 173);
+    background-color: rgb(63, 184, 167);
     margin-top: 10px;
     width: auto;
     height: auto;
     border-radius: 20px;
     padding-right: 35px;
 
+}
+
+.ScheduleCard:hover {
+    background-color: rgb(94, 212, 173);
 }
 
 .dow {

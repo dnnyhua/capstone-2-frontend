@@ -1,1 +1,28 @@
-.JobsList {}
+.JobsList {
+    max-height: 822px;
+    overflow-x: hidden;
+    /* overflow-y: scroll; */
+    padding: 0px 1px 0px 0px;
+
+}
+
+
+.JobsList::-webkit-scrollbar {
+    width: 10px;
+
+}
+
+/* Track */
+.JobsList::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+/* Handle */
+.JobsList::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+/* Handle on hover */
+.JobsList::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}

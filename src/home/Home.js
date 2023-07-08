@@ -12,15 +12,19 @@ import GlobalContext from "../helper/GlobalContext";
 import Api from "../api";
 
 const Home = () => {
-    const { pets, jobs, allJobs, currUser, searchJob, getJobs } = useContext(GlobalContext)
+    const { pets, jobs, allJobs, currUser, searchJob, getJobs, getAppliedJobs } = useContext(GlobalContext)
     const [isLoading, setIsLoading] = useState(true)
 
     // For pagination
     const [page, setPage] = useState(1);
     const [query, setQuery] = useState([]);
 
-    async function getFilteredJobs(status) {
+    async function getFilteredJobsOwner(status) {
         await getJobs(currUser.ownerId, status)
+    }
+
+    async function getFilteredJobsWalker(status) {
+        await getAppliedJobs(currUser.walkerId, status, currUser.appliedJobsIds)
     }
 
     useEffect(() => {
@@ -79,9 +83,9 @@ const Home = () => {
                         <h2 className="mb-2">Upcoming Walks</h2>
                         <AddJobFormModal currUser={currUser} />
                         <div className="sortingBtns">
-                            <a className="sortingBtn" onClick={() => getFilteredJobs("scheduled")}>Scheduled</a>
-                            <a className="sortingBtn" onClick={() => getFilteredJobs("pending")}>Pending</a>
-                            <a className="sortingBtn" onClick={() => getFilteredJobs("all")}>All</a>
+                            <a className="sortingBtn" onClick={() => getFilteredJobsOwner("scheduled")}>Scheduled</a>
+                            <a className="sortingBtn" onClick={() => getFilteredJobsOwner("pending")}>Pending</a>
+                            <a className="sortingBtn" onClick={() => getFilteredJobsOwner("all")}>All</a>
                         </div>
                         <ScheduleList jobs={jobs} currUser={currUser} />
                     </section>
@@ -97,26 +101,32 @@ const Home = () => {
 
     if (currUser && currUser.role === "dog walker") {
         return (
-            <div className="Home">
+            <div className="Home-Walker">
                 <h1 className="title">Walkies</h1>
 
-                <div className="Home-body">
+                <div className="Home-Walker-body">
                     <section className="scheduleContainer">
                         <h2 className="mb-2">Upcoming Walks</h2>
+                        <div className="sortingBtns">
+                            <a className="sortingBtn" onClick={() => getFilteredJobsWalker("scheduled")}>Scheduled</a>
+                            <a className="sortingBtn" onClick={() => getFilteredJobsWalker("pending")}>Pending</a>
+                            <a className="sortingBtn" onClick={() => getFilteredJobsWalker("archived")}>Archived</a>
+                        </div>
                         < WalkerScheduleList jobs={jobs} />
                     </section>
-                </div>
 
-                <div className="jobs">
-                    <h1>Search Jobs</h1>
-                    <SearchJobform
-                        searchJob={searchJob}
-                        query={query}
-                        setQuery={setQuery}
-                    />
-                    <JobsList allJobs={allJobs} />
-                    <button onClick={handlePrevPage} disabled={page === 1}>Prev</button>
-                    <button onClick={handleNextPage} disabled={allJobs && allJobs.length < 10 || allJobs === undefined}>Next</button>
+                    <div className="jobs">
+                        <SearchJobform
+                            searchJob={searchJob}
+                            query={query}
+                            setQuery={setQuery}
+                        />
+                        <JobsList allJobs={allJobs} />
+                        <div className="NxtPrevBtnGrp">
+                            <button onClick={handlePrevPage} disabled={page === 1}>Prev</button>
+                            <button onClick={handleNextPage} disabled={allJobs && allJobs.length < 10 || allJobs === undefined}>Next</button>
+                        </div>
+                    </div>
                 </div>
 
             </div>

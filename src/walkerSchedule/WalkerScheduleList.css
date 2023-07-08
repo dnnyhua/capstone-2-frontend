@@ -1,6 +1,32 @@
 .WalkerScheduleList {
-    height: 250px;
     overflow-y: auto;
     overflow-x: hidden;
+    max-height: 266px;
     text-align: center;
+}
+
+.WalkerScheduleList>a {
+    color: white;
+    text-decoration: none;
+}
+
+
+.WalkerScheduleList::-webkit-scrollbar {
+    width: 10px;
+
+}
+
+/* Track */
+.WalkerScheduleList::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+/* Handle */
+.WalkerScheduleList::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+/* Handle on hover */
+.WalkerScheduleList::-webkit-scrollbar-thumb:hover {
+    background: #555;
 }

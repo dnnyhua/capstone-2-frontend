@@ -2,7 +2,7 @@
     width: 35px;
     height: 36px;
     border-radius: 50%;
-    border: 3px solid rgb(94, 212, 173);
+    border: 3px solid rgb(63, 184, 167);
     font-size: 21px;
     font-weight: 900;
     color: rgb(94, 212, 173);
@@ -20,6 +20,8 @@
 .addJobBtn:hover {
     color: white;
     background-color: rgb(94, 212, 173);
+    border: 3px solid rgb(94, 212, 173);
+
 
 }
 

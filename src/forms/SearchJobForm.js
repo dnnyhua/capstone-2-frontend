@@ -1,5 +1,6 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useContext, useEffect } from "react";
 import GlobalContext from "../helper/GlobalContext";
+import './SearchJobForm.css'
 
 const SearchJobform = ({ searchJob, query, setQuery }) => {
 
@@ -26,7 +27,7 @@ const SearchJobform = ({ searchJob, query, setQuery }) => {
     }, [])
 
     return (
-        <div>
+        <div className="SearchJobform">
             <form onSubmit={handleSubmit} className="form-control">
                 <input
                     type="text"
@@ -55,7 +56,7 @@ const SearchJobform = ({ searchJob, query, setQuery }) => {
                     onChange={handleChange}
                 />
 
-                <button type="submit">Search</button>
+                <button type="submit" className="searchBtn">Search</button>
 
             </form>
         </div>

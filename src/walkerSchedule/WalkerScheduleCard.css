@@ -1,9 +1,31 @@
 .WalkerScheduleCard {
     display: block;
-    background-color: rgb(94, 212, 173);
-    margin-top: 10px;
+    background-color: rgb(63, 184, 167);
+    /* margin-top: 10px; */
     width: auto;
     height: auto;
     border-radius: 20px;
+    margin: 0rem 1rem 1rem 1rem;
+}
 
+.WalkerScheduleCard:hover {
+    background-color: rgb(94, 212, 173);
+}
+
+.dow {
+    font-weight: bold;
+}
+
+.row {
+    white-space: nowrap;
+    padding: 0px 0px 0px 0px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.dogPawIcon {
+    width: 30px;
+    padding: 0px;
 }
