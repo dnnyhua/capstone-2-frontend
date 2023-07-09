@@ -1,6 +1,7 @@
 import React, { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import GlobalContext from "../helper/GlobalContext";
+import './LoginForm.css'
 
 
 const LoginForm = () => {
@@ -32,8 +33,8 @@ const LoginForm = () => {
 
     return (
         <div className="LoginForm" >
-            <form onSubmit={handleSubmit} className="form-control p-3">
-                <div className="col-md-12 mb-3 ">
+            <form onSubmit={handleSubmit} className="form-control p-3 ">
+                <div className="col-md-12 mb-3 inputGrp">
                     <label htmlFor="username">Username</label>
                     <input
                         type="text"
@@ -46,7 +47,7 @@ const LoginForm = () => {
 
                     />
                 </div>
-                <div className="col-md-12 mb-3 ">
+                <div className="col-md-12 mb-3 inputGrp">
                     <label htmlFor="password">Password</label>
                     <input
                         type="password"

@@ -1,7 +1,7 @@
 import React, { useState, useContext, useEffect } from "react";
 import GlobalContext from "../helper/GlobalContext";
 import { useNavigate, Link } from "react-router-dom";
-
+import './ProfileForm.css'
 
 const ProfileForm = () => {
     const { currUser, profileUpdate } = useContext(GlobalContext)
@@ -38,13 +38,13 @@ const ProfileForm = () => {
 
 
     return (
-        <div className="ProfileForm ">
+        <div className="ProfileForm">
             <form onSubmit={handleSubmit} className="form-control">
 
                 {currUser.role === "dog walker" ? (
                     <>
-                        <div className="col-md-12 mb-3">
-                            <label htmlFor="bio">Bio</label>
+                        <div className="col-md-12 mb-3 inputGrp">
+                            <label htmlFor="bio"><b>Bio</b></label>
                             <input
                                 type="text"
                                 id="bio"
@@ -56,8 +56,8 @@ const ProfileForm = () => {
                             />
                         </div>
 
-                        <div className="col-md-12 mb-3">
-                            <label htmlFor="bio">Rate ($/30 min)</label>
+                        <div className="col-md-12 mb-3 inputGrp">
+                            <label htmlFor="bio"><b>Rate ($/30 min)</b></label>
                             <input
                                 type="number"
                                 id="rate"
@@ -72,8 +72,8 @@ const ProfileForm = () => {
                 ) : null}
 
 
-                <div className="col-md-12 mb-3">
-                    <label htmlFor="firstName">First Name</label>
+                <div className="col-md-12 mb-3 inputGrp">
+                    <label htmlFor="firstName"><b>First Name</b></label>
                     <input
                         type="text"
                         id="firstName"
@@ -85,8 +85,8 @@ const ProfileForm = () => {
                     />
                 </div>
 
-                <div className="col-md-12 mb-3">
-                    <label htmlFor="lastName">Last Name</label>
+                <div className="col-md-12 mb-3 inputGrp">
+                    <label htmlFor="lastName"><b>Last Name</b></label>
                     <input
                         type="text"
                         id="lastName"
@@ -98,8 +98,8 @@ const ProfileForm = () => {
                     />
                 </div>
 
-                <div className="col-md-12 mb-3">
-                    <label htmlFor="email">Email</label>
+                <div className="col-md-12 mb-3 inputGrp">
+                    <label htmlFor="email"><b>Email</b></label>
                     <input
                         type="text"
                         id="email"
@@ -111,8 +111,8 @@ const ProfileForm = () => {
                     />
                 </div>
 
-                <div className="col-md-12 mb-3">
-                    <label htmlFor="profileImage">Profile Image (URL)</label>
+                <div className="col-md-12 mb-3 inputGrp">
+                    <label htmlFor="profileImage"><b>Profile Image (URL)</b></label>
                     <input
                         type="text"
                         id="profileImage"
@@ -124,8 +124,8 @@ const ProfileForm = () => {
                     />
                 </div>
 
-                <div className="col-md-12 mb-3">
-                    <label htmlFor="address">Address</label>
+                <div className="col-md-12 mb-3 inputGrp">
+                    <label htmlFor="address"><b>Address</b></label>
                     <input
                         type="text"
                         id="address"
@@ -137,8 +137,8 @@ const ProfileForm = () => {
                     />
                 </div>
 
-                <div className="col-md-12 mb-3">
-                    <label htmlFor="city">City</label>
+                <div className="col-md-12 mb-3 inputGrp">
+                    <label htmlFor="city"><b>City</b></label>
                     <input
                         type="text"
                         id="city"
@@ -150,8 +150,8 @@ const ProfileForm = () => {
                     />
                 </div>
 
-                <div className="col-md-12 mb-3">
-                    <label htmlFor="state">State</label>
+                <div className="col-md-12 mb-3 inputGrp">
+                    <label htmlFor="state"><b></b>State</label>
                     <input
                         type="text"
                         id="state"
@@ -162,9 +162,8 @@ const ProfileForm = () => {
                         className="form-control"
                     />
                 </div>
-
-                <div className="col-md-12 mb-3">
-                    <label htmlFor="zipcode">Zipcode</label>
+                <div className="col-md-12 mb-3 inputGrp">
+                    <label htmlFor="zipcode"><b>Zipcode</b></label>
                     <input
                         type="number"
                         id="zipcode"
@@ -176,17 +175,17 @@ const ProfileForm = () => {
                     />
                 </div>
 
-                <div >
-                    <div className="col text-center">
-                        <button type="submit" className="btn btn-primary">Update</button>
-                        <Link to={"/"}>
-                            <button className="btn btn-danger">Back</button>
-                        </Link>
-                    </div>
+
+                <div className="ProfileForm-btnGrp">
+                    <button type="submit" className="btn btn-primary ProfileForm-btn">Update</button>
+                    <Link to={"/"}>
+                        <button className="btn btn-danger ProfileForm-btn">Back</button>
+                    </Link>
                 </div>
 
-            </form>
-        </div>
+
+            </form >
+        </div >
     )
 }
 

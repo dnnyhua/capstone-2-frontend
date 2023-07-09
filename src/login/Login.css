@@ -1,4 +1,9 @@
 .Login {
+    display: flex;
     position: relative;
+    margin: auto;
+    width: 450px;
+    flex-direction: column;
+    align-items: center;
 
 }

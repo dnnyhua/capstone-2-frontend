@@ -22,8 +22,10 @@ const WalkerSchedulePage = () => {
         setJob(res.job[0])
 
         // Check if walker was hired to reveal address
-        const result = await Api.checkJobStatus(currUser.walkerId, id)
-        setJobStatus(result.status)
+        if (currUser) {
+            const result = await Api.checkJobStatus(currUser.walkerId, id)
+            setJobStatus(result.status)
+        }
 
 
         // Get pets that are going on the walk to display on page
@@ -33,31 +35,32 @@ const WalkerSchedulePage = () => {
 
     useEffect(() => {
         getPageInfo();
-    }, [])
+    }, [currUser])
 
-    useEffect(() => {
-        const timer = setTimeout(() => {
-            setIsLoading(false);
-        }, 100);
+    // useEffect(() => {
+    //     const timer = setTimeout(() => {
+    //         setIsLoading(false);
+    //     }, 500);
 
-        return () => {
-            clearTimeout(timer);
-        };
-    }, []);
+    //     return () => {
+    //         clearTimeout(timer);
+    //     };
+    // }, []);
 
-    if (isLoading) {
+    if (!currUser || !jobStatus) {
         return (
             <div>
+                <h1>Loading...</h1>
             </div>
         )
     }
-    console.log(job)
-    console.log(pets)
+    // console.log(job)
+    // console.log(pets)
 
     return (
-        <div>
-            <section>
-                <h1>Walk Schedule for Walker</h1>
+        <div className="WalkerSchedulePage">
+            <section className="WalkerSchedulePage-jobInfo">
+                <h1>Walk Information</h1>
                 <WalkerSchedulePageInfo
                     id={id}
                     date={job.date}
@@ -72,17 +75,18 @@ const WalkerSchedulePage = () => {
                 />
             </section>
 
-            <section>
-                <h2>Pets on this walk</h2>
-                {pets.map(pet => (
-                    <PetThumbnail
-                        id={pet.id}
-                        img={pet.img}
-                        name={pet.name}
-                    />
-                ))}
+            <section className="WalkerSchedulePage-petsSection">
+                <h3>Pets on this walk:</h3>
+                <div className="WalkerSchedulePage-petsList">
+                    {pets.map(pet => (
+                        <PetThumbnail
+                            id={pet.id}
+                            img={pet.img}
+                            name={pet.name}
+                        />
+                    ))}
+                </div>
             </section>
-
         </div>
     )
 }

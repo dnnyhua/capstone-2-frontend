@@ -1,3 +1,21 @@
+.Home-guest {
+    display: block;
+    text-align: center;
+    background-color: rgba(63, 184, 167);
+    padding: 45px;
+    border-radius: 20px;
+
+}
+
+.Home-guest-btnGrp {
+    color: rgb(248, 249, 250);
+}
+
+.Home-guest-btn {
+    margin: 10px;
+}
+
+
 .Home {
     position: relative;
     display: flex;
@@ -22,13 +40,18 @@
     align-items: center;
 }
 
-
 .title {
     width: auto;
     height: auto;
     margin-top: 15px;
-    font-size: 40px;
-    text-shadow: 0 0 5px #000000, 0 0 3px #000000;
+    font-size: 70px;
+}
+
+.Home-guest .title {
+    width: auto;
+    height: auto;
+    margin-top: 15px;
+    font-size: 80px;
 }
 
 .Home-walker-body {
@@ -114,4 +137,12 @@
 
 .NxtPrevBtnGrp button {
     margin: 10px;
+    background-color: rgb(125, 172, 188);
+    color: rgb(248, 249, 250);
+}
+
+.NxtPrevBtnGrp button:disabled {
+    margin: 10px;
+    background-color: rgba(239, 239, 239, 0.3);
+    color: rgba(255, 255, 255, 0.3);
 }

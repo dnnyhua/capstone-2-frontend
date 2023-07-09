@@ -1,0 +1,23 @@
+.WalkerSchedulePage {
+    width: 500px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    background: rgba(68, 68, 68, 0.9);
+    align-content: center;
+    justify-content: center;
+    margin: auto;
+    padding: 10px;
+}
+
+.WalkerSchedulePage-petsList {
+    margin: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+}
+
+.WalkerSchedulePage-petsSection {
+    margin-top: 20px;
+}

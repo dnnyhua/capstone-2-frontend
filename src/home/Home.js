@@ -136,14 +136,17 @@ const Home = () => {
 
     return (
         <div className="Home d-flex justify-content-center">
-            <div>
-                <h1>Walkies</h1>
-                <Link to={'/login'}>
-                    <button className="btn btn-primary">Login</button>
-                </Link>
-                <Link>
-                    <button className="btn btn-secondary">Sign Up</button>
-                </Link>
+            <div className="Home-guest">
+                <h1 className="title">Walkies</h1>
+
+                <div className="Home-guest-btnGrp">
+                    <Link to={'/login'}>
+                        <button className="btn btn-primary Home-guest-btn">Login</button>
+                    </Link>
+                    <Link>
+                        <button className="btn btn-secondary Home-guest-btn">Sign Up</button>
+                    </Link>
+                </div>
             </div>
         </div>
     )
