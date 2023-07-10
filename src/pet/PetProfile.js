@@ -20,8 +20,6 @@ const PetProfile = () => {
         setJobs(await getPetWalkSchedule(petId))
     }
 
-
-
     async function getPetWalkSchedule() {
         const res = await Api.getPetWalkSchedule(petId)
         return res.job
@@ -34,7 +32,7 @@ const PetProfile = () => {
 
     useEffect(() => {
         const checkForOwner = () => {
-            if (currUser.ownerId && currUser.ownerId === pet.ownerId) {
+            if (currUser && currUser.ownerId === pet.ownerId) {
                 setIsOwner(true)
             }
         }
@@ -58,7 +56,7 @@ const PetProfile = () => {
     if (isLoading) {
         return (
             <div>
-
+                <h1>Loading...</h1>
             </div>
         )
     }
@@ -92,19 +90,21 @@ const PetProfile = () => {
                 </section>
 
                 {isOwner === true ? (
-                    <section className="walkSchedule">
+                    <section className="walkSchedule-section">
                         <h2>Upcoming Walks</h2>
+                        <div className="walkSchedule-list">
+                            {jobs.map(job => (
+                                <ScheduleCard
+                                    key={job.id}
+                                    id={job.id}
+                                    date={job.date}
+                                    time={job.time}
+                                    duration={job.duration}
+                                    status={job.status}
+                                />
+                            ))}
+                        </div>
 
-                        {jobs.map(job => (
-                            <ScheduleCard
-                                key={job.id}
-                                id={job.id}
-                                date={job.date}
-                                time={job.time}
-                                duration={job.duration}
-                                status={job.status}
-                            />
-                        ))}
                     </section>
                 ) : ("")}
 

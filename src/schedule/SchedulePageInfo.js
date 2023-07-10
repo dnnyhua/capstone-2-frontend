@@ -6,14 +6,13 @@ import capitalizeWords from "../helper/Capitalized";
 
 
 
-const SchedulePageJobInfo = ({ date, time, duration, status, address, city, state, zipcode, ownerId }) => {
+const SchedulePageInfo = ({ date, time, duration, status, address, city, state, zipcode, ownerId }) => {
     const { currUser } = useContext(GlobalContext)
-
     const formatedDate = moment(date).format('M-D-YYYY')
     const formattedTime = moment(time, 'HH:mm').format('h:mm A');
 
     return (
-        <div className="SchedulePage">
+        <div className="SchedulePageInfo">
             <h5>Status: {status}</h5>
             <h5>Date of walk: {formatedDate}</h5>
             <h5>Time of walk: {formattedTime}</h5>
@@ -28,9 +27,8 @@ const SchedulePageJobInfo = ({ date, time, duration, status, address, city, stat
             <h5>City: {capitalizeWords(city)}</h5>
             <h5>State: {capitalizeWords(state)}</h5>
             <h5>Zipcode: {zipcode}</h5>
-
         </div>
     )
 }
 
-export default SchedulePageJobInfo
+export default SchedulePageInfo

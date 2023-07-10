@@ -83,7 +83,7 @@ const ApplicationCard = ({ jobId, walkerId, status, firstName, lastName, rate, b
                     <h5>About Me: {bio}</h5>
                 </section>
 
-                {currStatus === 'Pending Review' ? (
+                {currStatus === 'Pending' ? (
                     <section>
                         <button className="btn btn-primary ApplicationCard-hireBtn" onClick={handleModalOpenHire} disabled={isRejected}>Hire</button>
                         <button className="btn btn-danger ApplicationCard-rejectBtn" onClick={handleModalOpenReject} disabled={isRejected}>Reject</button>

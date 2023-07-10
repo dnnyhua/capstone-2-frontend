@@ -12,13 +12,12 @@
     width: auto;
     padding: 20px;
     border-radius: 20px;
-
-
+    margin-bottom: 50px;
 }
 
 .petPfp {
-    width: 300px;
-    height: 300px;
+    width: 200px;
+    height: 200px;
     border-radius: 50%;
     background-color: rgb(181, 255, 255);
     margin-bottom: 10px;
@@ -48,6 +47,11 @@
 }
 
 .walkSchedule {}
+
+.walkSchedule-list {
+    overflow-y: scroll;
+    height: 300px;
+}
 
 
 .editBtn {

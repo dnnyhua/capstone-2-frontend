@@ -4,6 +4,17 @@ import './ApplicationsList.css'
 
 
 const ApplicationsList = ({ applications, getApplications }) => {
+
+    if (!applications) {
+        return (
+            <div>
+                <h1>Loading...</h1>
+            </div>
+        )
+    }
+
+    console.log(applications)
+
     return (
         <div className="ApplicationsList">
             <h1>Applications</h1>

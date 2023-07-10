@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import { useParams } from "react-router-dom";
 import Api from "../api";
-import SchedulePageJobInfo from "./SchedulePageInfo";
+import SchedulePageInfo from "./SchedulePageInfo";
 import PetThumbnail from "../pet/PetThumbnail";
 import { Link } from "react-router-dom";
 import EditJobFormModal from "../forms/EditJobFormModal";
@@ -80,10 +80,23 @@ const SchedulePage = () => {
     console.log(hiredWalker)
 
     return (
-        <div>
-            <section>
-                <h1>Walk Schedule</h1>
-                <SchedulePageJobInfo
+        <div className="SchedulePage">
+            <section className="SchedulePageJobInfo-section">
+                <h1>Walk Information</h1>
+
+                {/* Only allow edit if no one has applied to the job yet. */}
+                {applications.length === 0 && (
+                    <div>
+                        <EditJobFormModal job={job} updateJob={updateJob} />
+                    </div>
+                )}
+
+                {/* Only show button if there there are applications */}
+                {applications.length !== 0 ?
+                    <Link to={`/schedule/${id}/applications`} className="btn btn-primary viewAppBtn">View Applications</Link>
+                    : null
+                }
+                <SchedulePageInfo
                     date={job.date}
                     time={job.time}
                     duration={job.duration}
@@ -94,31 +107,22 @@ const SchedulePage = () => {
                     zipcode={job.zipcode}
                     ownerId={job.ownerId}
                 />
-
-                {/* Only allow edit if no one has applied to the job yet. */}
-                {applications.length === 0 && (
-                    <EditJobFormModal job={job} updateJob={updateJob} />
-                )}
-
-                {/* Only show button if there there are applications */}
-                {applications.length !== 0 ?
-                    <Link to={`/schedule/${id}/applications`} className="btn btn-primary">View Applications</Link>
-                    : null
-                }
-
             </section>
 
-            <section>
-                <h2>Pets on this walk</h2>
-                {sortedPets.map(pet => (
-                    <PetThumbnail
-                        id={pet.id}
-                        img={pet.img}
-                        name={pet.name}
-                    />
-                ))}
+            <section className="SchedulePage-petsSection">
+                <h3>Pets on this walk</h3>
+                <div className="SchedulePage-petsList">
+                    {sortedPets.map(pet => (
+                        <PetThumbnail
+                            id={pet.id}
+                            img={pet.img}
+                            name={pet.name}
+                        />
+                    ))}
+                </div>
             </section>
 
+            {/* Show walker info IF they are hired for the walk */}
             {hiredWalker ?
                 <div>
                     <h2>Walker hired for this walk</h2>

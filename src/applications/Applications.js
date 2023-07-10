@@ -22,7 +22,7 @@ const Applications = () => {
     useEffect(() => {
     }, [applications]);
 
-
+    console.log(applications)
     return (
         <>
             <ApplicationsList applications={applications} getApplications={getApplications} />

@@ -59,7 +59,7 @@ const WalkerSchedulePage = () => {
 
     return (
         <div className="WalkerSchedulePage">
-            <section className="WalkerSchedulePage-jobInfo">
+            <section className="WalkerSchedulePage-section">
                 <h1>Walk Information</h1>
                 <WalkerSchedulePageInfo
                     id={id}

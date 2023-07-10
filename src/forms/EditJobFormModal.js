@@ -2,7 +2,7 @@ import React, { useState, useContext } from 'react';
 import Select from "react-select";
 import makeAnimated from "react-select/animated";
 import GlobalContext from '../helper/GlobalContext';
-import "./AddPetFormModal.css"
+import "./EditJobFormModal.css"
 
 const EditJobFormModal = ({ job, updateJob }) => {
     // Other variables
@@ -92,7 +92,7 @@ const EditJobFormModal = ({ job, updateJob }) => {
 
     return (
         <>
-            <button className="addJobBtn" onClick={handleModalOpen}>Edit</button>
+            <button className="editJobBtn" onClick={handleModalOpen}>Edit Walk Information</button>
 
             <div className={`modal ${showModal ? 'show' : ''}`}>
                 <div className="modal-dialog">
