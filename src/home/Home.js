@@ -143,7 +143,7 @@ const Home = () => {
                     <Link to={'/login'}>
                         <button className="btn btn-primary Home-guest-btn">Login</button>
                     </Link>
-                    <Link>
+                    <Link to={'/signup'}>
                         <button className="btn btn-secondary Home-guest-btn">Sign Up</button>
                     </Link>
                 </div>

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import './SignUpForm.css'
 
 
 
@@ -29,14 +30,13 @@ const SignUpForm = ({ registerNewUser }) => {
     return (
         <div className="SignUpForm">
             <form onSubmit={handleSubmit} className="form-control">
-                <div className="form-group">
-                    <label htmlFor="role">Role</label>
+                <div className="form-group inputGrp">
+                    <label className="me-2" htmlFor="role"><b>Role</b></label>
                     <select
                         id="role"
                         name="role"
                         value={formData.role}
                         onChange={handleChange}
-                        className="mb-3"
                     >
                         <option value="">Select</option>
                         <option value="dog owner">Dog Owner</option>
@@ -45,8 +45,8 @@ const SignUpForm = ({ registerNewUser }) => {
                 </div>
 
                 {formData.role === "dog walker" ? (
-                    <div className="col-md-12 mb-3">
-                        <label htmlFor="rate">What is your rate per 30 min walk?</label>
+                    <div className="form-group inputGrp">
+                        <label htmlFor="rate"><b>What is your rate per 30 min walk?</b></label>
                         <input
                             type="number"
                             id="rate"
@@ -61,8 +61,8 @@ const SignUpForm = ({ registerNewUser }) => {
                 ) : ("")}
 
 
-                <div className="col-md-12 mb-3">
-                    <label htmlFor="username">Username</label>
+                <div className="form-group inputGrp">
+                    <label htmlFor="username"><b>Username</b></label>
                     <input
                         type="text"
                         id="username"
@@ -74,8 +74,8 @@ const SignUpForm = ({ registerNewUser }) => {
                     />
                 </div>
 
-                <div className="col-md-12 mb-3">
-                    <label htmlFor="password">Password</label>
+                <div className="form-group inputGrp">
+                    <label htmlFor="password"><b>Password</b></label>
                     <input
                         type="password"
                         id="password"
@@ -87,8 +87,8 @@ const SignUpForm = ({ registerNewUser }) => {
                     />
                 </div>
 
-                <div className="col-md-12 mb-3">
-                    <label htmlFor="firstName">First Name</label>
+                <div className="form-group inputGrp">
+                    <label htmlFor="firstName"><b>First Name</b></label>
                     <input
                         type="text"
                         id="firstName"
@@ -100,8 +100,8 @@ const SignUpForm = ({ registerNewUser }) => {
                     />
                 </div>
 
-                <div className="col-md-12 mb-3">
-                    <label htmlFor="lastName">Last Name</label>
+                <div className="form-group inputGrp">
+                    <label htmlFor="lastName"><b>Last Name</b></label>
                     <input
                         type="text"
                         id="lastName"
@@ -113,8 +113,8 @@ const SignUpForm = ({ registerNewUser }) => {
                     />
                 </div>
 
-                <div className="col-md-12 mb-3">
-                    <label htmlFor="email">Email</label>
+                <div className="form-group inputGrp">
+                    <label htmlFor="email"><b>Email</b></label>
                     <input
                         type="text"
                         id="email"
@@ -126,8 +126,8 @@ const SignUpForm = ({ registerNewUser }) => {
                     />
                 </div>
 
-                <div className="col-md-12 mb-3">
-                    <label htmlFor="profileImage">Profile Image (URL)</label>
+                <div className="form-group inputGrp">
+                    <label htmlFor="profileImage"><b>Profile Image (URL)</b></label>
                     <input
                         type="text"
                         id="profileImage"
@@ -139,8 +139,8 @@ const SignUpForm = ({ registerNewUser }) => {
                     />
                 </div>
 
-                <div className="col-md-12 mb-3">
-                    <label htmlFor="address">Address</label>
+                <div className="form-group inputGrp">
+                    <label htmlFor="address"><b>Address</b></label>
                     <input
                         type="text"
                         id="address"
@@ -152,8 +152,8 @@ const SignUpForm = ({ registerNewUser }) => {
                     />
                 </div>
 
-                <div className="col-md-12 mb-3">
-                    <label htmlFor="city">City</label>
+                <div className="form-group inputGrp">
+                    <label htmlFor="city"><b>City</b></label>
                     <input
                         type="text"
                         id="city"
@@ -165,8 +165,8 @@ const SignUpForm = ({ registerNewUser }) => {
                     />
                 </div>
 
-                <div className="col-md-12 mb-3">
-                    <label htmlFor="state">State</label>
+                <div className="form-group inputGrp">
+                    <label htmlFor="state"><b>State</b></label>
                     <input
                         type="text"
                         id="state"
@@ -178,8 +178,8 @@ const SignUpForm = ({ registerNewUser }) => {
                     />
                 </div>
 
-                <div className="col-md-12 mb-3">
-                    <label htmlFor="zipcode">Zipcode</label>
+                <div className="form-group inputGrp">
+                    <label htmlFor="zipcode"><b>Zipcode</b></label>
                     <input
                         type="number"
                         id="zipcode"
@@ -192,8 +192,8 @@ const SignUpForm = ({ registerNewUser }) => {
                 </div>
 
                 {formData.role === "dog walker" ? (
-                    <div className="col-md-12 mb-3">
-                        <label htmlFor="bio">Short Bio to let the fur parents know about you!</label>
+                    <div className="form-group inputGrp">
+                        <label htmlFor="bio"><b>Short Bio to let the fur parents know about you!</b></label>
                         <input
                             type="bio"
                             id="bio"
@@ -207,7 +207,7 @@ const SignUpForm = ({ registerNewUser }) => {
                 ) : ("")}
 
                 <div >
-                    <div className="col text-center">
+                    <div className="col text-center mt-3 mb-2">
                         <button type="submit" className="btn btn-primary">Sign up</button>
                     </div>
                 </div>

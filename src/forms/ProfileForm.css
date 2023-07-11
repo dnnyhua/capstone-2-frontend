@@ -21,13 +21,18 @@
     transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
 }
 
-.inputGrp {
+.ProfileForm .inputGrp {
     display: flex;
     flex-direction: row;
     align-items: center;
     flex-wrap: wrap;
+    padding: 10px 10px 0px 10px
+}
+
+.ProfileForm-btnGrp {
+    margin: 10px;
 }
 
 .ProfileForm-btn {
-    margin: 10px;
+    margin: 0px 10px;
 }

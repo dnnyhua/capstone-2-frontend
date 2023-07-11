@@ -43,7 +43,7 @@ const ProfileForm = () => {
 
                 {currUser.role === "dog walker" ? (
                     <>
-                        <div className="col-md-12 mb-3 inputGrp">
+                        <div className="form-group inputGrp">
                             <label htmlFor="bio"><b>Bio</b></label>
                             <input
                                 type="text"
@@ -56,7 +56,7 @@ const ProfileForm = () => {
                             />
                         </div>
 
-                        <div className="col-md-12 mb-3 inputGrp">
+                        <div className="form-group inputGrp">
                             <label htmlFor="bio"><b>Rate ($/30 min)</b></label>
                             <input
                                 type="number"
@@ -72,7 +72,7 @@ const ProfileForm = () => {
                 ) : null}
 
 
-                <div className="col-md-12 mb-3 inputGrp">
+                <div className="form-group inputGrp">
                     <label htmlFor="firstName"><b>First Name</b></label>
                     <input
                         type="text"
@@ -85,7 +85,7 @@ const ProfileForm = () => {
                     />
                 </div>
 
-                <div className="col-md-12 mb-3 inputGrp">
+                <div className="form-group inputGrp">
                     <label htmlFor="lastName"><b>Last Name</b></label>
                     <input
                         type="text"
@@ -98,7 +98,7 @@ const ProfileForm = () => {
                     />
                 </div>
 
-                <div className="col-md-12 mb-3 inputGrp">
+                <div className="form-group inputGrp">
                     <label htmlFor="email"><b>Email</b></label>
                     <input
                         type="text"
@@ -111,7 +111,7 @@ const ProfileForm = () => {
                     />
                 </div>
 
-                <div className="col-md-12 mb-3 inputGrp">
+                <div className="form-group inputGrp">
                     <label htmlFor="profileImage"><b>Profile Image (URL)</b></label>
                     <input
                         type="text"
@@ -124,7 +124,7 @@ const ProfileForm = () => {
                     />
                 </div>
 
-                <div className="col-md-12 mb-3 inputGrp">
+                <div className="form-group inputGrp">
                     <label htmlFor="address"><b>Address</b></label>
                     <input
                         type="text"
@@ -137,7 +137,7 @@ const ProfileForm = () => {
                     />
                 </div>
 
-                <div className="col-md-12 mb-3 inputGrp">
+                <div className="form-group inputGrp">
                     <label htmlFor="city"><b>City</b></label>
                     <input
                         type="text"
@@ -150,8 +150,8 @@ const ProfileForm = () => {
                     />
                 </div>
 
-                <div className="col-md-12 mb-3 inputGrp">
-                    <label htmlFor="state"><b></b>State</label>
+                <div className="form-group inputGrp">
+                    <label htmlFor="state"><b>State</b></label>
                     <input
                         type="text"
                         id="state"
@@ -162,7 +162,7 @@ const ProfileForm = () => {
                         className="form-control"
                     />
                 </div>
-                <div className="col-md-12 mb-3 inputGrp">
+                <div className="form-group inputGrp">
                     <label htmlFor="zipcode"><b>Zipcode</b></label>
                     <input
                         type="number"

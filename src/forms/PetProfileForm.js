@@ -2,6 +2,7 @@ import React, { useState, useContext, useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import Api from "../api";
 import GlobalContext from "../helper/GlobalContext";
+import './PetProfileForm.css'
 
 
 const PetProfileForm = ({ pet, currUser }) => {
@@ -74,13 +75,11 @@ const PetProfileForm = ({ pet, currUser }) => {
     }
 
     return (
-        <div className="ProfileForm ">
-            <button className="btn btn-danger" onClick={handleDelete}>Delete</button>
-
+        <div className="PetProfileForm">
             <form onSubmit={handleSubmit} className="form-control">
 
-                <div className="form-group">
-                    <label htmlFor="name">Name:</label>
+                <div className="form-group inputGrp">
+                    <label htmlFor="name"><b>Name:</b></label>
                     <input
                         type="text"
                         id="name"
@@ -90,8 +89,8 @@ const PetProfileForm = ({ pet, currUser }) => {
                     />
                 </div>
 
-                <div className="form-group">
-                    <label htmlFor="breed">Breed:</label>
+                <div className="form-group inputGrp">
+                    <label htmlFor="breed"><b>Breed:</b></label>
                     <input
                         type="text"
                         id="breed"
@@ -101,14 +100,13 @@ const PetProfileForm = ({ pet, currUser }) => {
                     />
                 </div>
 
-                <div className="form-group">
-                    <label htmlFor="gender">Gender:</label>
+                <div className="form-group inputGrp">
+                    <label htmlFor="gender"><b>Gender:</b></label>
                     <select
                         id="gender"
                         name="gender"
                         value={formData.gender}
                         onChange={handleChange}
-                        className="mb-3"
                     >
                         <option value="">Select</option>
                         <option value="male">Male</option>
@@ -116,8 +114,8 @@ const PetProfileForm = ({ pet, currUser }) => {
                     </select>
                 </div>
 
-                <div className="form-group">
-                    <label htmlFor="age">Age (yrs):</label>
+                <div className="form-group inputGrp">
+                    <label htmlFor="age"><b>Age (yrs):</b></label>
                     <input
                         type="number"
                         min={1}
@@ -128,8 +126,8 @@ const PetProfileForm = ({ pet, currUser }) => {
                     />
                 </div>
 
-                <div className="form-group">
-                    <label htmlFor="weight">Weight (lbs):</label>
+                <div className="form-group inputGrp">
+                    <label htmlFor="weight"><b>Weight (lbs):</b></label>
                     <input
                         type="number"
                         min={1}
@@ -140,8 +138,8 @@ const PetProfileForm = ({ pet, currUser }) => {
                     />
                 </div>
 
-                <div className="form-group">
-                    <label htmlFor="friendlyWithOtherDogs">Friendly with other dogs?</label>
+                <div className="form-group inputGrp">
+                    <label htmlFor="friendlyWithOtherDogs"><b>Friendly with other dogs?</b></label>
                     <input
                         type="checkbox"
                         id="friendlyWithOtherDogs"
@@ -156,8 +154,8 @@ const PetProfileForm = ({ pet, currUser }) => {
                     />
                 </div>
 
-                <div className="form-group">
-                    <label htmlFor="friendlyWithChildren">Friendly with children?</label>
+                <div className="form-group inputGrp">
+                    <label htmlFor="friendlyWithChildren"><b>Friendly with children?</b></label>
                     <input
                         type="checkbox"
                         id="friendlyWithChildren"
@@ -172,8 +170,8 @@ const PetProfileForm = ({ pet, currUser }) => {
                     />
                 </div>
 
-                <div className="form-group">
-                    <label htmlFor="img">Image:</label>
+                <div className="form-group inputGrp">
+                    <label htmlFor="img"><b>Image:</b></label>
                     <input
                         type="url"
                         id="img"
@@ -183,8 +181,8 @@ const PetProfileForm = ({ pet, currUser }) => {
                     />
                 </div>
 
-                <div className="form-group">
-                    <label htmlFor="additionalDetails">Additional Details:</label>
+                <div className="form-group inputGrp">
+                    <label htmlFor="additionalDetails"><b>Additional Details:</b></label>
                     <textarea
                         name="additionalDetails"
                         id="additionalDetails"
@@ -195,13 +193,16 @@ const PetProfileForm = ({ pet, currUser }) => {
                     </textarea>
                 </div>
 
-                <div >
-                    <div className="col text-center">
-                        <button type="submit" className="btn btn-primary">Update</button>
-                        <button className="btn btn-danger" onClick={goBack}>Back</button>
-
-                    </div>
+                <div className="PetProfileForm-btnGrp">
+                    <button type="submit" className="btn btn-primary PetProfileForm-updateBtn">Update</button>
+                    <button className="btn btn-danger PetProfileForm-backBtn" onClick={goBack}>Back</button>
                 </div>
+
+                <div className="text-center mt-5">
+                    <button className="btn btn-danger PetProfileForm-deleteBtn " onClick={handleDelete}>Delete Pet Profile</button>
+                </div>
+
+
 
             </form>
         </div>

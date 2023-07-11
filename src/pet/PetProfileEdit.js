@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import Api from "../api";
 import PetProfileForm from "../forms/PetProfileForm";
 import GlobalContext from "../helper/GlobalContext";
+import './PetProfileEdit.css'
 
 const PetProfileEdit = () => {
     const { currUser } = useContext(GlobalContext)
@@ -22,9 +23,8 @@ const PetProfileEdit = () => {
     console.log(pet)
 
     return (
-        <div>
+        <div className="PetProfileEdit">
             <h1>Edit {pet.name}'s Profile</h1>
-            <h2>Add form here</h2>
             <PetProfileForm pet={pet} currUser={currUser} getPetInfo={getPetInfo} />
         </div>
     )
