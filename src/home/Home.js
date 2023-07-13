@@ -63,13 +63,13 @@ const Home = () => {
         setPage((prevPage) => prevPage + 1);
     };
 
-    // if (isLoading) {
-    //     return (
-    //         <div>
-    //             <h1>Loading...</h1>
-    //         </div>
-    //     )
-    // }
+    if (isLoading && !currUser) {
+        return (
+            <div>
+                <h1>Loading...</h1>
+            </div>
+        )
+    }
 
     if (currUser && currUser.role === "dog owner") {
         return (
@@ -132,11 +132,9 @@ const Home = () => {
         )
     }
 
-
-
     return (
         <div className="Home d-flex justify-content-center">
-            <div className={!currUser ? "Home-guest-hide" : "Home-guest-show"}>
+            <div className={!currUser ? "Home-guest-show" : "Home-guest-hide"}>
                 <h1 className="title">Walkies</h1>
 
                 <div className="Home-guest-btnGrp">
@@ -150,7 +148,6 @@ const Home = () => {
             </div>
         </div>
     )
-
 
 }
 
