@@ -1,0 +1,211 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="ApplicationsList"
+  >
+    <h1>
+      Applications
+    </h1>
+    <div
+      class="ApplicationCard hired"
+    >
+      <div
+        class="ApplicationCard-body"
+      >
+        <section>
+          <img
+            class="ApplicationCard-img"
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRNF8-gfvx__gaeVMxKBA2uxYZWju8XBV3_P0Rmsl_9lAcFVJCts7MZbNbE0bnARq1FFE&usqp=CAU"
+          />
+        </section>
+        <section>
+          <h5>
+            Job Id: 2 
+          </h5>
+          <h5>
+            Walker Id: 1
+          </h5>
+          <h5>
+            Johnny Bravo
+          </h5>
+          <h5>
+            Rate: $20 / 30 min
+          </h5>
+          <h5>
+            About Me: huge dog lover
+          </h5>
+        </section>
+        <section>
+          <button
+            class="btn btn-secondary ApplicationCard-hireBtn"
+            disabled=""
+          >
+            Hire
+          </button>
+          <button
+            class="btn btn-secondary ApplicationCard-rejectBtn"
+            disabled=""
+          >
+            Reject
+          </button>
+        </section>
+      </div>
+      <div
+        class="acknowledgmentModal "
+      >
+        <div
+          class="modal-dialog"
+        >
+          <div
+            class="modal-content "
+          >
+            <div
+              class="modal-header"
+            >
+              <h5
+                class="modal-title"
+              >
+                Acknowledgement
+              </h5>
+            </div>
+            <div
+              class="modal-body"
+            >
+              <p>
+                Once hired, you cannot select a different walker. Are you sure you want to hire this walker?
+              </p>
+            </div>
+            <div
+              class="modal-footer"
+            >
+              <button
+                class="btn btn-primary"
+                type="button"
+              >
+                Yes
+              </button>
+              <button
+                class="btn btn-danger"
+                type="button"
+              >
+                No
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ApplicationCard "
+    >
+      <div
+        class="ApplicationCard-body"
+      >
+        <section>
+          <img
+            class="ApplicationCard-img"
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBIYoCdF6ixsv0vzgejZMsBkpTYbh93v-67nbZk_hj2NBjVa5j3zrLMGr17T9OBMqWVzA&usqp=CAU"
+          />
+        </section>
+        <section>
+          <h5>
+            Job Id: 2 
+          </h5>
+          <h5>
+            Walker Id: 2
+          </h5>
+          <h5>
+            Tom Holland
+          </h5>
+          <h5>
+            Rate: $25 / 30 min
+          </h5>
+          <h5>
+            About Me: I have experience walking dogs of all sizes
+          </h5>
+        </section>
+        <section>
+          <button
+            class="btn btn-secondary ApplicationCard-hireBtn"
+            disabled=""
+          >
+            Hire
+          </button>
+          <button
+            class="btn btn-secondary ApplicationCard-rejectBtn"
+            disabled=""
+          >
+            Reject
+          </button>
+        </section>
+      </div>
+      <div
+        class="acknowledgmentModal "
+      >
+        <div
+          class="modal-dialog"
+        >
+          <div
+            class="modal-content "
+          >
+            <div
+              class="modal-header"
+            >
+              <h5
+                class="modal-title"
+              >
+                Acknowledgement
+              </h5>
+            </div>
+            <div
+              class="modal-body"
+            >
+              <p>
+                Once hired, you cannot select a different walker. Are you sure you want to hire this walker?
+              </p>
+            </div>
+            <div
+              class="modal-footer"
+            >
+              <button
+                class="btn btn-primary"
+                type="button"
+              >
+                Yes
+              </button>
+              <button
+                class="btn btn-danger"
+                type="button"
+              >
+                No
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`matches snapshot with profileImage 1`] = `
+<DocumentFragment>
+  <div>
+    <h1>
+      Loading...
+    </h1>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`matches snapshot without applications 1`] = `
+<DocumentFragment>
+  <div>
+    <h1>
+      Loading...
+    </h1>
+  </div>
+</DocumentFragment>
+`;

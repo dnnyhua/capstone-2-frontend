@@ -141,33 +141,31 @@ function App() {
   }
 
   return (
-    <BrowserRouter>
-      <GlobalContext.Provider value={{ currUser, pets, jobs, allJobs, getJobs, getAppliedJobs, searchJob, applyToJob, getCurrUserData, userLogin, userLogout, profileUpdate, addPet, createJob, getCurrUserData }}>
-        <header className="navBar" >
-          <NavBar />
-        </header>
-        <main>
-          <Routes>
-            <Route exact path="/" element={<Home />} />
-            <Route exact path="/about" element={<About />} />
-            <Route exact path="/login" element={<Login />} />
-            <Route exact path="/signup" element={<SignUp registerNewUser={registerNewUser} />} />
-            <Route exact path="/profile" element={<Profile />} />
-            <Route exact path="/pets/profile/:petId/edit" element={<PetProfileEdit />}> </Route>
-            <Route exact path="/pets/profile/:petId" element={<PetProfile />}></Route>
-            <Route exact path="/schedule/:id/applications" element={<Applications />}></Route>
-            <Route exact path="/schedule/:id"
-              element={currUser && currUser.role === "dog owner" ? (
-                <SchedulePage />
-              ) : (
-                <WalkerSchedulePage />
-              )
-              }>
-            </Route>
-          </Routes>
-        </main>
-      </GlobalContext.Provider>
-    </BrowserRouter>
+    <GlobalContext.Provider value={{ currUser, pets, jobs, allJobs, getJobs, getAppliedJobs, searchJob, applyToJob, getCurrUserData, userLogin, userLogout, profileUpdate, addPet, createJob, getCurrUserData }}>
+      <header className="navBar" >
+        <NavBar />
+      </header>
+      <main>
+        <Routes>
+          <Route exact path="/" element={<Home />} />
+          <Route exact path="/about" element={<About />} />
+          <Route exact path="/login" element={<Login />} />
+          <Route exact path="/signup" element={<SignUp registerNewUser={registerNewUser} />} />
+          <Route exact path="/profile" element={<Profile />} />
+          <Route exact path="/pets/profile/:petId/edit" element={<PetProfileEdit />}> </Route>
+          <Route exact path="/pets/profile/:petId" element={<PetProfile />}></Route>
+          <Route exact path="/schedule/:id/applications" element={<Applications />}></Route>
+          <Route exact path="/schedule/:id"
+            element={currUser && currUser.role === "dog owner" ? (
+              <SchedulePage />
+            ) : (
+              <WalkerSchedulePage />
+            )
+            }>
+          </Route>
+        </Routes>
+      </main>
+    </GlobalContext.Provider>
 
   );
 }

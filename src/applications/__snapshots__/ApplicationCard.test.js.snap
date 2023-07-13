@@ -1,0 +1,188 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches snapshot with profileImage 1`] = `
+<DocumentFragment>
+  <div
+    class="ApplicationCard "
+  >
+    <div
+      class="ApplicationCard-body"
+    >
+      <section>
+        <img
+          class="ApplicationCard-img"
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRNF8-gfvx__gaeVMxKBA2uxYZWju8XBV3_P0Rmsl_9lAcFVJCts7MZbNbE0bnARq1FFE&usqp=CAU"
+        />
+      </section>
+      <section>
+        <h5>
+          Job Id:  
+        </h5>
+        <h5>
+          Walker Id: 
+        </h5>
+        <h5>
+          Johnny Bravo
+        </h5>
+        <h5>
+          Rate: $20 / 30 min
+        </h5>
+        <h5>
+          About Me: i love all dogs!
+        </h5>
+      </section>
+      <section>
+        <button
+          class="btn btn-secondary ApplicationCard-hireBtn"
+          disabled=""
+        >
+          Hire
+        </button>
+        <button
+          class="btn btn-secondary ApplicationCard-rejectBtn"
+          disabled=""
+        >
+          Reject
+        </button>
+      </section>
+    </div>
+    <div
+      class="acknowledgmentModal "
+    >
+      <div
+        class="modal-dialog"
+      >
+        <div
+          class="modal-content "
+        >
+          <div
+            class="modal-header"
+          >
+            <h5
+              class="modal-title"
+            >
+              Acknowledgement
+            </h5>
+          </div>
+          <div
+            class="modal-body"
+          >
+            <p>
+              Once hired, you cannot select a different walker. Are you sure you want to hire this walker?
+            </p>
+          </div>
+          <div
+            class="modal-footer"
+          >
+            <button
+              class="btn btn-primary"
+              type="button"
+            >
+              Yes
+            </button>
+            <button
+              class="btn btn-danger"
+              type="button"
+            >
+              No
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`matches snapshot without profileImage 1`] = `
+<DocumentFragment>
+  <div
+    class="ApplicationCard "
+  >
+    <div
+      class="ApplicationCard-body"
+    >
+      <section>
+        <img
+          class="ApplicationCard-img"
+        />
+      </section>
+      <section>
+        <h5>
+          Job Id:  
+        </h5>
+        <h5>
+          Walker Id: 
+        </h5>
+        <h5>
+          Johnny Bravo
+        </h5>
+        <h5>
+          Rate: $20 / 30 min
+        </h5>
+        <h5>
+          About Me: i love all dogs!
+        </h5>
+      </section>
+      <section>
+        <button
+          class="btn btn-secondary ApplicationCard-hireBtn"
+          disabled=""
+        >
+          Hire
+        </button>
+        <button
+          class="btn btn-secondary ApplicationCard-rejectBtn"
+          disabled=""
+        >
+          Reject
+        </button>
+      </section>
+    </div>
+    <div
+      class="acknowledgmentModal "
+    >
+      <div
+        class="modal-dialog"
+      >
+        <div
+          class="modal-content "
+        >
+          <div
+            class="modal-header"
+          >
+            <h5
+              class="modal-title"
+            >
+              Acknowledgement
+            </h5>
+          </div>
+          <div
+            class="modal-body"
+          >
+            <p>
+              Once hired, you cannot select a different walker. Are you sure you want to hire this walker?
+            </p>
+          </div>
+          <div
+            class="modal-footer"
+          >
+            <button
+              class="btn btn-primary"
+              type="button"
+            >
+              Yes
+            </button>
+            <button
+              class="btn btn-danger"
+              type="button"
+            >
+              No
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;

@@ -7,9 +7,7 @@ import WalkerScheduleList from "../walkerSchedule/WalkerScheduleList";
 import JobsList from "../jobs/JobsList";
 import SearchJobform from "../forms/SearchJobForm";
 import AddJobFormModal from "../forms/AddJobFormModal";
-
 import GlobalContext from "../helper/GlobalContext";
-import Api from "../api";
 
 const Home = () => {
     const { pets, jobs, allJobs, currUser, searchJob, getJobs, getAppliedJobs } = useContext(GlobalContext)
@@ -134,9 +132,11 @@ const Home = () => {
         )
     }
 
+
+
     return (
         <div className="Home d-flex justify-content-center">
-            <div className="Home-guest">
+            <div className={!currUser ? "Home-guest-hide" : "Home-guest-show"}>
                 <h1 className="title">Walkies</h1>
 
                 <div className="Home-guest-btnGrp">
@@ -150,6 +150,8 @@ const Home = () => {
             </div>
         </div>
     )
+
+
 }
 
 export default Home

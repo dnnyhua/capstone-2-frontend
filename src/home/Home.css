@@ -1,4 +1,8 @@
-.Home-guest {
+.Home-guest-hide {
+    display: none;
+}
+
+.Home-guest-show {
     display: block;
     text-align: center;
     background-color: rgba(63, 184, 167);
@@ -46,6 +50,7 @@
     margin-top: 15px;
     font-size: 70px;
 }
+
 
 .Home-guest .title {
     width: auto;
@@ -108,9 +113,10 @@
     padding: 0rem 1rem;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    /* justify-content: center; */
     align-items: center;
     width: 550px;
+    height: fit-content;
 }
 
 

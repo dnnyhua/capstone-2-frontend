@@ -1,3 +1,10 @@
+.About {
+    width: 750px;
+    margin: auto;
+    background-color: rgba(71, 71, 71, 0.9);
+    padding: 10px 20px 10px 20px;
+}
+
 .About p {
     color: white;
 }
