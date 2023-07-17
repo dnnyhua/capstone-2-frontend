@@ -1,4 +1,6 @@
 Backend can be found here: https://github.com/dnnyhua/capstone-2-backend
+
+Mock up can be found here: https://drive.google.com/file/d/1hp_WTtXouqHqGmK6yMHlz3Qf8GuEFjOV/view?usp=sharing
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
