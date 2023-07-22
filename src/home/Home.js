@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import "./Home.css"
 import PetsList from "../pet/PetsList";
@@ -42,16 +42,6 @@ const Home = () => {
     //     }
     // }, [page])
 
-    // useEffect(() => {
-    //     const timer = setTimeout(() => {
-    //         setIsLoading(false);
-    //     }, 500);
-
-    //     return () => {
-    //         clearTimeout(timer);
-    //     };
-
-    // }, []);
 
     const handlePrevPage = () => {
         if (page > 1) {
