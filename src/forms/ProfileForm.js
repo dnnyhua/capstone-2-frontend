@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useState, useContext } from "react";
 import GlobalContext from "../helper/GlobalContext";
 import { useNavigate, Link } from "react-router-dom";
 import './ProfileForm.css'

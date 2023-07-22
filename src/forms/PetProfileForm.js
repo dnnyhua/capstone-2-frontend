@@ -1,5 +1,5 @@
 import React, { useState, useContext, useEffect } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Api from "../api";
 import GlobalContext from "../helper/GlobalContext";
 import './PetProfileForm.css'
@@ -53,7 +53,7 @@ const PetProfileForm = ({ pet, currUser }) => {
     }
 
     async function updatePetProfile(petId, username, formData) {
-        const res = await Api.updatePetProfile(petId, username, formData)
+        await Api.updatePetProfile(petId, username, formData)
     }
 
     const handleSubmit = (evt) => {

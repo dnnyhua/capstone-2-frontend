@@ -130,6 +130,8 @@
     padding: 10px;
     cursor: pointer;
     color: white;
+    border: none;
+    background: none;
 }
 
 .sortingBtn:hover {

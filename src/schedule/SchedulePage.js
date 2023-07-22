@@ -18,14 +18,12 @@ const SchedulePage = () => {
     const [hiredWalker, setHiredWalker] = useState()
 
     const [sortedPets, setSortedPets] = useState(null);
-    const [isLoading, setIsLoading] = useState(true)
+    // const [isLoading, setIsLoading] = useState(true)
 
     async function getSchedulePageInfo() {
 
         const res = await Api.getJobById(id)
         setJob(res.job[0])
-
-        // setPets(await getPets(res.job[0]['pet_ids']))
 
         const idsToCheck = res.job[0]['petIds']
         const currPets = pets
@@ -54,18 +52,18 @@ const SchedulePage = () => {
         getSchedulePageInfo();
     }, [])
 
-    useEffect(() => {
-        const timer = setTimeout(() => {
-            setIsLoading(false);
-        }, 200);
+    // useEffect(() => {
+    //     const timer = setTimeout(() => {
+    //         setIsLoading(false);
+    //     }, 200);
 
-        return () => {
-            clearTimeout(timer);
-        };
+    //     return () => {
+    //         clearTimeout(timer);
+    //     };
 
-    }, []);
+    // }, []);
 
-    if (isLoading) {
+    if (!sortedPets) {
         return (
             <div>
                 <h1>Loading...</h1>
@@ -129,7 +127,7 @@ const SchedulePage = () => {
                     <section className="walkerContainer">
                         <div className="walkerBody">
                             <section>
-                                <img className="walkerImg" src={hiredWalker.profileImage} alt="profile picture" />
+                                <img className="walkerImg" src={hiredWalker.profileImage} alt="walker Profile" />
                             </section>
 
                             <section className="walkerInfo">

@@ -7,6 +7,7 @@ const JobsList = ({ allJobs }) => {
         <div className="JobsList" id="JobsList">
             {allJobs && allJobs.map(job => (
                 <JobCard
+                    key={job.id}
                     id={job.id}
                     date={job.date}
                     time={job.time}

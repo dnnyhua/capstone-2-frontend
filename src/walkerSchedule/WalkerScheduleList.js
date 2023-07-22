@@ -1,6 +1,5 @@
-import React, { useContext } from "react";
+import React from "react";
 import "./WalkerScheduleList.css"
-import GlobalContext from "../helper/GlobalContext";
 import WalkerScheduleCard from "./WalkerScheduleCard";
 
 const WalkerScheduleList = ({ jobs }) => {

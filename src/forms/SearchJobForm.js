@@ -1,10 +1,15 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import GlobalContext from "../helper/GlobalContext";
 import './SearchJobForm.css'
 
-const SearchJobform = ({ searchJob, query, setQuery, setPage }) => {
+const SearchJobform = ({ searchJob, setPage, page }) => {
 
     const { currUser } = useContext(GlobalContext)
+    const [query, setQuery] = useState({
+        city: currUser.city,
+        state: currUser.state,
+        zipcode: currUser.zipcode,
+    });
 
     const handleChange = (evt) => {
         const { name, value } = evt.target
@@ -20,11 +25,19 @@ const SearchJobform = ({ searchJob, query, setQuery, setPage }) => {
         searchJob(query)
     }
 
+
+
     useEffect(() => {
         if (currUser.role === "dog walker") {
             searchJob(query)
         }
     }, [])
+
+    useEffect(() => {
+        if (currUser && currUser.role === "dog walker") {
+            searchJob(query, page)
+        }
+    }, [page])
 
     return (
         <div className="SearchJobform">

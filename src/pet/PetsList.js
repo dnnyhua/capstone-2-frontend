@@ -11,6 +11,7 @@ const PetsList = ({ pets }) => {
             <AddPetFormModal />
             {pets.map(pet => (
                 <PetThumbnail
+                    key={pet.id}
                     id={pet.id}
                     name={pet.name}
                     img={pet.img}

@@ -12,7 +12,7 @@ const WalkerSchedulePage = () => {
     const { id } = useParams();
     const [job, setJob] = useState([]);
     const [pets, setPets] = useState([]);
-    const [isLoading, setIsLoading] = useState(true);
+    // const [isLoading, setIsLoading] = useState(true);
     const [jobStatus, setJobStatus] = useState();
 
     async function getPageInfo() {
@@ -80,6 +80,7 @@ const WalkerSchedulePage = () => {
                 <div className="WalkerSchedulePage-petsList">
                     {pets.map(pet => (
                         <PetThumbnail
+                            key={pet.id}
                             id={pet.id}
                             img={pet.img}
                             name={pet.name}

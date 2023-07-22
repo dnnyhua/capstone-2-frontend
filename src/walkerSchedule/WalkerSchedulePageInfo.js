@@ -1,11 +1,9 @@
-import React, { useContext, useState, useEffect } from "react";
+import React from "react";
 import moment from "moment";
-import GlobalContext from "../helper/GlobalContext";
 import "./WalkerSchedulePageInfo.css"
 import capitalizeWords from "../helper/Capitalized";
 
 const WalkerSchedulePageInfo = ({ date, time, duration, status, petIds, address, city, state, zipcode }) => {
-    const { currUser } = useContext(GlobalContext)
     const formatedDate = moment(date).format('M-D-YYYY')
     const formattedTime = moment(time, 'HH:mm').format('h:mm A');
 

@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import ProfileForm from "../forms/ProfileForm";
 import GlobalContext from "../helper/GlobalContext";
 import './Profile.css'
@@ -6,7 +6,6 @@ import './Profile.css'
 
 const Profile = () => {
     const { currUser } = useContext(GlobalContext)
-
 
     if (!currUser) {
         return (

@@ -8,7 +8,7 @@ const PetThumbnail = ({ img, name, id }) => {
     return (
         <div key={id}>
             <Link to={`/pets/profile/${id}`}>
-                <img className="PetThumbnail" id={id} src={img} />
+                <img className="PetThumbnail" id={id} src={img} alt="petProfilePicture" />
             </Link>
             <div>
                 <h5>{name}</h5>

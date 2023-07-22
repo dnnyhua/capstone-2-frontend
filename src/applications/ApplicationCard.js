@@ -72,7 +72,7 @@ const ApplicationCard = ({ jobId, walkerId, status, firstName, lastName, rate, b
         <div className={`ApplicationCard ${currStatus === "Hired" ? "hired" : ""}`} >
             <div className="ApplicationCard-body">
                 <section>
-                    <img className="ApplicationCard-img" src={profileImage} />
+                    <img className="ApplicationCard-img" src={profileImage} alt="walker" />
                 </section>
 
                 <section>

@@ -11,7 +11,7 @@ const PetProfile = () => {
     const { currUser } = useContext(GlobalContext)
     const [pet, setPet] = useState([])
     const [jobs, setJobs] = useState([])
-    const [isLoading, setIsLoading] = useState(true)
+    // const [isLoading, setIsLoading] = useState(true)
     const [isOwner, setIsOwner] = useState(false)
 
     async function setPetProfilePage() {
@@ -42,26 +42,25 @@ const PetProfile = () => {
 
     }, [currUser, pet.ownerId])
 
-    useEffect(() => {
-        const timer = setTimeout(() => {
-            setIsLoading(false);
-        }, 200)
+    // useEffect(() => {
+    //     const timer = setTimeout(() => {
+    //         setIsLoading(false);
+    //     }, 200)
 
-        return () => {
-            clearTimeout(timer);
-        };
+    //     return () => {
+    //         clearTimeout(timer);
+    //     };
 
-    }, []);
+    // }, []);
 
-    if (isLoading) {
+    if (!currUser || !pet || !jobs) {
         return (
             <div>
                 <h1>Loading...</h1>
             </div>
         )
     }
-    console.log(pet)
-    console.log(isOwner)
+
 
     return (
         <div className="PetProfile">
@@ -74,7 +73,7 @@ const PetProfile = () => {
                     ) : ("")}
 
                     <Link className="backBtn" onClick={goBack}>Back</Link>
-                    <img src={pet.img} className="petPfp" alt="pet profile picture" />
+                    <img src={pet.img} className="petPfp" alt="pet" />
 
                     <h2>{pet.name}</h2>
                 </section>

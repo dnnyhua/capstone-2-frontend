@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import './App.css';
 
 import NavBar from './nav/NavBar';
@@ -82,8 +82,7 @@ function App() {
   }
 
   async function profileUpdate(username, formData) {
-    const res = await Api.profileUpdate(username, formData)
-    console.log(res)
+    await Api.profileUpdate(username, formData)
     getCurrUserData()
   }
 
@@ -103,15 +102,13 @@ function App() {
   }
 
   async function createJob(username, formData) {
-    const res = await Api.createJob(username, formData)
+    await Api.createJob(username, formData)
     getCurrUserData()
-    // console.log(res)
   }
 
   async function addPet(formData) {
-    const res = await Api.addPet(formData)
+    await Api.addPet(formData)
     getCurrUserData()
-    // console.log(res)
   }
 
   async function getAppliedJobs(walkerId, status, jobIds) {
@@ -141,7 +138,7 @@ function App() {
   }
 
   return (
-    <GlobalContext.Provider value={{ currUser, pets, jobs, allJobs, getJobs, getAppliedJobs, searchJob, applyToJob, getCurrUserData, userLogin, userLogout, profileUpdate, addPet, createJob, getCurrUserData }}>
+    <GlobalContext.Provider value={{ currUser, pets, jobs, allJobs, getJobs, getAppliedJobs, searchJob, applyToJob, getCurrUserData, userLogin, userLogout, profileUpdate, addPet, createJob }}>
       <header className="navBar" >
         <NavBar />
       </header>

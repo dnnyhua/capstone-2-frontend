@@ -24,7 +24,7 @@ const AddJobFormModal = () => {
 
     const [formData, setFormData] = useState(initialState);
     const [showModal, setShowModal] = useState(false);
-    const [pets, setPets] = useState(currUser.pets);
+    const pets = currUser.pets;
 
 
     const options = pets ? pets.map(pet => (

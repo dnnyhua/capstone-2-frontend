@@ -11,11 +11,11 @@ import GlobalContext from "../helper/GlobalContext";
 
 const Home = () => {
     const { pets, jobs, allJobs, currUser, searchJob, getJobs, getAppliedJobs } = useContext(GlobalContext)
-    const [isLoading, setIsLoading] = useState(true)
+    // const [isLoading, setIsLoading] = useState(true)
 
     // For pagination
     const [page, setPage] = useState(1);
-    const [query, setQuery] = useState([]);
+    // const [query, setQuery] = useState([]);
 
     async function getFilteredJobsOwner(status) {
         await getJobs(currUser.ownerId, status)
@@ -25,33 +25,33 @@ const Home = () => {
         await getAppliedJobs(currUser.walkerId, status, currUser.appliedJobsIds)
     }
 
-    useEffect(() => {
-        if (currUser) {
-            const initialState = {
-                city: currUser.city,
-                state: currUser.state,
-                zipcode: currUser.zipcode
-            };
-            setQuery(initialState);
-        }
-    }, [currUser]);
+    // useEffect(() => {
+    //     if (currUser) {
+    //         const initialState = {
+    //             city: currUser.city,
+    //             state: currUser.state,
+    //             zipcode: currUser.zipcode
+    //         };
+    //         setQuery(initialState);
+    //     }
+    // }, [currUser]);
 
-    useEffect(() => {
-        if (currUser && currUser.role === "dog walker") {
-            searchJob(query, page)
-        }
-    }, [page])
+    // useEffect(() => {
+    //     if (currUser && currUser.role === "dog walker") {
+    //         searchJob(query, page)
+    //     }
+    // }, [page])
 
-    useEffect(() => {
-        const timer = setTimeout(() => {
-            setIsLoading(false);
-        }, 500);
+    // useEffect(() => {
+    //     const timer = setTimeout(() => {
+    //         setIsLoading(false);
+    //     }, 500);
 
-        return () => {
-            clearTimeout(timer);
-        };
+    //     return () => {
+    //         clearTimeout(timer);
+    //     };
 
-    }, []);
+    // }, []);
 
     const handlePrevPage = () => {
         if (page > 1) {
@@ -63,7 +63,7 @@ const Home = () => {
         setPage((prevPage) => prevPage + 1);
     };
 
-    if (isLoading && !currUser) {
+    if (!currUser || (currUser.role === 'pet owner' && !pets)) {
         return (
             <div>
                 <h1>Loading...</h1>
@@ -81,9 +81,9 @@ const Home = () => {
                         <h2 className="mb-2">Upcoming Walks</h2>
                         <AddJobFormModal currUser={currUser} />
                         <div className="sortingBtns">
-                            <a className="sortingBtn" onClick={() => getFilteredJobsOwner("scheduled")}>Scheduled</a>
-                            <a className="sortingBtn" onClick={() => getFilteredJobsOwner("pending")}>Pending</a>
-                            <a className="sortingBtn" onClick={() => getFilteredJobsOwner("all")}>All</a>
+                            <button className="sortingBtn" onClick={() => getFilteredJobsOwner("scheduled")}>Scheduled</button>
+                            <button className="sortingBtn" onClick={() => getFilteredJobsOwner("pending")}>Pending</button>
+                            <button className="sortingBtn" onClick={() => getFilteredJobsOwner("all")}>All</button>
                         </div>
                         <ScheduleList jobs={jobs} currUser={currUser} />
                     </section>
@@ -106,9 +106,9 @@ const Home = () => {
                     <section className="walker-scheduleContainer">
                         <h2 className="mb-2">Upcoming Walks</h2>
                         <div className="sortingBtns">
-                            <a className="sortingBtn" onClick={() => getFilteredJobsWalker("scheduled")}>Scheduled</a>
-                            <a className="sortingBtn" onClick={() => getFilteredJobsWalker("pending")}>Pending</a>
-                            <a className="sortingBtn" onClick={() => getFilteredJobsWalker("archived")}>Archived</a>
+                            <button className="sortingBtn" onClick={() => getFilteredJobsWalker("scheduled")}>Scheduled</button>
+                            <button className="sortingBtn" onClick={() => getFilteredJobsWalker("pending")}>Pending</button>
+                            <button className="sortingBtn" onClick={() => getFilteredJobsWalker("archived")}>Archived</button>
                         </div>
                         < WalkerScheduleList jobs={jobs} />
                     </section>
@@ -116,14 +116,15 @@ const Home = () => {
                     <div className="jobs">
                         <SearchJobform
                             searchJob={searchJob}
-                            query={query}
-                            setQuery={setQuery}
+                            // query={query}
+                            // setQuery={setQuery}
                             setPage={setPage}
+                            page={page}
                         />
                         <JobsList allJobs={allJobs} />
                         <div className="NxtPrevBtnGrp">
                             <button onClick={handlePrevPage} disabled={page === 1}>Prev</button>
-                            <button onClick={handleNextPage} disabled={allJobs && allJobs.length < 10 || allJobs === undefined}>Next</button>
+                            <button onClick={handleNextPage} disabled={(allJobs && allJobs.length < 10) || allJobs === undefined}>Next</button>
                         </div>
                     </div>
                 </div>
