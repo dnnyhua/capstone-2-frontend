@@ -10,7 +10,7 @@ import AddJobFormModal from "../forms/AddJobFormModal";
 import GlobalContext from "../helper/GlobalContext";
 
 const Home = () => {
-    const { pets, jobs, allJobs, currUser, searchJob, getJobs, getAppliedJobs } = useContext(GlobalContext)
+    const { pets, jobs, allJobs, currUser, searchJob, getJobs, getAppliedJobs, isLoggedIn } = useContext(GlobalContext)
     // const [isLoading, setIsLoading] = useState(true)
 
     // For pagination
@@ -53,7 +53,7 @@ const Home = () => {
         setPage((prevPage) => prevPage + 1);
     };
 
-    if (!currUser || (currUser.role === 'pet owner' && !pets)) {
+    if ((!currUser || (currUser.role === 'pet owner' && !pets)) && isLoggedIn) {
         return (
             <div>
                 <h1>Loading...</h1>
@@ -123,9 +123,11 @@ const Home = () => {
         )
     }
 
+
+
     return (
-        <div className="Home d-flex justify-content-center">
-            <div className={!currUser ? "Home-guest-show" : "Home-guest-hide"}>
+        <div className="Home d-flex justify-content-center" >
+            <div className={!isLoggedIn ? "Home-guest-show" : "Home-guest-hide"}>
                 <h1 className="title">Walkies</h1>
 
                 <div className="Home-guest-btnGrp">
@@ -139,6 +141,7 @@ const Home = () => {
             </div>
         </div>
     )
+
 
 }
 

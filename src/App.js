@@ -25,6 +25,7 @@ function App() {
 
   const [isLoading, setIsLoading] = useState(false);
   const [currUser, setCurrUser] = useState(null);
+  const [isLoggedIn, setIsLoggedIn] = useState(false)
   const [pets, setPets] = useState(null)
 
   // Depending if logged in as a owner or walker: Jobs posted by the dog owner OR Jobs that walker applied to
@@ -60,6 +61,8 @@ function App() {
         await getAppliedJobs(user.walkerId, 'scheduled', user.appliedJobsIds)
       }
 
+      setIsLoggedIn(true)
+
     }
 
   }
@@ -78,6 +81,7 @@ function App() {
     setCurrUser(null)
     setPets(null)
     setJobs(null)
+    setIsLoggedIn(false)
     localStorage.removeItem("token")
   }
 
@@ -138,7 +142,7 @@ function App() {
   }
 
   return (
-    <GlobalContext.Provider value={{ currUser, pets, jobs, allJobs, getJobs, getAppliedJobs, searchJob, applyToJob, getCurrUserData, userLogin, userLogout, profileUpdate, addPet, createJob }}>
+    <GlobalContext.Provider value={{ currUser, pets, jobs, allJobs, isLoggedIn, getJobs, getAppliedJobs, searchJob, applyToJob, getCurrUserData, userLogin, userLogout, profileUpdate, addPet, createJob }}>
       <header className="navBar" >
         <NavBar />
       </header>
