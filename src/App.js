@@ -42,6 +42,7 @@ function App() {
 
   async function getCurrUserData() {
     setIsLoading(true)
+    setIsLoggedIn(true)
 
     if (token) {
       Api.token = token;
@@ -60,9 +61,6 @@ function App() {
         // await getAllJobs()
         await getAppliedJobs(user.walkerId, 'scheduled', user.appliedJobsIds)
       }
-
-      setIsLoggedIn(true)
-
     }
 
   }
