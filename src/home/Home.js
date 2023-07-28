@@ -11,11 +11,9 @@ import GlobalContext from "../helper/GlobalContext";
 
 const Home = () => {
     const { pets, jobs, allJobs, currUser, searchJob, getJobs, getAppliedJobs, isLoggedIn } = useContext(GlobalContext)
-    // const [isLoading, setIsLoading] = useState(true)
 
     // For pagination
     const [page, setPage] = useState(1);
-    // const [query, setQuery] = useState([]);
 
     async function getFilteredJobsOwner(status) {
         await getJobs(currUser.ownerId, status)
@@ -24,24 +22,6 @@ const Home = () => {
     async function getFilteredJobsWalker(status) {
         await getAppliedJobs(currUser.walkerId, status, currUser.appliedJobsIds)
     }
-
-    // useEffect(() => {
-    //     if (currUser) {
-    //         const initialState = {
-    //             city: currUser.city,
-    //             state: currUser.state,
-    //             zipcode: currUser.zipcode
-    //         };
-    //         setQuery(initialState);
-    //     }
-    // }, [currUser]);
-
-    // useEffect(() => {
-    //     if (currUser && currUser.role === "dog walker") {
-    //         searchJob(query, page)
-    //     }
-    // }, [page])
-
 
     const handlePrevPage = () => {
         if (page > 1) {
@@ -53,13 +33,7 @@ const Home = () => {
         setPage((prevPage) => prevPage + 1);
     };
 
-    if ((!currUser || (currUser.role === 'pet owner' && !pets)) && isLoggedIn) {
-        return (
-            <div>
-                <h1>Loading...</h1>
-            </div>
-        )
-    }
+
 
     if (currUser && currUser.role === "dog owner") {
         return (
@@ -106,8 +80,6 @@ const Home = () => {
                     <div className="jobs">
                         <SearchJobform
                             searchJob={searchJob}
-                            // query={query}
-                            // setQuery={setQuery}
                             setPage={setPage}
                             page={page}
                         />
@@ -122,7 +94,6 @@ const Home = () => {
             </div>
         )
     }
-
 
 
     return (
@@ -141,6 +112,8 @@ const Home = () => {
             </div>
         </div>
     )
+
+
 
 
 }

@@ -38,11 +38,13 @@ function App() {
 
   async function updateLocalStorage() {
     localStorage.setItem("token", JSON.stringify(token))
+    if (token) {
+      setIsLoggedIn(true)
+    }
   }
 
   async function getCurrUserData() {
     setIsLoading(true)
-    setIsLoggedIn(true)
 
     if (token) {
       Api.token = token;
@@ -76,10 +78,10 @@ function App() {
   }
 
   async function userLogout() {
+    setIsLoggedIn(false)
     setCurrUser(null)
     setPets(null)
     setJobs(null)
-    setIsLoggedIn(false)
     localStorage.removeItem("token")
   }
 

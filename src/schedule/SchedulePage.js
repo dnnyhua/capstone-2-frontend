@@ -71,11 +71,9 @@ const SchedulePage = () => {
         )
     }
 
-    console.log(job)
     // console.log(pets)
     // console.log(applications)
     // console.log(sortedPets)
-    console.log(hiredWalker)
 
     return (
         <div className="SchedulePage">
@@ -147,23 +145,4 @@ const SchedulePage = () => {
 export default SchedulePage;
 
 
-
-// Get pets that will be on this walk schedule
-    // async function getPets(ids) {
-    //     const petIds = ids
-    //     const res = await Api.getMultiPetsProfile(petIds)
-    //     return res.pets
-    // }
-
-    // function sortPets(ids) {
-    //     const idsToCheck = [job.pet_ids]
-    //     const pets = [];
-
-    //     job.forEach((job) => {
-    //         if (pets.pet_ids.includes((id) => ids.includes(id))) {
-    //             pets.push(job);
-    //         }
-
-    //     })
-    // }
 

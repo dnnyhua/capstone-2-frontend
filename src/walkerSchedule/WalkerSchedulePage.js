@@ -54,8 +54,7 @@ const WalkerSchedulePage = () => {
             </div>
         )
     }
-    // console.log(job)
-    // console.log(pets)
+
 
     return (
         <div className="WalkerSchedulePage">
