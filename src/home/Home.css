@@ -25,7 +25,6 @@
     width: auto;
     height: 100%;
     flex-direction: column;
-    flex-wrap: wrap;
     align-items: center;
 }
 
