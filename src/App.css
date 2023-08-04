@@ -18,10 +18,11 @@ main {
   display: flex;
   flex-direction: column;
   background-image: url("./images/background.jpg");
-  background-repeat: repeat-y;
+  background-repeat: repeat;
   height: 92.5vh;
   margin-top: 66px;
-  overflow: scroll;
+  /* overflow: scroll; */
+  background-size: cover;
 }
 
 h1 {
