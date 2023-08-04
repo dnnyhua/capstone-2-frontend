@@ -2,8 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./ScheduleCard.css"
 import dogPawIcon from '../images/dog-paw-icon.png';
-
-
 import moment from 'moment';
 
 const ScheduleCard = ({ id, date, time, duration, status }) => {

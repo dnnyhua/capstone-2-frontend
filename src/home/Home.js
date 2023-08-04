@@ -15,10 +15,12 @@ const Home = () => {
     // For pagination
     const [page, setPage] = useState(1);
 
+    // This is for Dog Owners. Will return jobs based on status: Scheduled, Pending, Archived
     async function getFilteredJobsOwner(status) {
         await getJobs(currUser.ownerId, status)
     }
 
+    // This is for Dog Walkers. Will return jobs based on status: Scheduled, Pending, Archived
     async function getFilteredJobsWalker(status) {
         await getAppliedJobs(currUser.walkerId, status, currUser.appliedJobsIds)
     }
@@ -34,7 +36,7 @@ const Home = () => {
     };
 
 
-
+    // Dog Owner's Home page
     if (currUser && currUser.role === "dog owner") {
         return (
             <div className="Home">
@@ -61,6 +63,8 @@ const Home = () => {
         )
     }
 
+
+    // Dog Walker's Home page
     if (currUser && currUser.role === "dog walker") {
         return (
             <div className="Home-walker">
@@ -96,6 +100,7 @@ const Home = () => {
     }
 
 
+    // Login and SignUp box will appear if user is not logged in
     return (
         <div className="Home d-flex justify-content-center" >
             <div className={!isLoggedIn ? "Home-guest-show" : "Home-guest-hide"}>

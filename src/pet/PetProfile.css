@@ -47,15 +47,14 @@
 
 }
 
-.walkSchedule {}
 
-.walkSchedule-list {
-    overflow-y: scroll;
-    height: 250px;
+.PetProfile-walkSchedule-list {
+    overflow-y: auto;
+    max-height: 250px;
     text-align: center;
 }
 
-.walkSchedule-list a {
+.PetProfile-walkSchedule-list a {
     text-decoration: none;
     color: white;
 
@@ -77,4 +76,25 @@
     font-size: large;
     top: 0%;
     left: 1%;
+}
+
+
+
+.PetProfile-walkSchedule-list::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+.PetProfile-walkSchedule-list::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+/* Handle */
+.PetProfile-walkSchedule-list::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+/* Handle on hover */
+.PetProfile-walkSchedule-list::-webkit-scrollbar-thumb:hover {
+    background: #555;
 }

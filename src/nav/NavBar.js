@@ -31,8 +31,8 @@ const NavBar = () => {
                     </ul>
                 </div>
 
+                {/* Show if logged in */}
                 {currUser ?
-                    /* Show if logged in */
                     <div>
                         <ul className='navbar-nav ms-auto collapse navbar-collapse'>
                             <li className="nav-item">

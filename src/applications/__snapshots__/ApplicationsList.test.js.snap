@@ -16,6 +16,7 @@ exports[`matches snapshot with applications 1`] = `
       >
         <section>
           <img
+            alt="walker"
             class="ApplicationCard-img"
             src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRNF8-gfvx__gaeVMxKBA2uxYZWju8XBV3_P0Rmsl_9lAcFVJCts7MZbNbE0bnARq1FFE&usqp=CAU"
           />
@@ -105,6 +106,7 @@ exports[`matches snapshot with applications 1`] = `
       >
         <section>
           <img
+            alt="walker"
             class="ApplicationCard-img"
             src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBIYoCdF6ixsv0vzgejZMsBkpTYbh93v-67nbZk_hj2NBjVa5j3zrLMGr17T9OBMqWVzA&usqp=CAU"
           />

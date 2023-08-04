@@ -10,6 +10,7 @@ exports[`matches snapshot with profileImage 1`] = `
     >
       <section>
         <img
+          alt="walker"
           class="ApplicationCard-img"
           src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRNF8-gfvx__gaeVMxKBA2uxYZWju8XBV3_P0Rmsl_9lAcFVJCts7MZbNbE0bnARq1FFE&usqp=CAU"
         />
@@ -104,6 +105,7 @@ exports[`matches snapshot without profileImage 1`] = `
     >
       <section>
         <img
+          alt="walker"
           class="ApplicationCard-img"
         />
       </section>

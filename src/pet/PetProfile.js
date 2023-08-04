@@ -61,7 +61,6 @@ const PetProfile = () => {
         )
     }
 
-
     return (
         <div className="PetProfile">
 
@@ -88,10 +87,11 @@ const PetProfile = () => {
                     <h5>Additional Details: {pet.additionalDetails}</h5>
                 </section>
 
-                {isOwner === true ? (
-                    <section className="walkSchedule-section">
+
+                {jobs.length > 0 && isOwner === true ? (
+                    <section className="PetProfile-walkSchedule-section">
                         <h2>Upcoming Walks</h2>
-                        <div className="walkSchedule-list">
+                        <div className="PetProfile-walkSchedule-list">
                             {jobs.map(job => (
                                 <ScheduleCard
                                     key={job.id}

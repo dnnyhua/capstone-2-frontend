@@ -13,11 +13,13 @@ const JobCard = ({ id, date, time, city, state, zipcode, duration, numPets }) =>
     const { applyToJob, currUser } = useContext(GlobalContext)
     const [applied, setApplied] = useState(false)
 
+    // Update database when user clicks apply
     async function apply() {
         await applyToJob(currUser, id)
         setApplied(true)
     }
 
+    // Checks to see if the jobcard being shown is a job the walker has applied to already
     useEffect(() => {
         const checkIfApplied = (jobIdsArray, jobId) => {
             return jobIdsArray.includes(jobId);
