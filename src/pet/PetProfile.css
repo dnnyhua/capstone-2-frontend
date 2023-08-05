@@ -47,7 +47,6 @@
 
 }
 
-
 .PetProfile-walkSchedule-list {
     overflow-y: auto;
     max-height: 250px;
@@ -57,11 +56,7 @@
 .PetProfile-walkSchedule-list a {
     text-decoration: none;
     color: white;
-
-
-
 }
-
 
 .editBtn {
     position: absolute;
@@ -77,8 +72,6 @@
     top: 0%;
     left: 1%;
 }
-
-
 
 .PetProfile-walkSchedule-list::-webkit-scrollbar {
     width: 10px;

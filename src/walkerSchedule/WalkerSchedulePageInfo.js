@@ -18,7 +18,6 @@ const WalkerSchedulePageInfo = ({ date, time, duration, status, petIds, address,
                 :
                 (<h5>Address: Full address will reveal upon hiring</h5>)
             }
-
             <h5>City: {capitalizeWords(city)}</h5>
             <h5>State: {capitalizeWords(state)}</h5>
             <h5>Zipcode: {zipcode}</h5>

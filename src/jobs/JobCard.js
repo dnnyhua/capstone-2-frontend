@@ -19,7 +19,7 @@ const JobCard = ({ id, date, time, city, state, zipcode, duration, numPets }) =>
         setApplied(true)
     }
 
-    // Checks to see if the jobcard being shown is a job the walker has applied to already
+    // Checks to see if the jobcard being shown is a job the walker applied to already. The "applied" state will determine whether or not to disable the button functionality
     useEffect(() => {
         const checkIfApplied = (jobIdsArray, jobId) => {
             return jobIdsArray.includes(jobId);

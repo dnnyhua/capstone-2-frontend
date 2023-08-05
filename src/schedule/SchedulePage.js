@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import Api from "../api";
 import SchedulePageInfo from "./SchedulePageInfo";
 import PetThumbnail from "../pet/PetThumbnail";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import EditJobFormModal from "../forms/EditJobFormModal";
 import "./SchedulePage.css"
 import GlobalContext from "../helper/GlobalContext";
@@ -19,6 +19,11 @@ const SchedulePage = () => {
 
     const [sortedPets, setSortedPets] = useState(null);
     // const [isLoading, setIsLoading] = useState(true)
+
+    const navigate = useNavigate();
+    const goBack = () => {
+        navigate(-1);
+    }
 
     async function getSchedulePageInfo() {
 
@@ -77,9 +82,15 @@ const SchedulePage = () => {
 
     return (
         <div className="SchedulePage">
-            <section className="SchedulePageJobInfo-section">
-                <h1>Walk Information</h1>
+            <Link className="SchedulePage-backBtn" onClick={goBack}>Back</Link>
+            <h1>Walk Information</h1>
+            {/* Only show button if there there are applications */}
+            {applications.length !== 0 ?
+                <Link to={`/schedule/${id}/applications`} className="btn btn-primary viewAppBtn">View Applications</Link>
+                : null
+            }
 
+            <section className="SchedulePageJobInfo-section">
                 {/* Only allow edit if no one has applied to the job yet. */}
                 {applications.length === 0 && (
                     <div>
@@ -87,11 +98,6 @@ const SchedulePage = () => {
                     </div>
                 )}
 
-                {/* Only show button if there there are applications */}
-                {applications.length !== 0 ?
-                    <Link to={`/schedule/${id}/applications`} className="btn btn-primary viewAppBtn">View Applications</Link>
-                    : null
-                }
                 <SchedulePageInfo
                     date={job.date}
                     time={job.time}
@@ -120,7 +126,7 @@ const SchedulePage = () => {
 
             {/* Show walker info IF they are hired for the walk */}
             {hiredWalker ?
-                <div>
+                <section>
                     <h2>Walker hired for this walk</h2>
                     <section className="walkerContainer">
                         <div className="walkerBody">
@@ -135,7 +141,7 @@ const SchedulePage = () => {
                             </section>
                         </div>
                     </section>
-                </div>
+                </section>
                 : ""
             }
         </div>
