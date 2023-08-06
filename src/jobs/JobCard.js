@@ -1,15 +1,30 @@
 import React, { useState, useContext, useEffect } from "react";
-import moment from 'moment';
+// import moment from 'moment';
+import dayjs from 'dayjs';
+
 import "./JobCard.css"
 import GlobalContext from "../helper/GlobalContext";
 import capitalizeWords from "../helper/Capitalized";
 
 
 
+
+
 const JobCard = ({ id, date, time, city, state, zipcode, duration, numPets }) => {
-    const formatedDate = moment(date).format('M-D-YYYY')
-    const day = moment(formatedDate).format('dddd');
-    const formattedTime = moment(time, 'HH:mm').format('h:mm A');
+    const formattedDate = dayjs(date).format('M-D-YYYY')
+    const day = dayjs(formattedDate).format('dddd');
+    const formattedTime = dayjs(`1970-01-01T${time}`).format('h:mm A');
+
+    // const getFormattedDate = (date) => {
+    //     return dayjs(date).format('M-D-YYYY');
+    // };
+    // const getFormattedTime = (time) => {
+    //     return dayjs(`1970-01-01T${time}`).format('h:mm A');
+    // };
+    // const getDayOfWeek = (date) => {
+    //     return dayjs(date).format('dddd');
+    // };
+
     const { applyToJob, currUser } = useContext(GlobalContext)
     const [applied, setApplied] = useState(false)
 
@@ -32,7 +47,7 @@ const JobCard = ({ id, date, time, city, state, zipcode, duration, numPets }) =>
 
     return (
         <div className="JobCard" id="JobCard">
-            <h5>{day} | {formatedDate}</h5>
+            <h5>{day} | {formattedDate}</h5>
             <h6>Time: {formattedTime}</h6>
             <h6>Duration: {duration} mins</h6>
             <h6># of dogs on this walk : {numPets.length}</h6>

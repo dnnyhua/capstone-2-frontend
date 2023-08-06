@@ -2,12 +2,12 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./ScheduleCard.css"
 import dogPawIcon from '../images/dog-paw-icon.png';
-import moment from 'moment';
+import dayjs from 'dayjs';
 
 const ScheduleCard = ({ id, date, time, duration, status }) => {
-    const formatedDate = moment(date).format('M-D-YYYY')
-    const day = moment(formatedDate).format('dddd');
-    const formattedTime = moment(time, 'HH:mm').format('h:mm A');
+    const formattedDate = dayjs(date).format('M-D-YYYY')
+    const day = dayjs(formattedDate).format('dddd');
+    const formattedTime = dayjs(`1970-01-01T${time}`).format('h:mm A');
 
     return (
         <Link to={`/schedule/${id}`} >
@@ -18,7 +18,7 @@ const ScheduleCard = ({ id, date, time, duration, status }) => {
                         {day}
                     </div>
                     <div className="col-md-2 py-3 px-2">
-                        {formatedDate}
+                        {formattedDate}
                     </div>
                     <div className="col-md-2 py-3 px-2">
                         {formattedTime}
