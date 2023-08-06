@@ -1,15 +1,14 @@
 import React, { useContext } from "react";
 import GlobalContext from "../helper/GlobalContext";
 import "./SchedulePageInfo.css"
-import dayjs from 'dayjs';
 import capitalizeWords from "../helper/Capitalized";
-
+import CustomDateTime from "../helper/CustomDates";
 
 
 const SchedulePageInfo = ({ date, time, duration, status, address, city, state, zipcode, ownerId }) => {
     const { currUser } = useContext(GlobalContext)
-    const formattedDate = dayjs(date).format('M-D-YYYY')
-    const formattedTime = dayjs(`1970-01-01T${time}`).format('h:mm A');
+    const formattedDate = CustomDateTime.getFormattedDate(date);
+    const formattedTime = CustomDateTime.getFormattedTime(time);
 
     return (
         <div className="SchedulePageInfo">

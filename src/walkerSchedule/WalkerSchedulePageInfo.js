@@ -1,11 +1,11 @@
 import React from "react";
 import "./WalkerSchedulePageInfo.css"
 import capitalizeWords from "../helper/Capitalized";
-import dayjs from "dayjs";
+import CustomDateTime from "../helper/CustomDates";
 
 const WalkerSchedulePageInfo = ({ date, time, duration, status, address, city, state, zipcode }) => {
-    const formattedDate = dayjs(date).format('M-D-YYYY')
-    const formattedTime = dayjs(`1970-01-01T${time}`).format('h:mm A');
+    const formattedDate = CustomDateTime.getFormattedDate(date);
+    const formattedTime = CustomDateTime.getFormattedTime(time);
 
     return (
         <div className="WalkerSchedulePageInfo">

@@ -1,29 +1,13 @@
 import React, { useState, useContext, useEffect } from "react";
-// import moment from 'moment';
-import dayjs from 'dayjs';
-
 import "./JobCard.css"
 import GlobalContext from "../helper/GlobalContext";
 import capitalizeWords from "../helper/Capitalized";
-
-
-
-
+import CustomDateTime from "../helper/CustomDates";
 
 const JobCard = ({ id, date, time, city, state, zipcode, duration, numPets }) => {
-    const formattedDate = dayjs(date).format('M-D-YYYY')
-    const day = dayjs(date).format('dddd');
-    const formattedTime = dayjs(`1970-01-01T${time}`).format('h:mm A');
-
-    // const getFormattedDate = (date) => {
-    //     return dayjs(date).format('M-D-YYYY');
-    // };
-    // const getFormattedTime = (time) => {
-    //     return dayjs(`1970-01-01T${time}`).format('h:mm A');
-    // };
-    // const getDayOfWeek = (date) => {
-    //     return dayjs(date).format('dddd');
-    // };
+    const formattedDate = CustomDateTime.getFormattedDate(date);
+    const day = CustomDateTime.getDayOfWeek(date);
+    const formattedTime = CustomDateTime.getFormattedTime(time);
 
     const { applyToJob, currUser } = useContext(GlobalContext)
     const [applied, setApplied] = useState(false)

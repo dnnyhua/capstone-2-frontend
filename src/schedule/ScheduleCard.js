@@ -2,12 +2,12 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./ScheduleCard.css"
 import dogPawIcon from '../images/dog-paw-icon.png';
-import dayjs from 'dayjs';
+import CustomDateTime from "../helper/CustomDates";
 
 const ScheduleCard = ({ id, date, time, duration, status }) => {
-    const formattedDate = dayjs(date).format('M-D-YYYY')
-    const day = dayjs(date).format('dddd');
-    const formattedTime = dayjs(`1970-01-01T${time}`).format('h:mm A');
+    const formattedDate = CustomDateTime.getFormattedDate(date);
+    const day = CustomDateTime.getDayOfWeek(date);
+    const formattedTime = CustomDateTime.getFormattedTime(time);
 
     return (
         <Link to={`/schedule/${id}`} >
