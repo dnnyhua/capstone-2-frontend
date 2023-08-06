@@ -4,7 +4,6 @@ import capitalizeWords from "../helper/Capitalized";
 import dayjs from "dayjs";
 
 const WalkerSchedulePageInfo = ({ date, time, duration, status, address, city, state, zipcode }) => {
-    console.log(time)
     const formattedDate = dayjs(date).format('M-D-YYYY')
     const formattedTime = dayjs(`1970-01-01T${time}`).format('h:mm A');
 

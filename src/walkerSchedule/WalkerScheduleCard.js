@@ -8,8 +8,10 @@ import dayjs from 'dayjs';
 
 
 const WalkerScheduleCard = ({ id, date, time, duration, status }) => {
+
     const formattedDate = dayjs(date).format('M-D-YYYY')
-    const day = dayjs(formattedDate).format('dddd');
+    const day = dayjs(date).format('dddd');
+    console.log(day)
     const formattedTime = dayjs(`1970-01-01T${time}`).format('h:mm A');
 
     return (
