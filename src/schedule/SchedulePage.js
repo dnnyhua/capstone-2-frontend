@@ -57,6 +57,8 @@ const SchedulePage = () => {
         getSchedulePageInfo();
     }, [])
 
+
+
     // useEffect(() => {
     //     const timer = setTimeout(() => {
     //         setIsLoading(false);

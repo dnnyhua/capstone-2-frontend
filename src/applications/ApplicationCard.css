@@ -75,6 +75,11 @@
     color: black
 }
 
+.modal-content {
+    background: azure;
+    padding: 10px;
+}
+
 p {
     color: black
 }
