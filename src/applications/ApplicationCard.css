@@ -72,7 +72,9 @@
 
 
 .modal-title {
-    color: black
+    color: black;
+    background: azure !important;
+    padding: 10px !important;
 }
 
 .modal-content-style {
