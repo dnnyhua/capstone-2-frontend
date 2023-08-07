@@ -75,7 +75,7 @@
     color: black
 }
 
-.modal-content {
+.modal-content.show {
     background: azure;
     padding: 10px;
 }
