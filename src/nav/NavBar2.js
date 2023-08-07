@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { Navbar, Nav } from 'react-bootstrap';
 import GlobalContext from '../helper/GlobalContext';
-
+import "./NavBar.css"
 
 const Navbar2 = () => {
     const { currUser, userLogout } = useContext(GlobalContext)
