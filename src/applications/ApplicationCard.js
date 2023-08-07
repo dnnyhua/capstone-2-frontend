@@ -13,7 +13,6 @@ const ApplicationCard = ({ jobId, walkerId, status, firstName, lastName, rate, b
 
     const navigate = useNavigate()
 
-    // THIS IS NOT RE_RENDERING
     async function hireWalker() {
         try {
             setCurrStatus("Hired")
@@ -55,7 +54,7 @@ const ApplicationCard = ({ jobId, walkerId, status, firstName, lastName, rate, b
 
     const handleModalOpenReject = () => {
         setShowModal(true);
-        setRejectBtnClicked(true)
+        setRejectBtnClicked(true);
     };
 
     const handleModalCloseHire = () => {
@@ -64,8 +63,7 @@ const ApplicationCard = ({ jobId, walkerId, status, firstName, lastName, rate, b
 
     const handleModalCloseReject = () => {
         setShowModal(false);
-        setRejectBtnClicked(false)
-
+        setRejectBtnClicked(false);
     };
 
     return (
@@ -98,7 +96,7 @@ const ApplicationCard = ({ jobId, walkerId, status, firstName, lastName, rate, b
 
             <div className={`acknowledgmentModal ${showModal ? 'show' : ''}`}>
                 <div className="modal-dialog">
-                    <div className={`modal-content ${showModal ? 'show' : ''}`}>
+                    <div className={`modal-content ${showModal ? 'show' : ''} modal-content-style`}>
                         <div className="modal-header">
                             <h5 className="modal-title">Acknowledgement</h5>
                             {/* <button type="button" className="close" onClick={handleModalClose}>
