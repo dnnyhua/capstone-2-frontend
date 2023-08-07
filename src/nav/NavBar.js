@@ -5,7 +5,7 @@ import GlobalContext from '../helper/GlobalContext';
 
 
 const NavBar = () => {
-    let { currUser, userLogout } = useContext(GlobalContext)
+    const { currUser, userLogout } = useContext(GlobalContext)
 
     return (
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -31,8 +31,8 @@ const NavBar = () => {
                     </ul>
                 </div>
 
-                {/* Show if logged in */}
                 {currUser ?
+                    /* Show if logged in */
                     <div>
                         <ul className='navbar-nav ms-auto collapse navbar-collapse'>
                             <li className="nav-item">

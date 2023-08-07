@@ -3,6 +3,8 @@ import { Route, Routes } from 'react-router-dom';
 import './App.css';
 
 import NavBar from './nav/NavBar';
+import NavBar2 from './nav/NavBar2';
+
 import Home from "./home/Home"
 import Login from "./login/Login"
 import Profile from './profile/Profile';
@@ -144,7 +146,7 @@ function App() {
   return (
     <GlobalContext.Provider value={{ currUser, pets, jobs, allJobs, isLoggedIn, getJobs, getAppliedJobs, searchJob, applyToJob, getCurrUserData, userLogin, userLogout, profileUpdate, addPet, createJob }}>
       <header className="navBar" >
-        <NavBar />
+        <NavBar2 />
       </header>
       <main>
         <Routes>
