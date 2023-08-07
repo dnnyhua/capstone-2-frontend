@@ -73,14 +73,13 @@
 
 .modal-title {
     color: black;
+}
+
+.modal-content {
     background: azure !important;
     padding: 10px !important;
 }
 
-.modal-content-style {
-    background: azure;
-    padding: 10px;
-}
 
 p {
     color: black
