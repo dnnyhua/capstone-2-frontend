@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { Navbar, Nav } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+
 import GlobalContext from '../helper/GlobalContext';
 import "./NavBar.css"
 
@@ -13,22 +14,22 @@ const Navbar2 = () => {
             <Navbar.Toggle aria-controls="navbarNav" />
             <Navbar.Collapse id="navbarNav" className="mr-auto">
                 <Nav className="mr-auto">
-                    <Nav.Link href="/" >Home</Nav.Link>
-                    <Link to="/about" className="nav-link">About</Link>
-                    <Nav.Link href="#" >Contact</Nav.Link>
+                    <Nav.Link as={Link} to="/" >Home</Nav.Link>
+                    <Nav.Link as={Link} to="/about">About</Nav.Link>
+                    <Nav.Link as={Link} to="#" >Contact</Nav.Link>
                 </Nav>
                 {currUser ? (
                     /* Show if logged in */
                     <Nav className="ms-auto">
-                        <Nav.Link href="/" onClick={userLogout}>Logout</Nav.Link>
-                        <Nav.Link href="/profile"  >{currUser.username}</Nav.Link>
+                        <Nav.Link as={Link} to="/" onClick={userLogout}>Logout</Nav.Link>
+                        <Nav.Link as={Link} to="/profile"  >{currUser.username}</Nav.Link>
                         <img className="navPfp" src={currUser.profileImage} alt="" />
                     </Nav>
                 ) : (
                     /* Show if logged out */
                     <Nav className='ms-auto'>
-                        <Nav.Link href={"/signup"}>Sign Up</Nav.Link>
-                        <Nav.Link href={"/login"}>Login</Nav.Link>
+                        <Nav.Link as={Link} to={"/signup"}>Sign Up</Nav.Link>
+                        <Nav.Link as={Link} to={"/login"}>Login</Nav.Link>
                     </Nav>
                 )}
             </Navbar.Collapse>
