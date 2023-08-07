@@ -96,7 +96,7 @@ const ApplicationCard = ({ jobId, walkerId, status, firstName, lastName, rate, b
 
             <div className={`acknowledgmentModal ${showModal ? 'show' : ''}`}>
                 <div className="modal-dialog">
-                    <div className={`modal-content ${showModal ? 'show' : ''} modal-content-style`}>
+                    <div className={`modal-content ${showModal ? 'show' : ''}`}>
                         <div className="modal-header">
                             <h5 className="modal-title">Acknowledgement</h5>
                             {/* <button type="button" className="close" onClick={handleModalClose}>
