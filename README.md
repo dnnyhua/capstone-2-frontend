@@ -1,12 +1,12 @@
-Walkies
-The Dog Walking App
+Walkies: The Dog Walking App
 =============================
+- This application allows the user to sign up as a dog owner to find someone to walk their dog OR the user can sign up as a dog walker to walk someone's dog.
+- The problem that this app is solving is finding someone to walk your dog when you are not able to.
+- The backend of this application can be found here: https://github.com/dnnyhua/capstone-2-backend
+- Mock up can be found here: https://drive.google.com/file/d/1hp_WTtXouqHqGmK6yMHlz3Qf8GuEFjOV/view?usp=sharing
 
-Backend can be found here: https://github.com/dnnyhua/capstone-2-backend
-
-Mock up can be found here: https://drive.google.com/file/d/1hp_WTtXouqHqGmK6yMHlz3Qf8GuEFjOV/view?usp=sharing
-
-
+## As a Pet Owner
+=============================
 
 
 
