@@ -1,9 +1,25 @@
 Walkies: The Dog Walking App
 =============================
-- This application allows the user to sign up as a dog owner to find someone to walk their dog OR the user can sign up as a dog walker to walk someone's dog.
-- The problem that this app is solving is finding someone to walk your dog when you are not able to.
-- The backend of this application can be found here: https://github.com/dnnyhua/capstone-2-backend
+
+## Features
+- Find someone to walk your dog
+- Make money from walking dogs
+- Search for dogs that need to be walked in your area
+- write/edit jobs that are posted by dog owners
+- write/edit/delete pet profiles
+
+## Built With
+- Database: PostgreSQL
+- Backend: Node.js, Express.js, pg(node-postgres)
+- Frontend: React
+- API: https://github.com/dnnyhua/capstone-2-backend
 - Mock up can be found here: https://drive.google.com/file/d/1hp_WTtXouqHqGmK6yMHlz3Qf8GuEFjOV/view?usp=sharing
+
+
+
+## Problem We are Solving
+- The problem that this app is solving is finding someone to walk your dog when you are not able to.
+- This application allows the user to sign up as a dog owner to find someone to walk their dog OR the user can sign up as a dog walker to walk someone's dog.
 
 ## As a Dog Owner
 - The user can add dogs to their account, and each pet will have a profile that a dog walker can view upon hiring.
