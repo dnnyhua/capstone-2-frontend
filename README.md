@@ -8,15 +8,6 @@ Walkies: The Dog Walking App
 - write/edit jobs that are posted by dog owners
 - write/edit/delete pet profiles
 
-## Built With
-- Database: PostgreSQL
-- Backend: Node.js, Express.js, pg(node-postgres)
-- Frontend: React
-- API: https://github.com/dnnyhua/capstone-2-backend
-- Mock up can be found here: https://drive.google.com/file/d/1hp_WTtXouqHqGmK6yMHlz3Qf8GuEFjOV/view?usp=sharing
-
-
-
 ## Problem We are Solving
 - The problem that this app is solving is finding someone to walk your dog when you are not able to.
 - This application allows the user to sign up as a dog owner to find someone to walk their dog OR the user can sign up as a dog walker to walk someone's dog.
@@ -33,78 +24,54 @@ Walkies: The Dog Walking App
 - The job search bar uses city, state, and zipcode and will return results matching any of the 3. For example, if there are jobs in a specific zipcode, it will return jobs within the city and if there are no jobs in that city it will return jobs within that state.
 - Once the user applies to a job it will be posted on the dashboard and will show which job they were hired for and which is still going under review.
 
+## Built With
+- Database: PostgreSQL
+- Backend: Node.js, Express.js, pg(node-postgres)
+- Frontend: React
+- API: https://github.com/dnnyhua/capstone-2-backend
+- Mock up can be found here: https://drive.google.com/file/d/1hp_WTtXouqHqGmK6yMHlz3Qf8GuEFjOV/view?usp=sharing
 
+# Setup
+#### Setting up database on postgreSQL 
+1. Start postgreSQL server
+   ```bash
+   $sudo service postgresql start
+   ```
 
+2. Go to backend directory (this is in a seperate repo: https://github.com/dnnyhua/capstone-2-backend)
 
+3. Create database (walkies) and tables in postgreSQL. This will also create test database (walkies_test).
+  ```bash
+    $psql < walkies.sql
+  ```
 
+#### Starting backend
+  1. Navigate to backend folder
 
+  2.  Start backend server
+    ```bash
+    $nodemon server.js
+    ```
+ #### Starting frontend
+1. Navigate to frontend folder
 
-# Getting Started with Create React App
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+2. Install Necessary Packages
+   ```bash
+   $npm install
+   ```
 
-## Available Scripts
+3. Start React App
+   ```bash
+   $npm start
+   ```
 
-In the project directory, you can run:
+# Testing
+#### Running backend tests
+In the backend directory to run test: 
+   ```bash
+   $jest
+   ```
 
-### `npm start`
+#### Running frontend tests
+In the backend directory to run test: 
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
