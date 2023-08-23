@@ -74,4 +74,6 @@ In the backend directory to run test:
 
 #### Running frontend tests
 In the backend directory to run test: 
-
+   ```bash
+   $npm test
+   ```
