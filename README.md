@@ -31,7 +31,7 @@ Walkies: The Dog Walking App
 - API: https://github.com/dnnyhua/capstone-2-backend
 - Mock up can be found here: https://drive.google.com/file/d/1hp_WTtXouqHqGmK6yMHlz3Qf8GuEFjOV/view?usp=sharing
 
-# Setup
+## Setup
 #### Setting up database on postgreSQL 
 1. Start postgreSQL server
    ```bash
@@ -41,17 +41,17 @@ Walkies: The Dog Walking App
 2. Go to backend directory (this is in a seperate repo: https://github.com/dnnyhua/capstone-2-backend)
 
 3. Create database (walkies) and tables in postgreSQL. This will also create test database (walkies_test).
-  ```bash
-    $psql < walkies.sql
-  ```
+   ```bash
+   $psql < walkies.sql
+   ```
 
 #### Starting backend
-  1. Navigate to backend folder
+1. Navigate to backend folder
 
-  2.  Start backend server
-    ```bash
-    $nodemon server.js
-    ```
+2. Start backend server
+   ```bash
+   $nodemon server.js
+   ```
  #### Starting frontend
 1. Navigate to frontend folder
 
@@ -73,7 +73,7 @@ In the backend directory to run test:
    ```
 
 #### Running frontend tests
-In the backend directory to run test: 
+In the frontend directory to run test: 
    ```bash
    $npm test
    ```
