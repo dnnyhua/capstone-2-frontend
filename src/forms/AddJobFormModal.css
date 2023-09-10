@@ -60,7 +60,6 @@
     position: fixed;
     top: 0;
     left: 0;
-
     background-color: rgba(0, 0, 0, 0.5);
     opacity: 0;
     visibility: hidden;
@@ -80,3 +79,11 @@
     width: 10px;
 
 } */
+
+
+@media (max-width: 390px) {
+    .addJobBtn {
+        top: 16px;
+        left: 320px;
+    }
+}

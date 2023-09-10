@@ -43,7 +43,7 @@ const Home = () => {
                 <h1 className="title">Walkies</h1>
 
                 <div className="Home-body">
-                    <section className="scheduleContainer">
+                    <section className="owner-scheduleContainer">
                         <h2 className="mb-2">Upcoming Walks</h2>
                         <AddJobFormModal currUser={currUser} />
                         <div className="sortingBtns">

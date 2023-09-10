@@ -82,7 +82,9 @@
     text-align: center;
 }
 
-.scheduleContainer {
+
+
+.owner-scheduleContainer {
     position: relative;
     background-color: rgba(125, 125, 125);
     border-radius: 20px;
@@ -92,6 +94,7 @@
     width: 700px;
     text-align: center;
 }
+
 
 
 
@@ -150,4 +153,19 @@
     margin: 10px;
     background-color: rgba(239, 239, 239, 0.3);
     color: rgba(255, 255, 255, 0.3);
+}
+
+@media (max-width: 390px) {
+    .owner-scheduleContainer {
+        width: 370px;
+    }
+
+    .petsContainer {
+        width: 370px;
+        border-radius: 20px;
+        padding: 1rem 1rem;
+
+    }
+
+
 }
