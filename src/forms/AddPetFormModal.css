@@ -104,7 +104,7 @@
     /* Allow input to grow and take more space than the label (adjust as needed) */
 }
 
-@media (max-width: 390px) {
+@media (max-width: 480px) {
     .modal.show .modal-content.show {
         width: 360px;
     }

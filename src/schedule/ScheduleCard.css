@@ -43,3 +43,21 @@
     height: 30px;
     padding: 0px;
 }
+
+@media (max-width: 480px) {
+    .ScheduleCard {
+        padding-right: 0px;
+    }
+
+    .custom-row-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 0px 2px 0px 2px !important;
+        margin-top: 8px !important;
+    }
+
+    .row-item-status {
+        margin-bottom: 10px !important;
+    }
+}

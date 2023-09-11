@@ -3,9 +3,7 @@ main {
   flex-direction: column;
   background-image: url("./images/background.jpg");
   background-repeat: repeat;
-  height: 92.5vh;
   margin-top: 66px;
-  overflow: scroll;
   background-size: cover;
 }
 
