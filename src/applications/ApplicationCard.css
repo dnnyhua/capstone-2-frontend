@@ -75,9 +75,9 @@
     color: black;
 }
 
-.modal-content {
-    background: azure !important;
-    padding: 10px !important;
+.ApplicationCard .modal-content {
+    background: azure;
+    padding: 10px;
 }
 
 

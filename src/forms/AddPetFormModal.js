@@ -103,21 +103,20 @@ const AddPetFormModal = () => {
                 </div>
 
                 <div className="form-group">
-                  {/* <label htmlFor="gender">Gender:</label>
+                  <label htmlFor="gender">Gender:</label>
                   <select
                     id="gender"
                     name="gender"
                     value={formData.gender}
                     onChange={handleInputChange}
-                    className="mb-3"
                   >
                     <option value="">Select</option>
                     <option value="male">Male</option>
                     <option value="female">Female</option>
-                  </select> */}
+                  </select>
 
 
-                  <label htmlFor="gender">Gender: </label>
+                  {/* <label htmlFor="gender">Gender: </label>
                   <Select
                     options={[
                       { value: "male", label: "Male" },
@@ -126,7 +125,7 @@ const AddPetFormModal = () => {
                     onChange={genderOnChange}
                     className="gender"
                     name="gender"
-                  />
+                  /> */}
                 </div>
 
                 <div className="form-group">
@@ -153,7 +152,7 @@ const AddPetFormModal = () => {
                   />
                 </div>
 
-                <div className="form-group">
+                <div className="form-group custom-form-group">
                   <label htmlFor="friendlyWithDogs">Friendly with other dogs?</label>
                   <input
                     type="checkbox"
@@ -169,7 +168,7 @@ const AddPetFormModal = () => {
                   />
                 </div>
 
-                <div className="form-group">
+                <div className="form-group custom-form-group">
                   <label htmlFor="friendlyWithChildren">Friendly with children?</label>
                   <input
                     type="checkbox"

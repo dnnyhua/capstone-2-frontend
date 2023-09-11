@@ -5,6 +5,7 @@
     position: fixed;
     top: 0;
     left: 0;
+    height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
     transition: opacity 0.3s ease, visibility 0.3s ease;
 }
@@ -15,6 +16,18 @@
     display: flex;
     justify-content: center;
 }
+
+.modal-content {
+    width: 400px !important;
+    padding: 10px;
+}
+
+.modal-content.show {
+    width: 400px;
+}
+
+
+
 
 .addPet {
     width: 100px;
@@ -30,6 +43,66 @@
 }
 
 
+.modal-body form .form-group {
+    text-align: left;
+    margin-bottom: 10px;
+    /* Add some vertical spacing between label and input */
+}
+
+/* Style the labels to be on top of the input fields */
+.modal-body form label {
+    display: block;
+    font-weight: bold;
+}
+
+/* Adjust input width and margin */
+.modal-body form input,
+.modal-body form textarea,
+.modal-body form select {
+    width: 100%;
+    margin: 5px 0;
+    /* Add some vertical spacing between input fields */
+}
+
+/* style the submit button */
+.modal-body form button[type="submit"] {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+/* Optionally, style the modal title */
+.modal-body form .modal-title {
+    text-align: center;
+    /* Center the modal title */
+    margin-bottom: 20px;
+    /* Add some vertical spacing below the title */
+}
+
+
+/* Target the specific form group with the "custom-form-group" class */
+.modal-body form .custom-form-group {
+    display: flex;
+    /* Use flexbox to place label and input on the same line */
+    align-items: center;
+    /* Vertically center the content within the form group */
+}
+
+/* Style the label to give it some spacing */
+.modal-body form .custom-form-group label {
+    margin-right: 10px;
+    flex: 1;
+    /* Add some space to the right of the label (adjust as needed) */
+    /* Allow label to grow and take available space */
+}
+
+/* Style the input field */
+.modal-body form .custom-form-group input {
+    flex: 0;
+    /* Allow input to grow and take more space than the label (adjust as needed) */
+}
 
 @media (max-width: 390px) {
     .modal.show .modal-content.show {
