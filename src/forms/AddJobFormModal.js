@@ -129,7 +129,7 @@ const AddJobFormModal = () => {
                                         <option value="120">120</option>
 
                                     </select> */}
-                                    <label htmlFor="duration">Duration (mins):</label>
+                                    <label>Duration (mins):</label>
                                     <Select
                                         options={[
                                             { value: 30, label: "30" },
@@ -142,6 +142,7 @@ const AddJobFormModal = () => {
                                         className="duration"
                                         classNamePrefix="duration"
                                         name="duration"
+                                        id="duration"
                                     />
                                 </div>
 
@@ -154,16 +155,17 @@ const AddJobFormModal = () => {
                                         value={formData.petIds}
                                         onChange={handleInputChange}
                                     /> */}
-                                    <label htmlFor="petIds">Pets:</label>
+                                    <label>Pets:</label>
                                     <Select
                                         closeMenuOnSelect={false}
                                         options={options}
                                         onChange={petIdsOnChange}
                                         isMulti
                                         components={animatedComponents}
-                                        className="pet-ids"
-                                        classNamePrefix="pet-ids"
+                                        className="petIds"
+                                        classNamePrefix="petIds"
                                         name="petIds"
+                                        id="petIds"
                                     />
                                 </div>
 

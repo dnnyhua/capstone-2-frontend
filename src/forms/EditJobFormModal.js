@@ -144,7 +144,7 @@ const EditJobFormModal = ({ job, updateJob }) => {
                                         <option value="120">120</option>
 
                                     </select> */}
-                                    <label htmlFor="duration">Duration (mins):</label>
+                                    <label>Duration (mins):</label>
                                     <Select
                                         id="duration"
                                         options={[
@@ -171,7 +171,7 @@ const EditJobFormModal = ({ job, updateJob }) => {
                                         value={formData.petIds}
                                         onChange={handleInputChange}
                                     /> */}
-                                    <label htmlFor="pet-ids">Pets:</label>
+                                    <label>Pets:</label>
                                     <Select
                                         closeMenuOnSelect={false}
                                         options={options}
@@ -180,8 +180,8 @@ const EditJobFormModal = ({ job, updateJob }) => {
                                         components={animatedComponents}
                                         className="pet-ids"
                                         classNamePrefix="pet-ids"
-                                        name="pet-ids"
-                                        id="pet-ids"
+                                        name="petIds"
+                                        id="petIds"
 
                                     />
                                 </div>
