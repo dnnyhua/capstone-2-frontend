@@ -118,6 +118,7 @@ const SchedulePage = () => {
                 <div className="SchedulePage-petsList">
                     {sortedPets.map(pet => (
                         <PetThumbnail
+                            key={pet.id}
                             id={pet.id}
                             img={pet.img}
                             name={pet.name}
